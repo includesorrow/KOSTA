@@ -15,6 +15,7 @@ import java.util.List;
 public class Ex2_List {
     private List list;
      public Ex2_List(){
+         
         list = new ArrayList();
         list.add("String AAA");
         list.add(new Integer(30));
