@@ -33,9 +33,9 @@ public class Ex2_MemberJoin implements Ex2_MemberJoinInter{
         list.add(map);
     }
 
-    @Override
+    @Override  
     public ArrayList<Map<String, String>> getList() {
-        //후속기능이 올 수 있다
+        //후속기능이 올 수  있다
         return list;
     
     }
