@@ -14,10 +14,10 @@ public class Ex7_InputStreamReader {
         String rdv = null;
         //literator를 구현한 클래스
         //system.in 대신에 url.openStream()
-        while(sc.hasNext()) { // hasNext() : 반복할 데이터가 있으면 true
-            System.out.println("");
-            
+//        while(sc.hasNext()) { // hasNext() : 반복할 데이터가 있으면 true
+//            System.out.println("");
+//            
         }
     }
     
-}
+

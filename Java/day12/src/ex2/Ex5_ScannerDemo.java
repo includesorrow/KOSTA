@@ -19,7 +19,7 @@ public class Ex5_ScannerDemo {
         URL url = new URL(path);
         //implements Iterator<String>. 반복자를 사용할 수 있다 *********
         //InputStreamReader 브릿지, 버퍼를 내부적으로 캡슐화
-        try(Scanner sc = new Scanner(url.openStream(), "euc-kr")){
+        try(Scanner sc = new Scanner(url.openStream(), "euc-kr")){//중요
             String rdv = null;
             while (sc.hasNext()){
                 System.out.println(sc.nextLine());
