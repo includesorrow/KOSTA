@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ex1;
+package ex2;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,10 +13,10 @@ import java.util.Scanner;
  *
  * @author KOSTA
  */
-public class Ex3_FileReWriteMain {
-    private Ex3_FileReWrDemo efr;
-    public Ex3_FileReWriteMain(){
-        efr = new Ex3_FileReWrDemo();
+public class Ex1_FileReWriteMain {
+    private Ex1_FileReWrDemo efr;
+    public Ex1_FileReWriteMain(){
+        efr = new Ex1_FileReWrDemo();
         
     }
     public void execWriter(String memo){
@@ -35,7 +35,7 @@ public class Ex3_FileReWriteMain {
     }
     
     public static void main(String[] args){
-        Ex3_FileReWriteMain mains = new Ex3_FileReWriteMain();
+        Ex1_FileReWriteMain mains = new Ex1_FileReWriteMain();
         
         Scanner sc = new Scanner(System.in);
         System.out.println("memo : ");

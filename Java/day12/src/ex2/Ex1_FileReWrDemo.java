@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ex1;
+package ex2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,18 +17,18 @@ import java.util.ArrayList;
  *
  * @author KOSTA
  */
-public class Ex3_FileReWrDemo {
+public class Ex1_FileReWrDemo {
     private String path;
     /*
     @see 기본생성자, 저장경로는 window의 c...
     */
-    public Ex3_FileReWrDemo(){
+    public Ex1_FileReWrDemo(){
         path = "C:\\bigdataStudy\\KOSTA\\Java\\memo.txt";
     }
     /*
     @param msg는 memo.txt에서 BufferedWriter를 사용해서 문자열로 저장되기 위한 스트림
     */
-    public void writeMemo(String msg) {
+    public void writeMemo(String msg){
         //버퍼 기능을 가진 문자 스트림(2차 스트림)
         BufferedWriter bw = null;
         try{
