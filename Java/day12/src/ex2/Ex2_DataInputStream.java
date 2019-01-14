@@ -41,7 +41,7 @@ public class Ex2_DataInputStream {
     
 public ArrayList<String> getMemo() throws FileNotFoundException, IOException{
 ArrayList<String> ar = new ArrayList<>();
-BufferedReader br = null;
+    BufferedReader br = null;
 br = new BufferedReader(new FileReader(path));
 String rdv = null;
 //readLine() 은 스트림을 통해서 문자열을 한줄 단위로 읽어온다.
