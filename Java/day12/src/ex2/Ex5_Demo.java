@@ -17,7 +17,7 @@ import java.net.URL;
 public class Ex5_Demo {
     public static void main(String[] args) throws MalformedURLException{
         BufferedReader br = null;
-        
+        System.out.println("");
         try {
             String path = "https://news.naver.com/main/read.nhn?oid=052&sid1=103&aid=0001240445&mid=shm&mode=LSD&nh=20190114114615";
             URL url = new URL(path);
