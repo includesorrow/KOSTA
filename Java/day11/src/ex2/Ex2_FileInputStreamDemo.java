@@ -22,20 +22,20 @@ public class Ex2_FileInputStreamDemo {
     public static void main(String[] args) {
         //InputStream actually reads information inside file, so 
         //wrong path gives out an error. 
-        String path="/Users/younghoonkim/Documents/JavaTest.docx";
+        String path="C:\\bigdataStudy\\KOSTA\\Java\\memo.txt";
         
         
         //FileInputStrea is first-class stream/byte stream.
         //Why fis is defined outside try?
         FileInputStream fis=null;
-        
+
        try {
              fis=new FileInputStream(path);
              int rdv=0;
              //while statment reads from a file's start to EOF 1byte by 1byte.
              //EOF returns -1
              while((rdv=fis.read())!=-1){
-                 System.out.println((char)rdv);
+                 System.out.print((char)rdv);
              }
              //when file doens't exists
         } catch (FileNotFoundException ex) {
@@ -46,7 +46,7 @@ public class Ex2_FileInputStreamDemo {
         } finally{
            if(fis!=null){
                try {
-                   fis.close();
+                   fis.close(); 
                } catch (IOException ex) {
                    Logger.getLogger(Ex2_FileInputStreamDemo.class.getName()).log(Level.SEVERE, null, ex);
                }

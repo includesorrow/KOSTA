@@ -3,16 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dummy;
+package ex1;
 
-import java.io.FileReader;
+import java.awt.Canvas;
 
 /**
  *
  * @author KOSTA
  */
-public class dummy {
-    public static void main(String[] args)throws Exception{
-        FileReader fr = new FileReader("C:/bigdataStudy/KOSTA/Java/memo.txt");
+public class Ex2_CanvasDemo implements Runnable{
+
+    @Override
+    public void run() {
+    
+    
+    
     }
+
+    
+    
 }

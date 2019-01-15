@@ -41,15 +41,14 @@ public class Ex2_DataInputStream {
     
 public ArrayList<String> getMemo() throws FileNotFoundException, IOException{
 ArrayList<String> ar = new ArrayList<>();
-    BufferedReader br = null;
+BufferedReader br = null;
 br = new BufferedReader(new FileReader(path));
 String rdv = null;
 //readLine() 은 스트림을 통해서 문자열을 한줄 단위로 읽어온다.
 //마지막은 null
 while((rdv = br.readLine()) != null){
 //읽어온 문자열을 한줄씩 ArrayList에 저장
-ar.add(rdv);
-}
+ar.add(rdv);}
 br.close();
 return ar;
 }
