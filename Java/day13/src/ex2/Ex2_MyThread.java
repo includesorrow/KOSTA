@@ -9,7 +9,7 @@ package ex2;
  *
  * @author KOSTA
  */
-public class Ex1_Thread implements Runnable{
+public class Ex2_MyThread extends Thread{
     private int value;
     
     @Override
@@ -26,15 +26,11 @@ public class Ex1_Thread implements Runnable{
     }
     
     public static void main(String[] args) {
-        Ex1_Thread r = new Ex1_Thread();
-        new Thread(r).start();
-        new Thread(r).start();
+        Ex2_MyThread t1 = new Ex2_MyThread();
+        
+        Ex2_MyThread t2 = new Ex2_MyThread();
+        t1.start();
+        t2.start();
         
     }
-
-    void start() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }
