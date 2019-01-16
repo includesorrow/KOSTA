@@ -137,12 +137,6 @@ public class Ex1_GUI  extends javax.swing.JFrame implements Runnable{
         }
         
         while(true) {
-            try{
-                t1.join();
-            }
-            catch(InterruptedException ex){
-            }
-                
             
             try{
                 //--------------
@@ -162,7 +156,7 @@ public class Ex1_GUI  extends javax.swing.JFrame implements Runnable{
             }
             //-------------------
         }
-        }
+        
         
     for(int i =0; i<=36;i++){
         System.out.println(i * 10);
