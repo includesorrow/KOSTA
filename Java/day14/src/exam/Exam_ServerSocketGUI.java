@@ -6,25 +6,35 @@
 package exam;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
  * @author KOSTA
- */
+// */
 public class Exam_ServerSocketGUI extends javax.swing.JFrame {
 
+       
+       
+       
     /**
      * Creates new form Exam_ServerSocketGUI
      */
     public Exam_ServerSocketGUI() {
+        
         initComponents();
     }
+//    public byte[] getProperty(String key) throws IOException { 
+//            return this.PROPERTIY_FILE.getBytes();}
+//    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,6 +100,8 @@ public class Exam_ServerSocketGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void messagevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messagevActionPerformed
+  
+        
         
         try {
             //접속을 하고 필요한 데이터를 받고나서 연결이 종료되는 구조
@@ -98,8 +110,9 @@ public class Exam_ServerSocketGUI extends javax.swing.JFrame {
             BufferedReader bis = new BufferedReader(new InputStreamReader(s.getInputStream()));
             pw.println(messagev.getText().toString());
             String serverMessage  = bis.readLine();
-            
             responsev.append(serverMessage+"\n");
+         
+            
             pw.close();
             s.close();
             
@@ -151,4 +164,8 @@ public class Exam_ServerSocketGUI extends javax.swing.JFrame {
     private javax.swing.JTextField messagev;
     private javax.swing.JTextArea responsev;
     // End of variables declaration//GEN-END:variables
+
+        
+
 }
+

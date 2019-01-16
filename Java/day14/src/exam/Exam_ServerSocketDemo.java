@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Properties;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,6 +34,29 @@ import java.util.logging.Logger;
  */
 public class Exam_ServerSocketDemo {
 //가장 기본적인 서버의 기능만 작춘 서버소켓 프로그밍을 학습한다.
+           private String PROPERTIY_FILE = "C:\\bigdataStudy\\KOSTA\\Java\\day14\\src\\exam\\message.propertiy";
+           Properties Message = new Properties();
+           
+           
+           //프로퍼티 파일 가져오기
+       public String getPropertyFile(String key) throws IOException{
+           return Message.getProperty(key);
+       }
+       
+       
+       //프로퍼티 파일 경로 설정
+       public void setPropertyFile(String path){
+           this.PROPERTIY_FILE = path;
+       }
+       
+       //KEY로 값을 가져온다
+       public String getProperty(String key) throws  IOException{
+           return Message.getProperty(key);
+       }
+       //KEY로 값을 저장한다.
+       public void setProperty(String key, String value) throws IOException{
+           Message.setProperty(key, value);
+       }
 
     private ServerSocket ss;
 
@@ -72,11 +97,15 @@ public class Exam_ServerSocketDemo {
            
 //            BufferedReader bis = new BufferedReader(new InputStreamReader(is));
 //            String msg = bis.readLine();
-
-            PrintWriter pw = new PrintWriter(os,true);
+    Scanner sc=new Scanner(is);
+            String msg="";
+            while(sc.hasNext()){
+                msg+=sc.nextLine();
+                System.out.println("Client Message Log : "+sc.nextLine());
+                System.out.println("message" + Message.setProperty(sc.nextLine(),Message.getProperty()));
+                
+                PrintWriter pw = new PrintWriter(os,true);
             
-            String msg = "";
-            System.out.println("Client Message Log : " + msg);
             
 
             System.out.println("접속자 ip 호출" + isa);
@@ -91,9 +120,12 @@ public class Exam_ServerSocketDemo {
             
         }
     }
+        
+    }
 
     public static void main(String[] args) {
         new Exam_ServerSocketDemo(9999);
     }
 
+    
 }
