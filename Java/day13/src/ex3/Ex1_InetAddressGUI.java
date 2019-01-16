@@ -5,6 +5,11 @@
  */
 package ex3;
 
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author KOSTA
@@ -86,7 +91,21 @@ public class Ex1_InetAddressGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void hostyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostyActionPerformed
-        
+        try {
+            ei.searchDomain(hosty.getText().trim());
+            //해당 도메인에 아이피가 ArrayList로 전송받아서
+            ArrayList<String> list = ei.getDomainList();
+            //List UI에 출력하도록 프로그래밍!
+            DefaultListModel dlm = new DefaultListModel();
+            for(String e : list){
+                dlm.addElement(e);
+            }
+            //JList의 데이터는 DefaultListModel 이고
+            //데이터를 가지고 있으니 List UI에 값을 주입함.
+            target.setModel(dlm);
+        } catch (UnknownHostException ex) {
+            JOptionPane.showMessageDialog(this, "알 수 없는 호스트입니다.");
+        }
 
 
         // TODO add your handling code here:

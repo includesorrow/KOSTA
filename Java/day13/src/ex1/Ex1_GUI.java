@@ -8,8 +8,6 @@ package ex1;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +21,9 @@ public class Ex1_GUI  extends javax.swing.JFrame implements Runnable{
     public Ex1_GUI() {
         initComponents();
         Thread t = new Thread(this);
+        Thread t1 = new Thread(this);
         t.start();
+        t1.start();
                 
     }
 
@@ -136,7 +136,33 @@ public class Ex1_GUI  extends javax.swing.JFrame implements Runnable{
             //-------------------
         }
         
-        
+        while(true) {
+            try{
+                t1.join();
+            }
+            catch(InterruptedException ex){
+            }
+                
+            
+            try{
+                //--------------
+                if(arcNum<=360){
+                    System.out.println(arcNum);
+                    arcNum +=10;
+                    Thread.sleep(100);
+                
+                canvas1.repaint();
+                }
+                else{
+                    break;
+                }
+            }
+            catch(InterruptedException ex){
+                
+            }
+            //-------------------
+        }
+        }
         
     for(int i =0; i<=36;i++){
         System.out.println(i * 10);
