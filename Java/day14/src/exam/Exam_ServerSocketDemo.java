@@ -102,7 +102,7 @@ public class Exam_ServerSocketDemo {
             while(sc.hasNext()){
                 msg+=sc.nextLine();
                 System.out.println("Client Message Log : "+sc.nextLine());
-                System.out.println("message" + Message.setProperty(sc.nextLine(),Message.getProperty()));
+          //      System.out.println("message" + Message.setProperty(sc.nextLine(),Message.getProperty()));
                 
                 PrintWriter pw = new PrintWriter(os,true);
             

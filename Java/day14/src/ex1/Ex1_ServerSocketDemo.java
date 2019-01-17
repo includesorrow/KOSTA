@@ -33,13 +33,14 @@ public class Ex1_ServerSocketDemo {
             //지정된 port값으로 서버 소캣을 생성한다.
             ss = new ServerSocket(port);
             System.out.println("서버시작");
-            executeService();
+//            executeService();
         } catch (IOException ex) {
             System.out.println("해당 포트는 이미 사용중입니다.");
             ex.printStackTrace();
         } finally {
             try {
                 if(!ss.isClosed()){ //서버가 닫혀있지 않는 경우 닫아준다.
+                    System.out.println("서버가 닫혔습니다.");
                 ss.close();
                 }
             } catch (IOException ex) {
