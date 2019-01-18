@@ -26,7 +26,7 @@ public class Ex1_FileCp {
             
         
         fis = new FileInputStream(path1); //1바이트씩 읽어내고
-        fos = new FileOutputStream(path2); //11바이트씩 저장한다.
+        fos = new FileOutputStream(path2); //1바이트씩 저장한다.
         int readV = 0;
         //fis로 부터 1byte씩 읽어 들이면서
         //fos로 읽어온 경로로 1byte씩 저장한다.

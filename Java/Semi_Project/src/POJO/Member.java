@@ -14,7 +14,9 @@ public class Member {
     String id;
     String password;
     String cellphone;
+    String procedure;
     boolean admin;
+    
 
     public String getName() {
         return name;

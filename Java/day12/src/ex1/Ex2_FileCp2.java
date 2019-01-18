@@ -35,7 +35,7 @@ public class Ex2_FileCp2 {
         
         bis = new BufferedInputStream(new FileInputStream(path1));
         bos = new BufferedOutputStream(new FileOutputStream(path2));
-//fis = new FileInputStream(path1); //1바이트씩 읽어내고
+        //fis = new FileInputStream(path1); //1바이트씩 읽어내고
         //fos = new FileOutputStream(path2); //11바이트씩 저장한다.
         int readV = 0;
         //bis로부터 버퍼에 담아 읽어 들이면서
