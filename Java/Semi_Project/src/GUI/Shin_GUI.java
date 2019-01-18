@@ -6,7 +6,13 @@
 package GUI;
 import dummy.testRead;
 import dummy.testWrite;
+import dummy.testRead2;
 import java.awt.Color;
+import java.io.IOException;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author KOSTA
@@ -22,6 +28,7 @@ dummy.testWrite dtw = new dummy.testWrite();
         
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -268,25 +275,31 @@ dummy.testWrite dtw = new dummy.testWrite();
         String reserveday = (String) ComboDay.getSelectedItem();
         String reservehour = (String) ComboHour.getSelectedItem();
         String reserveprosedure = (String) ComboProsedure.getSelectedItem();
+        String reserveinfo = (String) reserveyear +":"+ reservemonth +":"+ reserveday +":"+ reservehour +":"+ reserveprosedure;
         
-        String reserveinfo = (String) reserveyear + reservemonth + reserveday + reservehour + reserveprosedure;
+        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
+        String [] array = new String[st.countTokens()];
+        int i = 0;
+        for(i=0; i<array.length; i++){
+        System.out.println("array : " + array[i]); }
+        
         System.out.println(reserveinfo);
         
-        if(reserveinfo.length() >= 15){
+        if(reserveinfo.length() >= 19){
             LabelError.setForeground(Color.red);
             LabelError.setText("정확히 입력해주세요.");
             
         }else{
+            
             
             LabelError.setText("예약이 완료되었습니다!");
             LabelError.setForeground(Color.blue);
             dtw.execWriter(reserveinfo);
         }
         
-        //dtw.execWriter(reserveyear + reservemonth + reserveday + reservehour + reserveprosedure);
         
-            
-          
+        
+    
         
         
         

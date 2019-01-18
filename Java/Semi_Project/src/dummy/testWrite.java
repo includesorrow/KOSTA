@@ -35,6 +35,36 @@ public class testWrite {
         
     }
         
+    /*
+    List<String> fileList = new ArrayList<String();
+String s = null;
+String strFname = null;
+File file = new File(" " );
+BufferedReader buf = new BufferedReader(new FileReader(file));
+sysout // 체크스타트
+
+
+while((s = buf.readLine()) != null) {
+	strFname = strSplit(s);
+	for(String fNm : filelist) {
+		if(fNm.equals(strFname)) {
+			sysout // fNm + "is duplicated");
+			}
+		}
+		fileList.add(strSplit(s));
+
+	}
+	buf.close();
+	sysout"check complite"
+}
+
+main
+
+int cutLocation = fileName.lastIndexOf("/") + i;
+string name = fileN
+    */
+    
+    
     
     public static void main(String[] args){
         testWrite mains = new testWrite();
