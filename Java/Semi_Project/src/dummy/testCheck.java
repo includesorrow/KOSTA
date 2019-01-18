@@ -18,61 +18,52 @@ import java.util.logging.Logger;
  *
  * @author KOSTA
  */
-public class testCheck {
+public class testCheck{
 
 
-//    public static void main(String[] args) throws IOException{
-//        
-//   ArrayList<String> fileList = new ArrayList<String>(); 
-//        String s = null;
-//        String strFname = null;
-//
-//File file = new File("C:\\bigdataStudy\\memo.txt");
-//        BufferedReader buf = new BufferedReader(new FileReader(file));
-//        System.out.println("-=-=-=-체크스타트=-=-=-=-");
-//
-//
-//while((s = buf.readLine()) != null) {
-//	strFname = strSplit(s);
-//	for(String fNm : fileList) {
-//		if(fNm.equals(strFname)) {
-//		                  System.out.println(fNm + "is duplicated");	
-//			}
-//		}
-//		fileList.add(strSplit(s));
-//
-//	}
-//	buf.close();
-//        System.out.println("=-=-==-체크 종료-=-=-=-");
-//    }
-//
-
-    public static String strSplit(String fileName) throws IOException{
-          ArrayList<String> fileList = new ArrayList<String>(); 
+   //public static void main(String[] args) throws IOException{
+    
+   public static boolean Check(String ch) throws IOException{
+    
+    ArrayList<String> fileList = new ArrayList<String>(); 
         String s = null;
         String strFname = null;
-
+        
+        
 File file = new File("C:\\bigdataStudy\\memo.txt");
         BufferedReader buf = new BufferedReader(new FileReader(file));
         System.out.println("-=-=-=-체크스타트=-=-=-=-");
-
+        boolean ccheck =true;
 
        
             while((s = buf.readLine()) != null) {
-                strFname = strSplit(s);
-                for(String fNm : fileList) {
-                    if(fNm.equals(strFname)) {
-                        System.out.println(fNm + "is duplicated");
-                    }
-                }
-                fileList.add(strSplit(s));
+                
+                
+                fileList.add(s);
                 
             }
+                for(String fNm : fileList) {
+                    if(fNm.contains(ch)) {
+                        System.out.println(fNm + "is duplicated");
+                        ccheck = false;  
+                        
+                    }
+                    
+                    
+                }
         
 	buf.close();
         System.out.println("=-=-==-체크 종료-=-=-=-");
     
-    return null;
-}
+       return ccheck;
 }
 
+
+//
+//public static String strSplit(String fileName){
+//    int cutLocation = fileName.lastIndexOf("/") +1;
+//    String name = fileName.substring(cutLocation);  
+//return name;
+
+
+}

@@ -275,26 +275,36 @@ dummy.testWrite dtw = new dummy.testWrite();
         String reserveday = (String) ComboDay.getSelectedItem();
         String reservehour = (String) ComboHour.getSelectedItem();
         String reserveprosedure = (String) ComboProsedure.getSelectedItem();
-        String reserveinfo = (String) reserveyear +":"+ reservemonth +":"+ reserveday +":"+ reservehour +":"+ reserveprosedure;
-        
-        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
-        String [] array = new String[st.countTokens()];
-        int i = 0;
-        for(i=0; i<array.length; i++){
-        System.out.println("array : " + array[i]); }
-        
-        System.out.println(reserveinfo);
+        String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
+        String reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
+
+//
+//        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
+//        String [] array = new String[st.countTokens()];
+//        int i = 0;
         
         if(reserveinfo.length() >= 19){
             LabelError.setForeground(Color.red);
             LabelError.setText("정확히 입력해주세요.");
             
         }else{
+            try {
+                if(dummy.testCheck.Check(reserveymdh)==true){
+                    LabelError.setText("예약이 완료되었습니다!");
+                    LabelError.setForeground(Color.blue);
+                    dtw.execWriter(reserveinfo);
+                }
+                else{
+                    LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
+                    LabelError.setForeground(Color.GREEN);
+                    
+                    
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Shin_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-            
-            LabelError.setText("예약이 완료되었습니다!");
-            LabelError.setForeground(Color.blue);
-            dtw.execWriter(reserveinfo);
+           
         }
         
         
@@ -303,7 +313,6 @@ dummy.testWrite dtw = new dummy.testWrite();
         
         
         
-        dtw.execReader();
         
 
         // TODO add your handling code here:
