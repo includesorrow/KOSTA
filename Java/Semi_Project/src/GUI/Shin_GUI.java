@@ -21,13 +21,13 @@ import Class.DataCheck;
  *
  * @author KOSTA
  */
-public class Shin_GUI extends javax.swing.JFrame {
-HandleReservation hr = new HandleReservation();
-DataInput di = new DataInput();
-DataCheck dc = new DataCheck();
+public class Shin_GUI extends javax.swing.JFrame{
+HandleReservation hr = new HandleReservation(); //hr 생성
+DataInput di = new DataInput(); //di 생성
+DataCheck dc = new DataCheck(); //dc 생성
 
-         private Socket s;
-    private PrintWriter pw;
+    private Socket s; // 소켓 생성
+    private PrintWriter pw; //PrintWriter생성
     /**
      * Creates new form Shin_GUI
      */
@@ -41,14 +41,16 @@ DataCheck dc = new DataCheck();
             ex.printStackTrace();}
         
     //데이터를 받아서 UI에 출력
-        new Thread(new Runnable(){
+        new Thread(new Runnable(){ //새로운 쓰레드 생성. Runnable을 이용하여 생성한다.
         @Override
         public void run(){
             try{
-                BufferedReader br = new BufferedReader(
-                    new InputStreamReader(s.getInputStream()));
+                BufferedReader br = new BufferedReader( //버퍼리더생성
+                    new InputStreamReader(s.getInputStream())); //인풋스트림리더
+                    //s 는 소켓이고, 인풋스트림리더를 만든다. (s.인풋스트림을가져온다)
                while(true){
                    target.append(br.readLine()+"\n");
+                   //만약 true면 jTextArea에 나타낸다.
                    
                } 
                
@@ -308,13 +310,19 @@ DataCheck dc = new DataCheck();
 
     private void ButtonReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReservationActionPerformed
         String reserveyear = (String) ComboYear.getSelectedItem();
+        //년도 정보 가져오기
         String reservemonth = (String) ComboMonth.getSelectedItem();
+        //월 정보 가져오기
         String reserveday = (String) ComboDay.getSelectedItem();
+        //일 정보 가져오기
         String reservehour = (String) ComboHour.getSelectedItem();
+        //시간 정보 가져오기
         String reserveprosedure = (String) ComboProsedure.getSelectedItem();
+        //시술 정보 가져오기
         String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
+        //예약 정보(Full) 가져오기
         String reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
-        
+        //예약 년월일시간 가져오기
 
 //
 //        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
@@ -322,28 +330,48 @@ DataCheck dc = new DataCheck();
 //        int i = 0;
         
         if(reserveinfo.length() >= 19){
+            //만약 길이가 19가 넘으면
             LabelError.setForeground(Color.red);
+            //라벨 텍스트 색을 빨간색으로.
             LabelError.setText("정확히 입력해주세요.");
-            
+            //정확히 입력해주세요를 Label에 출력
         }else{
             try {
                 if(dc.Check(reserveymdh)==true){
+                    //dc : 데이터 체크 클래스
+                    //DC.Check : dc클래스의 check
+                    //dc.Check(reserveymdh) < 년도/일자 등등 체크
+                    //dc.Check(reserveymdh)==true
+                    // 중복값이 있는지 체크하고 그게 중복값이 없을 때 true를 출력.
+                    //그래서 true가 출력되면
                     LabelError.setText("예약이 완료되었습니다!");
+                    //예약이 완료되었습니다 를 라벨에 출력
                     LabelError.setForeground(Color.blue);
+                    //라벨 색을 파란색으로 설정
                     di.execWriter(reserveinfo);
-                    
-                    hr.TestArray();
+                    //di < 데이터 인풋
+                    //di.execWriter(reserveinfo)
+                    //이건 reserveinfo라는 스트링을 execWriter에 넣어서 입력하게 만드는거임.
+                    hr.TextArray();
+                    //hr.testArray
+                    //HandleReservastion 클래스의 textArray();
+                    //파일이 추가가 되면 그 파일을 순번대로 정렬한다. 이는 hr의 textArray참고
                     pw.println(reserveinfo + " 로 예약되었습니다.");
+                    //예약정보를 textArea로 출력함.
                     
                 }
                 else{
-                    LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
-                    LabelError.setForeground(Color.GREEN);
                     
+                    LabelError.setForeground(Color.GREEN);
+                    //중복일시에 텍스트컬러를 초록색으로 바꿈.
+
+                    LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
+                    //dc.Check(reserveymdh)==false이면
+                    //다른시간에 예약되었다고 출력하게 만듬
                     
                 }
             } catch (IOException ex) {
-                Logger.getLogger(Shin_GUI.class.getName()).log(Level.SEVERE, null, ex);
+               ex.printStackTrace();
             }
             
            
