@@ -18,10 +18,10 @@ import java.util.ArrayList;
  * @author KOSTA
  */
 public class DataInput {
-private String path = "C:\\bigdataStudy\\memo.txt"; //path생성
+private String path = "C:\\bigdataStudy\\memo.txt"; //path생성. 보안이므로 private로
 
-    public String getPath() {
-        return path;
+    public String getPath() { 
+        return path;//POJO GET 이용
     }
     ///////////////데이터 입력/////////////
 //    public class testWrite {
@@ -34,6 +34,9 @@ private String path = "C:\\bigdataStudy\\memo.txt"; //path생성
     public void execWriter(String memo){
             writeClient(memo);
        }
+    
+    
+    
     public void execReader(){
         try {
         ArrayList<String> arlist = getMemo();    
@@ -59,9 +62,9 @@ private String path = "C:\\bigdataStudy\\memo.txt"; //path생성
     
     
     public void writeClient(String wc){
-        BufferedWriter bw = null;
+        BufferedWriter bw = null; //버퍼라이터 bw로 만듬.
         try {    
-            bw = new BufferedWriter(new FileWriter(path,true));
+            bw = new BufferedWriter(new FileWriter(getPath(),true));
             //문자스트림을 사용해서 경로의 문서에 작성
             bw.write(wc);
             bw.newLine();
@@ -75,7 +78,7 @@ private String path = "C:\\bigdataStudy\\memo.txt"; //path생성
     public ArrayList<String> getMemo() throws FileNotFoundException, IOException{
     ArrayList<String> ar = new ArrayList<>();
     BufferedReader br = null;
-    br = new BufferedReader(new FileReader(path));
+    br = new BufferedReader(new FileReader(getPath()));
     String rdv = null;
     //readLine() 은 스트림을 통해서 문자열을 한줄 단위로 읽어온다.
     //마지막은 null
