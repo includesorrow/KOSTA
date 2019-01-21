@@ -4,26 +4,28 @@
  * and open the template in the editor.
  */
 package GUI;
-import dummy.testRead;
-import dummy.testWrite;
-import dummy.testRead2;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Class.HandleReservation;
+import Class.DataInput;
+import Class.DataCheck;
+
 
 /**
  *
  * @author KOSTA
  */
 public class Shin_GUI extends javax.swing.JFrame {
-dummy.testWrite dtw = new dummy.testWrite();
- dummy.TestArray dta = new dummy.TestArray();   
+HandleReservation hr = new HandleReservation();
+DataInput di = new DataInput();
+DataCheck dc = new DataCheck();
+
          private Socket s;
     private PrintWriter pw;
     /**
@@ -31,9 +33,7 @@ dummy.testWrite dtw = new dummy.testWrite();
      */
     public Shin_GUI() {
               initComponents();
-        
         try {
-        
             //서버에 접속
             s = new Socket("localhost" , 9999);
             pw = new PrintWriter(s.getOutputStream(),true);
@@ -162,7 +162,7 @@ dummy.testWrite dtw = new dummy.testWrite();
 
         ComboYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----년도----", "2019", "2020" }));
 
-        ComboMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----월----", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
+        ComboMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----월----", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         ComboDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----일----", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         ComboDay.addActionListener(new java.awt.event.ActionListener() {
@@ -312,7 +312,7 @@ dummy.testWrite dtw = new dummy.testWrite();
         String reserveday = (String) ComboDay.getSelectedItem();
         String reservehour = (String) ComboHour.getSelectedItem();
         String reserveprosedure = (String) ComboProsedure.getSelectedItem();
-        String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +"/"+ reserveprosedure;
+        String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
         String reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
         
 
@@ -327,12 +327,13 @@ dummy.testWrite dtw = new dummy.testWrite();
             
         }else{
             try {
-                if(dummy.testCheck.Check(reserveymdh)==true){
+                if(dc.Check(reserveymdh)==true){
                     LabelError.setText("예약이 완료되었습니다!");
                     LabelError.setForeground(Color.blue);
-                    dtw.execWriter(reserveinfo);
-                    dta.TestArray();
-                    pw.println(reserveinfo);
+                    di.execWriter(reserveinfo);
+                    
+                    hr.TestArray();
+                    pw.println(reserveinfo + " 로 예약되었습니다.");
                     
                 }
                 else{
