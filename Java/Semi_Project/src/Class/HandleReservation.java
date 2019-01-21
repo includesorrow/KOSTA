@@ -24,7 +24,7 @@ public class HandleReservation implements HandleData{
  */
     
     ////////////////////내림차순 정렬/////////////////////////
-    public void HandleReservation() throws IOException{
+    public void TextArray() throws IOException{
   System.out.println("< 텍스트 파일 불러오기 >\n");
   FileReader FR = new FileReader("C:\\bigdataStudy\\memo.txt");
   BufferedReader BR = new BufferedReader(FR);
