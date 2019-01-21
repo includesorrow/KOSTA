@@ -8,7 +8,11 @@ import dummy.testRead;
 import dummy.testWrite;
 import dummy.testRead2;
 import java.awt.Color;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,12 +23,45 @@ import java.util.logging.Logger;
  */
 public class Shin_GUI extends javax.swing.JFrame {
 dummy.testWrite dtw = new dummy.testWrite();
-        
+ dummy.TestArray dta = new dummy.TestArray();   
+         private Socket s;
+    private PrintWriter pw;
     /**
      * Creates new form Shin_GUI
      */
     public Shin_GUI() {
-        initComponents();
+              initComponents();
+        
+        try {
+        
+            //서버에 접속
+            s = new Socket("localhost" , 9999);
+            pw = new PrintWriter(s.getOutputStream(),true);
+        } catch (IOException ex) {
+            ex.printStackTrace();}
+        
+    //데이터를 받아서 UI에 출력
+        new Thread(new Runnable(){
+        @Override
+        public void run(){
+            try{
+                BufferedReader br = new BufferedReader(
+                    new InputStreamReader(s.getInputStream()));
+               while(true){
+                   target.append(br.readLine()+"\n");
+                   
+               } 
+               
+                    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+            catch(IOException ex){
+                ex.printStackTrace();
+            }
+            
+        }
+    
+            }).start();
+        
         
     }
 
@@ -58,7 +95,7 @@ dummy.testWrite dtw = new dummy.testWrite();
         jLabel8 = new javax.swing.JLabel();
         LabelError = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        target = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,9 +237,9 @@ dummy.testWrite dtw = new dummy.testWrite();
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        target.setColumns(20);
+        target.setRows(5);
+        jScrollPane1.setViewportView(target);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -275,8 +312,9 @@ dummy.testWrite dtw = new dummy.testWrite();
         String reserveday = (String) ComboDay.getSelectedItem();
         String reservehour = (String) ComboHour.getSelectedItem();
         String reserveprosedure = (String) ComboProsedure.getSelectedItem();
-        String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
+        String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +"/"+ reserveprosedure;
         String reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
+        
 
 //
 //        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
@@ -293,6 +331,9 @@ dummy.testWrite dtw = new dummy.testWrite();
                     LabelError.setText("예약이 완료되었습니다!");
                     LabelError.setForeground(Color.blue);
                     dtw.execWriter(reserveinfo);
+                    dta.TestArray();
+                    pw.println(reserveinfo);
+                    
                 }
                 else{
                     LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
@@ -315,7 +356,7 @@ dummy.testWrite dtw = new dummy.testWrite();
         
         
 
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_ButtonReservationActionPerformed
 
     /**
@@ -373,7 +414,7 @@ dummy.testWrite dtw = new dummy.testWrite();
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel main;
+    private javax.swing.JTextArea target;
     // End of variables declaration//GEN-END:variables
 }
