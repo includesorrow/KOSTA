@@ -14,7 +14,9 @@ import Class.HandleReservation;
 import Class.DataInput;
 import Class.DataCheck;
 import POJO.Member;
-
+import Class.ServerThreadTest;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,6 +27,7 @@ HandleReservation hr = new HandleReservation(); //hr 생성
 DataInput di = new DataInput(); //di 생성
 DataCheck dc = new DataCheck(); //dc 생성
 Member member = new Member(); //멤버생성
+ ServerThreadTest stt = new  ServerThreadTest();
 
     private Socket s; // 소켓 생성
     private PrintWriter pw; //PrintWriter생성
@@ -69,11 +72,12 @@ Member member = new Member(); //멤버생성
                 BufferedReader br = new BufferedReader( //버퍼리더생성
                     new InputStreamReader(s.getInputStream())); //인풋스트림리더
                     //s 는 소켓이고, 인풋스트림리더를 만든다. (s.인풋스트림을가져온다)
-               while(true){
-                   target.append(br.readLine()+"\n");
+//               while(true){
+//                   target.setText
+                   //target.append(br.readLine()+"\n");
                    //만약 true면 jTextArea에 나타낸다.
                    
-               } 
+//               } 
                
                     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
@@ -115,8 +119,8 @@ Member member = new Member(); //멤버생성
         ButtonReservation = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         LabelError = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        target = new javax.swing.JTextArea();
+        TextFieldMemo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         TextField_Admin = new javax.swing.JTextField();
         Label_Admin = new javax.swing.JLabel();
         Button_Admin = new javax.swing.JButton();
@@ -197,6 +201,14 @@ Member member = new Member(); //멤버생성
 
         LabelError.setFont(new java.awt.Font("굴림", 1, 12)); // NOI18N
 
+        TextFieldMemo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldMemoActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("메모 (20자이내)");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -214,7 +226,10 @@ Member member = new Member(); //멤버생성
                                     .addComponent(ComboProsedure, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(8, 8, 8)
-                                        .addComponent(LabelError)))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LabelError)
+                                            .addComponent(jLabel9)
+                                            .addComponent(TextFieldMemo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(40, 40, 40)
                                 .addComponent(ButtonReservation, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -243,14 +258,14 @@ Member member = new Member(); //멤버생성
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(ComboProsedure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(LabelError))
+                        .addComponent(LabelError)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextFieldMemo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ButtonReservation, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
-
-        target.setColumns(20);
-        target.setRows(5);
-        jScrollPane1.setViewportView(target);
 
         TextField_Admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,9 +285,7 @@ Member member = new Member(); //멤버생성
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(48, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -300,9 +313,7 @@ Member member = new Member(); //멤버생성
                         .addComponent(Button_Admin)))
                 .addGap(28, 28, 28)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
@@ -360,11 +371,15 @@ Member member = new Member(); //멤버생성
         //시간 정보 가져오기
         String reserveprosedure = (String) ComboProsedure.getSelectedItem();
         //시술 정보 가져오기
+        String reservememo = (String) TextFieldMemo.getText();
+
         String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
         //예약 정보(Full) 가져오기
+        String reserveinfofull = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo;
+        
         String reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
         //예약 년월일시간 가져오기
-
+     
         //
         //        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
         //        String [] array = new String[st.countTokens()];
@@ -389,7 +404,7 @@ Member member = new Member(); //멤버생성
                     //예약이 완료되었습니다 를 라벨에 출력
                     LabelError.setForeground(Color.blue);
                     //라벨 색을 파란색으로 설정
-                    di.execWriter(reserveinfo);
+                    di.execWriter(reserveinfofull);
                     //di < 데이터 인풋
                     //di.execWriter(reserveinfo)
                     //이건 reserveinfo라는 스트링을 execWriter에 넣어서 입력하게 만드는거임.
@@ -399,6 +414,12 @@ Member member = new Member(); //멤버생성
                     //파일이 추가가 되면 그 파일을 순번대로 정렬한다. 이는 hr의 textArray참고
                     pw.println(reserveinfo + " 로 예약되었습니다.");
                     //예약정보를 textArea로 출력함.
+                    
+//                     try {
+//                      stt.ServerThreadTest();
+//                       } catch (Exception ex) {
+//                           ex.printStackTrace();
+//                      }
 
                 }
                 else{
@@ -422,6 +443,10 @@ Member member = new Member(); //멤버생성
     private void ComboDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboDayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboDayActionPerformed
+
+    private void TextFieldMemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldMemoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldMemoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,17 +494,17 @@ Member member = new Member(); //멤버생성
     private javax.swing.JLabel LabelError;
     private javax.swing.JLabel Label_Admin;
     private javax.swing.JLabel Label_LoginID;
+    private javax.swing.JTextField TextFieldMemo;
     private javax.swing.JTextField TextField_Admin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel main;
-    private javax.swing.JTextArea target;
     // End of variables declaration//GEN-END:variables
 }

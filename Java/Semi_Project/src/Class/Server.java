@@ -11,8 +11,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -51,7 +49,7 @@ public class Server {
             cList = new ArrayList <>();
             executorService = Executors.newFixedThreadPool(3);
         } catch (IOException ex) {
-            System.out.println("�̹� ������� port�Դϴ�.");
+            System.out.println("");
          
                     }
     }

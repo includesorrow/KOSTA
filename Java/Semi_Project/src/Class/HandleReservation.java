@@ -7,25 +7,31 @@ package Class;
 
 import POJO.Member;
 import Interface.HandleData;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 
 
-public class HandleReservation implements HandleData{
-
-   /**
+public class HandleReservation implements HandleData {
+        /**
  *
  * @author shin
  */
     private String path = "C:\\bigdataStudy\\memo.txt";
     private String path2 = "C:\\bigdataStudy\\memoarray.txt";
     ////////////////////내림차순 정렬/////////////////////////
-    public void TextArray() throws IOException{                                 
+    public void TextArray() throws IOException{                     
+
+
   System.out.println("< 텍스트 파일 불러오기 >\n");         
   FileReader FR = new FileReader(path);                     //파일리더.
   BufferedReader BR = new BufferedReader(FR);               //버퍼드리더
@@ -52,11 +58,16 @@ public class HandleReservation implements HandleData{
   System.out.println("\n< 텍스트 파일 내보내기 >\n");                   //텍스트파일 보내기
   FileWriter FW = new FileWriter(path2);                                //파일에 새로 작성  
   BufferedWriter BW = new BufferedWriter(FW);                           //버퍼드라이터 bw 지정. 
-  
+   
+        
+        
   for (int i = 0; i < ArrayList.size(); i++) {                          //어레이리스트사이즈까지
-   BW.write(ArrayList.get(i));                                          //쓰기
-   BW.newLine();                                                        //새로운라인생성     
+ 
+        
+      BW.write(ArrayList.get(i));                                          //쓰기
+   BW.newLine();       //새로운라인생성  
   }
+                                                     
   BR.close();
   BW.close();
   FR.close();
@@ -80,7 +91,6 @@ public class HandleReservation implements HandleData{
     
     
     
-    
     @Override
     public Member load() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -95,5 +105,8 @@ public class HandleReservation implements HandleData{
     public boolean delete(Member m) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    
     
 }

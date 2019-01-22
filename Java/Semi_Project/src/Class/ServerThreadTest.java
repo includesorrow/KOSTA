@@ -19,8 +19,8 @@ import java.net.Socket;
  */
 public class ServerThreadTest {
     public void ServerThreadTest() throws Exception{
-     Socket s = new Socket("127.0.0.1", 7777);
-        String filename = null;
+     Socket s = new Socket("162.168.0.16", 9999);
+  String filename = null;
   BufferedOutputStream toServer = null;
   BufferedInputStream bis = null;
   FileInputStream fis = null;
@@ -28,7 +28,7 @@ public class ServerThreadTest {
 
   try{
 
-   filename = "사공석준.txt";
+   filename = "C:\\bigdataStudy\\memoarray.txt";
 
    toServer = new BufferedOutputStream( s.getOutputStream() );
    dos = new DataOutputStream( s.getOutputStream() );
@@ -45,7 +45,7 @@ public class ServerThreadTest {
    }    
    
             toServer.flush();     
-   toServer.close();
+            toServer.close();
             fis.close();
             s.close();      
    
