@@ -18,6 +18,8 @@ import java.util.logging.Logger;
  * @author KOSTA
  */
 public class ServerThread implements Runnable{
+    
+    
     private Socket socket;
     private Server server;
     private BufferedReader br;
@@ -58,9 +60,9 @@ public class ServerThread implements Runnable{
         
         
     
-    
+}
     
     
   
     
-}
+

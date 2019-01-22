@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.util.ArrayList;
 
 /**
@@ -23,11 +24,15 @@ import java.util.ArrayList;
  * @author KOSTA
  */
 public class DataInput {
+    
+//        private ServerSocket ss;
+//    public DataInput(ServerSocket ss) {
+//        this.ss = ss;
+//    }
+    
+    
 private String path = "C:\\bigdataStudy\\memo.txt"; //path생성. 보안이므로 private로
 
-    public String getPath() { 
-        return path;//POJO GET 이용
-    }
     ///////////////데이터 입력/////////////
 //    public class testWrite {
     
@@ -59,7 +64,7 @@ private String path = "C:\\bigdataStudy\\memo.txt"; //path생성. 보안이므�
     public void writeClient(String wc){                                 //고객을 작성한다.
         BufferedWriter bw = null;                                       //버퍼라이터 bw를 만듬.
         try {    
-            bw = new BufferedWriter(new FileWriter(getPath(),true));    //bw는 새로운 버퍼드라이터인데, 그 버퍼드라이터가 파일라이터를 불러오는 버퍼드라이터이다.
+            bw = new BufferedWriter(new FileWriter(path,true));    //bw는 새로운 버퍼드라이터인데, 그 버퍼드라이터가 파일라이터를 불러오는 버퍼드라이터이다.
             //문자스트림을 사용해서 경로의 문서에 작성
             bw.write(wc);                                               //버퍼드라이터에 작성한다. wc값을 받을거니 wc값을 작성한다.
             bw.newLine();                                               //새로운 라인 작성  
@@ -73,7 +78,7 @@ private String path = "C:\\bigdataStudy\\memo.txt"; //path생성. 보안이므�
     public ArrayList<String> getMemo() throws FileNotFoundException, IOException{ 
     ArrayList<String> ar = new ArrayList<>();                                   //어레이리스트 스트링타입을가진거 생성
     BufferedReader br = null;                                                   //버퍼드리더 만듬
-    br = new BufferedReader(new FileReader(getPath()));                         //버퍼드리더인데 파일리더의 경로를 가진 버퍼드리더
+    br = new BufferedReader(new FileReader(path));                         //버퍼드리더인데 파일리더의 경로를 가진 버퍼드리더
     String rdv = null;                                                          //rdv는 널값
     //readLine() 은 스트림을 통해서 문자열을 한줄 단위로 읽어온다.
     //마지막은 null

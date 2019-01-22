@@ -29,7 +29,33 @@ DataCheck dc = new DataCheck(); //dc 생성
 Member member = new Member(); //멤버생성
  ServerThreadTest stt = new  ServerThreadTest();
 
+ 
+ 
+ 
     private Socket s; // 소켓 생성
+
+    public String getReserveinfo() {
+        return reserveinfo;
+    }
+
+    public String getReserveinfofull() {
+        return reserveinfofull;
+    }
+
+    public String getReserveymdh() {
+        return reserveymdh;
+    }
+    private String reserveinfo;
+    private String reserveinfofull;
+    private String reserveymdh;
+    
+    
+    
+    
+    
+    
+    
+    
     private PrintWriter pw; //PrintWriter생성
     /**
      * Creates new form Shin_GUI
@@ -108,6 +134,7 @@ Member member = new Member(); //멤버생성
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Label_LoginID = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -139,6 +166,8 @@ Member member = new Member(); //멤버생성
 
         Label_LoginID.setText("Admin");
 
+        jLabel4.setText("님");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -152,8 +181,10 @@ Member member = new Member(); //멤버생성
                         .addGap(18, 18, 18)
                         .addComponent(Label_LoginID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +196,8 @@ Member member = new Member(); //멤버생성
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(Label_LoginID)))
+                        .addComponent(Label_LoginID)
+                        .addComponent(jLabel4)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -325,7 +357,7 @@ Member member = new Member(); //멤버생성
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLayout.createSequentialGroup()
-                .addContainerGap(313, Short.MAX_VALUE)
+                .addContainerGap(319, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -373,11 +405,11 @@ Member member = new Member(); //멤버생성
         //시술 정보 가져오기
         String reservememo = (String) TextFieldMemo.getText();
 
-        String reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
+        reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
         //예약 정보(Full) 가져오기
-        String reserveinfofull = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo;
+        reserveinfofull = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo;
         
-        String reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
+        reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
         //예약 년월일시간 가져오기
      
         //
@@ -393,6 +425,7 @@ Member member = new Member(); //멤버생성
             //정확히 입력해주세요를 Label에 출력
         }else{
             try {
+                
                 if(dc.Check(reserveymdh)==true){
                     //dc : 데이터 체크 클래스
                     //DC.Check : dc클래스의 check
@@ -433,6 +466,7 @@ Member member = new Member(); //멤버생성
 
                 }
             } catch (IOException ex) {
+                System.out.println("오류발생");
                 ex.printStackTrace();
             }
 
@@ -499,6 +533,7 @@ Member member = new Member(); //멤버생성
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -507,4 +542,11 @@ Member member = new Member(); //멤버생성
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel main;
     // End of variables declaration//GEN-END:variables
+
+ 
+
+
+
+
+
 }

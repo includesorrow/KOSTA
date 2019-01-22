@@ -10,17 +10,32 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.net.ServerSocket;
+import java.net.Socket;
+
 
 /**
  *
  * @author KOSTA
  */
 public class DataCheck {
-      public static boolean Check(String ch) throws IOException{
+//    
+//    private ServerSocket ss;
+//    public DataCheck(ServerSocket ss) {
+//        this.ss = ss;
+//    }
+//
+//   
     
+    
+    
+      public boolean Check(String ch) throws IOException{
+ 
+//         Socket s = ss.accept();
+        
     ArrayList<String> fileList = new ArrayList<String>();  
     //ArrayList가 사용할 객체 타입은 스트링이고 이름은 fileList로 저장한다.
-        String s = null;
+        String sss = null;
         
         
         File file = new File("C:\\bigdataStudy\\memo.txt");
@@ -35,10 +50,10 @@ public class DataCheck {
         
 
        
-            while((s = buf.readLine()) != null) {
+            while((sss = buf.readLine()) != null) {
                 //만약 buf.ReadLine()이 null값이라면
                 
-                fileList.add(s);
+                fileList.add(sss);
                 //어레이인 파일리스트에 s를 추가한다.
                 
             }
@@ -54,6 +69,7 @@ public class DataCheck {
         
 	buf.close();
         //buf를 종료한다.
+//        s.close();
         System.out.println("=-=-==-체크 종료-=-=-=-");
         //체크종료
     
@@ -61,5 +77,5 @@ public class DataCheck {
        
        //결과값을 ccheck로 반환한다. (true / false)
 }
+      }
 
-}
