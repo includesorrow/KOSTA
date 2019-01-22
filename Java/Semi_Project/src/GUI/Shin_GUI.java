@@ -10,11 +10,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import Class.HandleReservation;
 import Class.DataInput;
 import Class.DataCheck;
+import POJO.Member;
 
 
 /**
@@ -25,6 +24,7 @@ public class Shin_GUI extends javax.swing.JFrame{
 HandleReservation hr = new HandleReservation(); //hr 생성
 DataInput di = new DataInput(); //di 생성
 DataCheck dc = new DataCheck(); //dc 생성
+Member member = new Member(); //멤버생성
 
     private Socket s; // 소켓 생성
     private PrintWriter pw; //PrintWriter생성
@@ -33,6 +33,27 @@ DataCheck dc = new DataCheck(); //dc 생성
      */
     public Shin_GUI() {
               initComponents();
+              
+              Label_LoginID.setText(member.getId());
+              //라벨 텍스트를 저장한다.
+              
+              if(Label_LoginID.getText() == "Admin"){
+                  //만약 어드민이면
+              Label_Admin.setVisible(true);
+              TextField_Admin.setVisible(true);
+              Button_Admin.setVisible(true);
+              //어드민영역보임
+              }
+              
+              else{
+                  TextField_Admin.setVisible(false);
+                  Label_Admin.setVisible(false);
+                  Button_Admin.setVisible(false);
+              //어드민영역안보임
+              }
+              
+              
+              
         try {
             //서버에 접속
             s = new Socket("localhost" , 9999);
@@ -82,9 +103,7 @@ DataCheck dc = new DataCheck(); //dc 생성
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        Label_LoginID = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -98,6 +117,9 @@ DataCheck dc = new DataCheck(); //dc 생성
         LabelError = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         target = new javax.swing.JTextArea();
+        TextField_Admin = new javax.swing.JTextField();
+        Label_Admin = new javax.swing.JLabel();
+        Button_Admin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,11 +133,7 @@ DataCheck dc = new DataCheck(); //dc 생성
 
         jLabel3.setText("반갑습니다!");
 
-        jLabel4.setText("오늘은 우리가 만난지 xx일 입니다.");
-
-        jLabel5.setText("이런! 얼굴을 보니  견적이 1억쯤 나오시겠네요.");
-
-        jLabel7.setText("호갱님");
+        Label_LoginID.setText("Admin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,14 +146,10 @@ DataCheck dc = new DataCheck(); //dc 생성
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(Label_LoginID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,16 +157,11 @@ DataCheck dc = new DataCheck(); //dc 생성
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(Label_LoginID)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -243,28 +252,57 @@ DataCheck dc = new DataCheck(); //dc 생성
         target.setRows(5);
         jScrollPane1.setViewportView(target);
 
+        TextField_Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextField_AdminActionPerformed(evt);
+            }
+        });
+
+        Label_Admin.setText("ID검색");
+
+        Button_Admin.setText("확인");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(48, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Label_Admin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextField_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Button_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(TextField_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Label_Admin))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Button_Admin)))
+                .addGap(28, 28, 28)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
@@ -276,9 +314,9 @@ DataCheck dc = new DataCheck(); //dc 생성
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLayout.createSequentialGroup()
-                .addContainerGap(337, Short.MAX_VALUE)
+                .addContainerGap(313, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(36, 36, 36))
         );
         mainLayout.setVerticalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +325,7 @@ DataCheck dc = new DataCheck(); //dc 생성
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,17 +336,20 @@ DataCheck dc = new DataCheck(); //dc 생성
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ComboDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboDayActionPerformed
+    private void TextField_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_AdminActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComboDayActionPerformed
+    }//GEN-LAST:event_TextField_AdminActionPerformed
 
     private void ButtonReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReservationActionPerformed
+
         String reserveyear = (String) ComboYear.getSelectedItem();
         //년도 정보 가져오기
         String reservemonth = (String) ComboMonth.getSelectedItem();
@@ -324,11 +365,11 @@ DataCheck dc = new DataCheck(); //dc 생성
         String reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
         //예약 년월일시간 가져오기
 
-//
-//        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
-//        String [] array = new String[st.countTokens()];
-//        int i = 0;
-        
+        //
+        //        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
+        //        String [] array = new String[st.countTokens()];
+        //        int i = 0;
+
         if(reserveinfo.length() >= 19){
             //만약 길이가 19가 넘으면
             LabelError.setForeground(Color.red);
@@ -358,35 +399,29 @@ DataCheck dc = new DataCheck(); //dc 생성
                     //파일이 추가가 되면 그 파일을 순번대로 정렬한다. 이는 hr의 textArray참고
                     pw.println(reserveinfo + " 로 예약되었습니다.");
                     //예약정보를 textArea로 출력함.
-                    
+
                 }
                 else{
-                    
+
                     LabelError.setForeground(Color.GREEN);
                     //중복일시에 텍스트컬러를 초록색으로 바꿈.
 
                     LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
                     //dc.Check(reserveymdh)==false이면
                     //다른시간에 예약되었다고 출력하게 만듬
-                    
+
                 }
             } catch (IOException ex) {
-               ex.printStackTrace();
+                ex.printStackTrace();
             }
-            
-           
-        }
-        
-        
-        
-    
-        
-        
-        
-        
 
+        }
 
     }//GEN-LAST:event_ButtonReservationActionPerformed
+
+    private void ComboDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboDayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboDayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,19 +460,20 @@ DataCheck dc = new DataCheck(); //dc 생성
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonReservation;
+    private javax.swing.JButton Button_Admin;
     private javax.swing.JComboBox<String> ComboDay;
     private javax.swing.JComboBox<String> ComboHour;
     private javax.swing.JComboBox<String> ComboMonth;
     private javax.swing.JComboBox<String> ComboProsedure;
     private javax.swing.JComboBox<String> ComboYear;
     private javax.swing.JLabel LabelError;
+    private javax.swing.JLabel Label_Admin;
+    private javax.swing.JLabel Label_LoginID;
+    private javax.swing.JTextField TextField_Admin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -22,11 +22,11 @@ public class HandleReservation implements HandleData{
  *
  * @author shin
  */
-    
+    private String path = "C:\\bigdataStudy\\memo.txt";
     ////////////////////내림차순 정렬/////////////////////////
-    public void TextArray() throws IOException{
-  System.out.println("< 텍스트 파일 불러오기 >\n");
-  FileReader FR = new FileReader("C:\\bigdataStudy\\memo.txt");
+    public void TextArray() throws IOException{                                 
+  System.out.println("< 텍스트 파일 불러오기 >\n");         
+  FileReader FR = new FileReader(path);                 //파일리더.
   BufferedReader BR = new BufferedReader(FR);
 
   ArrayList<String> ArrayList = new ArrayList<String>();

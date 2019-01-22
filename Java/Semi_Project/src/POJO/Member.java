@@ -10,11 +10,11 @@ package POJO;
  * @author younghoonkim
  */
 public class Member {
-    String name;
-    String id;
-    String password;
-    String cellphone;
-    String procedure;
+    private String name;
+    private String id;
+    private String password;
+    private String cellphone;
+    private String procedure;
     boolean admin;
     
 
