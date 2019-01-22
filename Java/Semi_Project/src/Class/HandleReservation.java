@@ -23,44 +23,46 @@ public class HandleReservation implements HandleData{
  * @author shin
  */
     private String path = "C:\\bigdataStudy\\memo.txt";
+    private String path2 = "C:\\bigdataStudy\\memoarray.txt";
     ////////////////////내림차순 정렬/////////////////////////
     public void TextArray() throws IOException{                                 
   System.out.println("< 텍스트 파일 불러오기 >\n");         
-  FileReader FR = new FileReader(path);                 //파일리더.
-  BufferedReader BR = new BufferedReader(FR);
+  FileReader FR = new FileReader(path);                     //파일리더.
+  BufferedReader BR = new BufferedReader(FR);               //버퍼드리더
 
-  ArrayList<String> ArrayList = new ArrayList<String>();
+  ArrayList<String> ArrayList = new ArrayList<String>();    //어레이리스트 생성
   String Line;
-  while ((Line = BR.readLine()) != null) {
-   ArrayList.add(Line);
+  while ((Line = BR.readLine()) != null) {                  //while(null값뜰때까지)
+   ArrayList.add(Line);                                     //라인생성
   }
 
   System.out.println("< 내림차순 정렬 전 >\n");
-  for (int i = 0; i < ArrayList.size(); i++)
-   System.out.println(ArrayList.get(i));
+  for (int i = 0; i < ArrayList.size(); i++)                //내림차순 정렬 전.
+                                                            //for문으로 사이즈까지
+   System.out.println(ArrayList.get(i));                    //i번째를 출력
 
   System.out.println("\n< 정렬이 완료되었습니다. >\n");
-  ArrayList = AscendingOrder(ArrayList);
+  ArrayList = AscendingOrder(ArrayList);                    //AscendingOrder = 오름차순.
+                                                            //어레이리스트 = 오름차순의 어레이리스트이다.
+                                                            //내림차순의 이유는 밑에.
+  System.out.println("< 내림차순 정렬 후 >\n");             
+  for (int i = 0; i < ArrayList.size(); i++)                //내림차순 정렬 후
+   System.out.println(ArrayList.get(i));                    //출력
 
-  System.out.println("< 내림차순 정렬 후 >\n");
-  for (int i = 0; i < ArrayList.size(); i++)
-   System.out.println(ArrayList.get(i));
-
-  System.out.println("\n< 텍스트 파일 내보내기 >\n");
-  FileWriter FW = new FileWriter("C:\\bigdataStudy\\memoarray.txt");
-  BufferedWriter BW = new BufferedWriter(FW);
+  System.out.println("\n< 텍스트 파일 내보내기 >\n");                   //텍스트파일 보내기
+  FileWriter FW = new FileWriter(path2);                                //파일에 새로 작성  
+  BufferedWriter BW = new BufferedWriter(FW);                           //버퍼드라이터 bw 지정. 
   
-  for (int i = 0; i < ArrayList.size(); i++) {
-   BW.write(ArrayList.get(i));
-   BW.newLine();
+  for (int i = 0; i < ArrayList.size(); i++) {                          //어레이리스트사이즈까지
+   BW.write(ArrayList.get(i));                                          //쓰기
+   BW.newLine();                                                        //새로운라인생성     
   }
   BR.close();
   BW.close();
   FR.close();
-  FW.close();
+  FW.close();                                                           //버퍼드리더 등 다 종료
   }
- 
- public static ArrayList AscendingOrder(ArrayList<String> ArrayList) {
+ public static ArrayList AscendingOrder(ArrayList<String> ArrayList) {  //삽입정렬
   String Temp;
   ArrayList<String> NewArrayList = new ArrayList<String>();
   for (int i = 0; i < ArrayList.size() - 1; i++) {
@@ -75,80 +77,6 @@ public class HandleReservation implements HandleData{
   NewArrayList = ArrayList;
   return NewArrayList;
  }
-    
-    
-    ///////////////데이터 입력/////////////
-    public class testWrite {
-    
-            private testRead efr;
-            public testWrite(){
-            efr = new testRead();
-            }
-    public void execWriter(String memo){
-            efr.writeClient(memo);
-       }
-    public void execReader(){
-        try {
-        ArrayList<String> arlist = efr.getMemo();    
-        for(String e : arlist){
-            System.out.println(e);
-        }
-        } catch (IOException ex) {
-        ex.printStackTrace();
-        }
-        
-    }
-}
-    
-    
-    public class testRead {
-    private String path; //path생성
-    
-    public testRead(){
-        path = "C:\\bigdataStudy\\memo.txt";
-    }
-    
-    
-    
-    
-    public void writeClient(String wc){
-        BufferedWriter bw = null;
-        try {    
-            bw = new BufferedWriter(new FileWriter(path,true));
-            //문자스트림을 사용해서 경로의 문서에 작성
-            bw.write(wc);
-            bw.newLine();
-            bw.flush(); 
-        } catch (IOException ex) {
-            System.out.println("문제가 발생했습니다.");
-        }
-        
-    }
-    
-    public ArrayList<String> getMemo() throws FileNotFoundException, IOException{
-    ArrayList<String> ar = new ArrayList<>();
-    BufferedReader br = null;
-    br = new BufferedReader(new FileReader(path));
-    String rdv = null;
-    //readLine() 은 스트림을 통해서 문자열을 한줄 단위로 읽어온다.
-    //마지막은 null
-    while((rdv = br.readLine()) != null){
-    //읽어온 문자열을 한줄씩 ArrayList에 저장
-    ar.add(rdv);
-    }
-    br.close();
-    return ar;
-    }
-    }
-    
-    ///////////////////////////////
-    
-    
-    
-    
-    
-    
-    
     
     
     
