@@ -14,7 +14,6 @@ import Class.HandleReservation;
 import Class.DataInput;
 import Class.DataCheck;
 import POJO.Member;
-import Class.ServerThreadTest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,8 +26,6 @@ HandleReservation hr = new HandleReservation(); //hr 생성
 DataInput di = new DataInput(); //di 생성
 DataCheck dc = new DataCheck(); //dc 생성
 Member member = new Member(); //멤버생성
- ServerThreadTest stt = new  ServerThreadTest();
-
  
  
  
@@ -98,12 +95,19 @@ Member member = new Member(); //멤버생성
                 BufferedReader br = new BufferedReader( //버퍼리더생성
                     new InputStreamReader(s.getInputStream())); //인풋스트림리더
                     //s 는 소켓이고, 인풋스트림리더를 만든다. (s.인풋스트림을가져온다)
-//               while(true){
+              while(true){
+                        
+                String clientMsg = br.readLine();
+                  pw.println("Checkd");
+                   System.out.println("Log  : " + clientMsg);
+                  
+      //            System.out.println("Log  : " + clientMsg);
+                  
 //                   target.setText
-                   //target.append(br.readLine()+"\n");
+                  //target.append(br.readLine()+"\n");
                    //만약 true면 jTextArea에 나타낸다.
                    
-//               } 
+               } 
                
                     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
@@ -423,30 +427,43 @@ Member member = new Member(); //멤버생성
             //라벨 텍스트 색을 빨간색으로.
             LabelError.setText("정확히 입력해주세요.");
             //정확히 입력해주세요를 Label에 출력
-        }else{
-            try {
-                
-                if(dc.Check(reserveymdh)==true){
-                    //dc : 데이터 체크 클래스
-                    //DC.Check : dc클래스의 check
-                    //dc.Check(reserveymdh) < 년도/일자 등등 체크
-                    //dc.Check(reserveymdh)==true
-                    // 중복값이 있는지 체크하고 그게 중복값이 없을 때 true를 출력.
-                    //그래서 true가 출력되면
-                    LabelError.setText("예약이 완료되었습니다!");
-                    //예약이 완료되었습니다 를 라벨에 출력
-                    LabelError.setForeground(Color.blue);
-                    //라벨 색을 파란색으로 설정
-                    di.execWriter(reserveinfofull);
-                    //di < 데이터 인풋
-                    //di.execWriter(reserveinfo)
-                    //이건 reserveinfo라는 스트링을 execWriter에 넣어서 입력하게 만드는거임.
-                    hr.TextArray();
-                    //hr.testArray
-                    //HandleReservastion 클래스의 textArray();
-                    //파일이 추가가 되면 그 파일을 순번대로 정렬한다. 이는 hr의 textArray참고
-                    pw.println(reserveinfo + " 로 예약되었습니다.");
-                    //예약정보를 textArea로 출력함.
+           
+        }else {
+//                 pw.println(chatMsg.getText().trim());
+                pw.println(reserveymdh);
+//            stt.run();
+        }
+            
+           
+           
+//if(dc.Check(reserveymdh)==true){
+//dc : 데이터 체크 클래스
+//DC.Check : dc클래스의 check
+//dc.Check(reserveymdh) < 년도/일자 등등 체크
+//dc.Check(reserveymdh)==true
+// 중복값이 있는지 체크하고 그게 중복값이 없을 때 true를 출력.
+//그래서 true가 출력되면
+// LabelError.setText("예약이 완료되었습니다!");
+//예약이 완료되었습니다 를 라벨에 출력
+//LabelError.setForeground(Color.blue);
+//라벨 색을 파란색으로 설정
+//di.execWriter(reserveinfofull);
+//di < 데이터 인풋
+//di.execWriter(reserveinfo)
+//이건 reserveinfo라는 스트링을 execWriter에 넣어서 입력하게 만드는거임.
+//hr.TextArray();
+//hr.testArray
+//HandleReservastion 클래스의 textArray();
+//파일이 추가가 되면 그 파일을 순번대로 정렬한다. 이는 hr의 textArray참고
+//                    try {
+//                        stt.ServerThreadTest();
+//                    } catch (Exception ex) {
+//                        Logger.getLogger(Shin_GUI.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+
+
+//                    pw.println(reserveinfo + " 로 예약되었습니다.");
+//예약정보를 textArea로 출력함.
                     
 //                     try {
 //                      stt.ServerThreadTest();
@@ -454,23 +471,20 @@ Member member = new Member(); //멤버생성
 //                           ex.printStackTrace();
 //                      }
 
-                }
-                else{
+//                }
+//                else{
+//
+//                    LabelError.setForeground(Color.GREEN);
+//                    //중복일시에 텍스트컬러를 초록색으로 바꿈.
+//
+//                    LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
+//                    //dc.Check(reserveymdh)==false이면
+//                    //다른시간에 예약되었다고 출력하게 만듬
+//
+//                }
+            
 
-                    LabelError.setForeground(Color.GREEN);
-                    //중복일시에 텍스트컬러를 초록색으로 바꿈.
-
-                    LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
-                    //dc.Check(reserveymdh)==false이면
-                    //다른시간에 예약되었다고 출력하게 만듬
-
-                }
-            } catch (IOException ex) {
-                System.out.println("오류발생");
-                ex.printStackTrace();
-            }
-
-        }
+        
 
     }//GEN-LAST:event_ButtonReservationActionPerformed
 

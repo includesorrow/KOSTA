@@ -12,16 +12,25 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import GUI.Shin_GUI;
+
+
+
 
 /**
  *
  * @author KOSTA
  */
 public class ServerThread implements Runnable{
+    DataCheck dc = new DataCheck();
+    DataInput di = new DataInput();
+    HandleReservation hr = new HandleReservation();
+    Shin_GUI sg = new Shin_GUI();
     
     
     private Socket socket;
-    private Server server;
+    private Server Ex1_server;
+    
     private BufferedReader br;
     private PrintWriter pw;
     //서버에서 브로드캐스팅을 하기 위해서
@@ -33,13 +42,13 @@ public class ServerThread implements Runnable{
     
     public ServerThread(Socket socket, Server server) throws IOException{
         this.socket= socket;
-        this.server = server;
-        System.out.println("������ IP : " + socket.getInetAddress().getHostAddress());
+        this.Ex1_server = server;
+        System.out.println("접속자 IP :" + socket.getInetAddress().getHostAddress());
         
     }
         
         
-        @Override
+        @Override 
         public void run(){
             try {
                 pw = new PrintWriter(socket.getOutputStream(),true);
@@ -47,11 +56,27 @@ public class ServerThread implements Runnable{
                  br = new BufferedReader(
                 new InputStreamReader(
                             socket.getInputStream()));
+                 
+                 
+                        //if(dc.Check(reserveymdh)==true){
+                 
         //사용자의 소켓으로부터 메시지를 계속 받아야 한다.
         while(true){
             String clientMsg = br.readLine();
+            //클라이언트메시지가 체크라는 메시지를 보냈다.
+            
+            
+//            if(clientMsg.equals("Check")){
+//                if(dc.Check(clientMsg)==true){
+//                    
+//                System.out.println("테스트");
+//                }
+//                
+   
+//                pw.println("잘됐다");
+//            }
             System.out.println("Log  : " + clientMsg);
-            server.sendMessage(clientMsg);
+            Ex1_server.sendMessage(clientMsg);
         } 
             }catch (IOException ex) {
                 }
