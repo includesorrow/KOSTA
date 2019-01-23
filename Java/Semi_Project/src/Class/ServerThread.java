@@ -30,8 +30,7 @@ public class ServerThread implements Runnable{
     DataInput di = new DataInput();
     HandleReservation hr = new HandleReservation();
     private String duplication = "duplication";
-    private String tohr;
-        
+
     public PrintWriter getPw() {
         return pw;
     }
@@ -58,8 +57,7 @@ public class ServerThread implements Runnable{
                 if(dc.Check(rt.nextToken())==true){
 
                   di.execWriter(rt.nextToken());
-                  tohr = rt.nextToken();
-                    System.out.println(tohr);
+                  
                   hr.TextArray();
                  }
                 else{

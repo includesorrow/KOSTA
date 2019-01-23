@@ -601,14 +601,14 @@ private void Action(){
         
         reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
         //예약 정보(Full) 가져오기
-        reserveinfofull = (String) member.getId() + "/" + reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo;
-        reserveinfofull_admin = (String) reserveAdminTypeId + "/" + reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo ;
+        reserveinfofull = (String) member.getId() + ":" + reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo;
+        reserveinfofull_admin = (String) reserveAdminTypeId + ":" + reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo ;
                 
         reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
         //예약 년월일시간 가져오기
         
        reserveTocken = reserveymdh + "^" +reserveinfofull;
-       reserveTockenAdmin = reserveymdh + "^" + reserveinfofull_admin + "^" + reserveinfofull_admin;
+       reserveTockenAdmin = reserveymdh + "^" + reserveinfofull_admin;
 }
 
 
