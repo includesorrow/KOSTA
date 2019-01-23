@@ -14,6 +14,7 @@ import Class.HandleReservation;
 import Class.DataInput;
 import Class.DataCheck;
 import POJO.Member;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,22 +32,17 @@ Member member = new Member(); //멤버생성
  
     private Socket s; // 소켓 생성
 
-    public String getReserveinfo() {
-        return reserveinfo;
-    }
-
-    public String getReserveinfofull() {
-        return reserveinfofull;
-    }
-
-    public String getReserveymdh() {
-        return reserveymdh;
-    }
+ 
     private String reserveinfo;
     private String reserveinfofull;
     private String reserveymdh;
+    private String reserveTocken;
+    private String reserveinfofull_admin;
+    private String reserveTockenAdmin;
+    private int reservememolength;
     
-    
+        
+        
     
     
     
@@ -63,7 +59,7 @@ Member member = new Member(); //멤버생성
               Label_LoginID.setText(member.getId());
               //라벨 텍스트를 저장한다.
               
-              if(Label_LoginID.getText() == "Admin"){
+              if(Label_LoginID.getText() != "Admin"){
                   //만약 어드민이면
               Label_Admin.setVisible(true);
               TextField_Admin.setVisible(true);
@@ -98,8 +94,14 @@ Member member = new Member(); //멤버생성
               while(true){
                         
                 String clientMsg = br.readLine();
-                  pw.println("Checkd");
-                   System.out.println("Log  : " + clientMsg);
+                  if(clientMsg.equals("duplication")){
+                    LabelError.setForeground(Color.GREEN);
+                    //중복일시에 텍스트컬러를 초록색으로 바꿈.
+
+                    LabelError.setText("이미 예약되어 있습니다. 다른 시간에 예약하세요.");
+                    //dc.Check(reserveymdh)==false이면
+                    //다른시간에 예약되었다고 출력하게 만듬
+                  }
                   
       //            System.out.println("Log  : " + clientMsg);
                   
@@ -309,9 +311,14 @@ Member member = new Member(); //멤버생성
             }
         });
 
-        Label_Admin.setText("ID검색");
+        Label_Admin.setText("ID입력");
 
         Button_Admin.setText("확인");
+        Button_Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_AdminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -361,25 +368,27 @@ Member member = new Member(); //멤버생성
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLayout.createSequentialGroup()
-                .addContainerGap(319, Short.MAX_VALUE)
+                .addContainerGap(389, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(95, 95, 95))
         );
         mainLayout.setVerticalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(58, 58, 58))
+                .addGap(56, 56, 56))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,30 +406,8 @@ Member member = new Member(); //멤버생성
 
     private void ButtonReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReservationActionPerformed
 
-        String reserveyear = (String) ComboYear.getSelectedItem();
-        //년도 정보 가져오기
-        String reservemonth = (String) ComboMonth.getSelectedItem();
-        //월 정보 가져오기
-        String reserveday = (String) ComboDay.getSelectedItem();
-        //일 정보 가져오기
-        String reservehour = (String) ComboHour.getSelectedItem();
-        //시간 정보 가져오기
-        String reserveprosedure = (String) ComboProsedure.getSelectedItem();
-        //시술 정보 가져오기
-        String reservememo = (String) TextFieldMemo.getText();
-
-        reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
-        //예약 정보(Full) 가져오기
-        reserveinfofull = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo;
-        
-        reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
-        //예약 년월일시간 가져오기
      
-        //
-        //        StringTokenizer st = new StringTokenizer(reserveinfo, ":");
-        //        String [] array = new String[st.countTokens()];
-        //        int i = 0;
-
+           Action();
         if(reserveinfo.length() >= 19){
             //만약 길이가 19가 넘으면
             LabelError.setForeground(Color.red);
@@ -428,9 +415,15 @@ Member member = new Member(); //멤버생성
             LabelError.setText("정확히 입력해주세요.");
             //정확히 입력해주세요를 Label에 출력
            
+        }else if(reservememolength >= 20){
+            LabelError.setForeground(Color.black);
+            LabelError.setText("메모의 글자수가 초과하였습니다.");
+            
         }else {
+            LabelError.setForeground(Color.blue);
+            LabelError.setText("예약이 완료되었습니다!");
 //                 pw.println(chatMsg.getText().trim());
-                pw.println(reserveymdh);
+                pw.println(reserveTocken);
 //            stt.run();
         }
             
@@ -496,6 +489,37 @@ Member member = new Member(); //멤버생성
         // TODO add your handling code here:
     }//GEN-LAST:event_TextFieldMemoActionPerformed
 
+    private void Button_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_AdminActionPerformed
+        
+        
+        Action();
+        if(reserveinfo.length() >= 19){
+            //만약 길이가 19가 넘으면
+            LabelError.setForeground(Color.red);
+            //라벨 텍스트 색을 빨간색으로.
+            LabelError.setText("정확히 입력해주세요.");
+            //정확히 입력해주세요를 Label에 출력
+           
+        }else if(reservememolength >= 20){
+            LabelError.setForeground(Color.black);
+            LabelError.setText("메모의 글자수가 초과하였습니다.");
+            
+        }else {
+            
+            LabelError.setForeground(Color.blue);
+            LabelError.setText("예약이 완료되었습니다!");
+//                 pw.println(chatMsg.getText().trim());
+                pw.println(reserveTockenAdmin);
+//            stt.run();
+        }
+
+        
+        
+        
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_AdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -558,7 +582,34 @@ Member member = new Member(); //멤버생성
     // End of variables declaration//GEN-END:variables
 
  
-
+private void Action(){
+       String reserveyear = (String) ComboYear.getSelectedItem();
+        //년도 정보 가져오기
+        String reservemonth = (String) ComboMonth.getSelectedItem();
+        //월 정보 가져오기
+        String reserveday = (String) ComboDay.getSelectedItem();
+        //일 정보 가져오기
+        String reservehour = (String) ComboHour.getSelectedItem();
+        //시간 정보 가져오기
+        String reserveprosedure = (String) ComboProsedure.getSelectedItem();
+        //시술 정보 가져오기
+        String reservememo = (String) TextFieldMemo.getText();
+        
+        reservememolength = reservememo.length();
+        
+        String reserveAdminTypeId = (String) TextField_Admin.getText();
+        
+        reserveinfo = (String) reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure;
+        //예약 정보(Full) 가져오기
+        reserveinfofull = (String) member.getId() + "/" + reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo;
+        reserveinfofull_admin = (String) reserveAdminTypeId + "/" + reserveyear +"/"+ reservemonth +"/"+ reserveday +"/"+ reservehour +":"+ reserveprosedure +":"+ reservememo ;
+                
+        reserveymdh = (String) reserveyear + "/" + reservemonth + "/" + reserveday +"/" + reservehour;
+        //예약 년월일시간 가져오기
+        
+       reserveTocken = reserveymdh + "^" +reserveinfofull;
+       reserveTockenAdmin = reserveymdh + "^" + reserveinfofull_admin + "^" + reserveinfofull_admin;
+}
 
 
 

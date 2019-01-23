@@ -63,8 +63,7 @@ private String path = "C:\\bigdataStudy\\memo.txt"; //path생성. 보안이므�
     
     public void writeClient(String wc){                                 //고객을 작성한다.
         BufferedWriter bw = null;                                       //버퍼라이터 bw를 만듬.
-        try {    
-            bw = new BufferedWriter(new FileWriter(path,true));    //bw는 새로운 버퍼드라이터인데, 그 버퍼드라이터가 파일라이터를 불러오는 버퍼드라이터이다.
+        try {bw = new BufferedWriter(new FileWriter(path,true));    //bw는 새로운 버퍼드라이터인데, 그 버퍼드라이터가 파일라이터를 불러오는 버퍼드라이터이다.
             //문자스트림을 사용해서 경로의 문서에 작성
             bw.write(wc);                                               //버퍼드라이터에 작성한다. wc값을 받을거니 wc값을 작성한다.
             bw.newLine();                                               //새로운 라인 작성  

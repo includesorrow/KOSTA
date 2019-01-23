@@ -64,7 +64,7 @@ public class HandleReservation implements HandleData {
   for (int i = 0; i < ArrayList.size(); i++) {                          //어레이리스트사이즈까지
  
         
-      BW.write(ArrayList.get(i));                                          //쓰기
+      BW.write(ArrayList.get(i));          //쓰기
    BW.newLine();       //새로운라인생성  
   }
                                                      
@@ -75,6 +75,11 @@ public class HandleReservation implements HandleData {
   }
  public static ArrayList AscendingOrder(ArrayList<String> ArrayList) {  //삽입정렬
   String Temp;
+  ///
+  
+  
+  
+  ///
   ArrayList<String> NewArrayList = new ArrayList<String>();
   for (int i = 0; i < ArrayList.size() - 1; i++) {
    for (int j = i + 1; j < ArrayList.size(); j++) {
