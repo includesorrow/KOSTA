@@ -39,7 +39,7 @@ public class ServerThread implements Runnable{
         
         this.socket= socket;
         this.server = server;
-        System.out.println("������ IP : " + socket.getInetAddress().getHostAddress());
+        System.out.println("접속IP : " + socket.getInetAddress().getHostAddress());
     }
         
         
