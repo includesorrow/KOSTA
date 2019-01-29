@@ -143,3 +143,9 @@ from t_reg ;
 select text, regexp_count(text,'.') "result1",
 regexp_count(text,'\,') "result2"
 from t_reg ;
+
+
+
+----
+
+  
