@@ -12,7 +12,7 @@
 <style>
 	table{width : 100px; margin : auto;}
 	table thread td{ background : orange;}
-	table tbody td{ background : yellow; border : 1px solid;
+	table tbody td{ background : yellow; border : 1px solid; 
 	text-align:center;}
 </style>
 </head>
