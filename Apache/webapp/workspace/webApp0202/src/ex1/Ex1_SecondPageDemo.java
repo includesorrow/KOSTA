@@ -25,7 +25,8 @@ public class Ex1_SecondPageDemo extends HttpServlet {
 		
 		out.println("second");
 		out.println("Second Page : " + req.getAttribute("msg"));
-	}
+	} 
+	
 
 
 }
