@@ -38,10 +38,9 @@ public class Ex1_FirstPageDemo extends HttpServlet {
 		String msg = req.getParameter("msg");
 		req.setAttribute("msg", msg);
 	//	resp.sendRedirect("second"); < Redirect방식.이런방식이면 second에서 msg출력못함.
-	//	foward방식 request 객체가 7
-		체
+	//	foward방식 request 객체가 7체
 		RequestDispatcher rd = req.getRequestDispatcher("second");
-		//기존의 값이 유지된 성태에서 First에서 Second로 보냄. 
+		//기존의 값이 유지된 성태에서 First에서 Second로 보냄.  
 		rd.forward(req, resp);
 		//이렇게 할려면 포워드 방식으로 저장해야한다.
 		 
