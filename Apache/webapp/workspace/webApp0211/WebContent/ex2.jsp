@@ -11,9 +11,6 @@ request.setAttribute("movieList",movieList);
 
 <!DOCTYPE html>
 
-
-
-
 <html>
 <head>
 	

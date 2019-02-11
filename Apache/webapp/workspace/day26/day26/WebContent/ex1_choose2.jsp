@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>hello</title>
+<title>ex1_choose2.jsp</title>
 </head>
 <body>
-<h1>${msg }</h1>
-<!-- today -->
+<form action="ex1_choose1.jsp" method="post">
+	<input type="number" name="val" max="100" min="0">
+	<input type="submit" value="전송">
+</form>
 </body>
 </html>

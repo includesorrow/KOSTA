@@ -14,7 +14,7 @@ public class HelloAction implements Action{
 		String msg = "helloMVC!";
 		request.setAttribute("msg", msg);
 		//false : forward, true : redirect
-		return new ActionForward("hello.jsp", false);
+		return new ActionForward("Hello.jsp", false);
 				
 	}
 	
