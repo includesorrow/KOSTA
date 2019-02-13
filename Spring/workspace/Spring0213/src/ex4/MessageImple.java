@@ -4,6 +4,7 @@ public class MessageImple implements MessageInter{
 	private String message;
 	
 	public MessageImple() {
+		System.out.println("생성자!");
 		message="오늘 AOP란 이런거다. 한번 해보는 날!";
 	}
 	

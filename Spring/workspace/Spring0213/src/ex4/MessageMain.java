@@ -19,8 +19,8 @@ public static void main(String[] args) {
 	//3-1. ProxyFactoryBean에게 타겟, Advice들을 알려주도록 한다.
 	pBean.setTarget(target);
 	//세터이므로 DI라고 판단할줄 알아야 함
-	//pBean.addAdvice(adivce);
-	//3-2 PintCut과 Adivce를 결합한 Advisor를 생성
+	//pBean.addAdvice(advice);
+	//3-2 PintCut과 Advice를 결합한 Advisor를 생성
 	
 	NameMatchMethodPointcut pointcut=
 			new NameMatchMethodPointcut();
@@ -34,7 +34,6 @@ public static void main(String[] args) {
 	//prMessage.print2();
 	System.out.println(prMessage.message());
 }
-
 	//pointcut
 	//advice를 어떤 곳에다가 적용할 것인가??????????????????
 	//nameMatchMethod << 포인트컷임.그냥써보는거라고 생각하세요
