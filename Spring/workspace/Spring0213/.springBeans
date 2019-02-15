@@ -12,6 +12,7 @@
 		<config>src/ex3/auto.xml</config>
 		<config>src/ex3/resource.xml</config>
 		<config>src/ex5/xml.xml</config>
+		<config>src/aop/ex1/ex1_aop.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

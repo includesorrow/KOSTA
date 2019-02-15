@@ -15,7 +15,7 @@ public class Ex1_AutoWiredService  implements PrintInter{
  * @Autowired(required=false)
  */
 	@Autowired(required=false)
-	//false => 중복인가 널인가 허용함
+	//false 	//NULL 허용
 	@Qualifier("hold")
 	private String name;
 	//현재 초기화도 안했고 setter로 넣어주지도 않음.
@@ -24,7 +24,6 @@ public class Ex1_AutoWiredService  implements PrintInter{
 	 * 원래는 ref로 참조해야함. 
 	 * byname = id랑 id에 있는 이름이랑 주입받을려고 하는 String name
 	 * AutoWried는 name이 이름이 같으므로 그냥 주입시켜주겠다.
-	 * 
 	 * 
 	 * 얘는 IF{ IF{} } 이런식으로 구분함. 
 	 * 원하는 타입을 찾았는데 타입이 여러개가 있으면 난 몰라요 라고 답변함
