@@ -4,16 +4,16 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>msgDto</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<ul>
-		<li>${dto.writer }</li>
-		<li>${dto.deptno }</li>
-		<li>${dto.url }</li>
-		
+<p>
+	<h1>	${dto.writer}</h1>
+	<h1> ${dto.title }</h1>
 	
-	</ul>
-
+		
+<p>
+	<img src="${pageContext.request.contextPath }/resources/img/${imgName}">
+	</p>
 </body>
 </html>

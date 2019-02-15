@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${imgName}
+${imgName} 
 <p>
 	<img src="${pageContext.request.contextPath }/resources/img/${imgName}">
 	</p>

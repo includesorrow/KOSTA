@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import kr.or.kosta.dto.ExampSawonDTO;
+import kr.or.kosta.dto.MiniBoardDTO;
 
 @Controller
 public class ModelAttrDemo {
@@ -18,11 +19,19 @@ public class ModelAttrDemo {
 	@PostMapping("/formTest")
 	//@ModelAttribute : 파라미터로 전송된 VO값을 View로 전달하고 싶을 때
 	
-	public String paramDto(@ModelAttribute(value="dto") ExampSawonDTO dto) {
-		System.out.println("Test" + dto.getDeptno());
+	public String paramDto(@ModelAttribute(value="mbd") MiniBoardDTO mbd) {
+		System.out.println("Test" + mbd.getTitle());
 		return "msgDto";
 	}
 	
+//	@PostMapping("/formTest")
+//	//@ModelAttribute : 파라미터로 전송된 VO값을 View로 전달하고 싶을 때
+//	
+//	public String paramDto(@ModelAttribute(value="dto") ExampSawonDTO dto) {
+//		System.out.println("Test" + dto.getDeptno());
+//		return "msgDto";
+//	}
+//	
 	//모델어트리뷰트가 없으면 -> 
 	//모델을 사용해서 값을 넣던지 / 모델 & view를 사용해서 값을 넣음.
 	/*
