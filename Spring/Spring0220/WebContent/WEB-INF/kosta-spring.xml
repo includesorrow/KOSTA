@@ -54,7 +54,6 @@
 	</bean>
 	
 	
-	
 	<!-- Transaction 설정 -->
 	<bean id="tm"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

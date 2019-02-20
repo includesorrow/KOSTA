@@ -15,7 +15,6 @@
        		></put-attribute>
        		<put-attribute name="footer"
        		value="/WEB-INF/template/default/footer.jsp"></put-attribute>
-       	
        	</definition>
        	<definition name="*" extends="defaultTemplate">
        		<put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp"></put-attribute>

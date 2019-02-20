@@ -35,7 +35,7 @@ public class ServiceImple implements ServiceInter{
 
 	@Override
 	public void addAll(MemberVO mvo, CustomerVO cvo) throws Exception {
-	memberDao.addMember(mvo); 
+	memberDao.addMem(mvo); 
 	customerDao.addCustomer(cvo);
 	}
 	

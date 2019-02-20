@@ -89,7 +89,7 @@ ul {
 						<label>아이디</label> <input type="text" name="id" id="id">
 					</p>
 					<p>
-						<label>비밀번호</label> <input type="password" name="pwd" id="pwd">
+						<label>비밀번호</label> <input type="password" name="password" id="password">
 					</p>
 					<p style="text-align: right;">
 
