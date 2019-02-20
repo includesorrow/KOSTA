@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -57,5 +58,29 @@ public class LoginCheckController {
 		return mav;
 	}
 	
+	@GetMapping("/idcheck")
+	public String idCheck(Model m, String id) {
+		int cnt = memberDaoInter.idChk(id);
+		String msg ="이미 사용중인 아이디입니다.";
+		System.out.println("if문 밖에");
+		System.out.println(cnt);
+		if(cnt==0) {
+			
+			msg="사용 가능한 아이디입니다.";
+		}
+		m.addAttribute("cnt",cnt);
+		return "idchk/idchk"; 
+	}
+	
+	
+	@GetMapping("/jqueryMain")
+	public String board() {
+		return "board";
+	}
+	
+	@GetMapping("/setwrite")
+	public String write() {
+		return "Write";
+	}
 	
 }

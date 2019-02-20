@@ -44,6 +44,9 @@ public class MyMemberController {
 		return "idchk"; 
 	}
 	
-	
+	@GetMapping("/setwrite")
+	public String setwrite() {
+		return "
+	}
 	
 }

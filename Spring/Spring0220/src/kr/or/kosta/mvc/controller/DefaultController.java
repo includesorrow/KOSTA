@@ -37,6 +37,10 @@ public class DefaultController {
 		return "member";
 	}
 	
+	@GetMapping("/checkwrite")
+	public String checkwrite() {
+		return "checkwrite";
+	}
 	
 	
 	
