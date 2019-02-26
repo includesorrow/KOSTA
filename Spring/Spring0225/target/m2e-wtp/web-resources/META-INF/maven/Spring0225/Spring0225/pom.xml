@@ -23,7 +23,8 @@
         </configuration>
       </plugin>
     </plugins>
-  </build>  <dependencies>
+  </build>  
+  <dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
