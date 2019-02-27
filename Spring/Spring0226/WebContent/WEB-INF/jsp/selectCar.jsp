@@ -83,6 +83,9 @@
 			}
 		}
 	}
+	
+	
+	
 	function res2() {
 		console.log("ReadyState:"+xhr.readyState)
 		if (xhr.readyState == 4) {//서버로부터 데이터 처리가 완료된 경우

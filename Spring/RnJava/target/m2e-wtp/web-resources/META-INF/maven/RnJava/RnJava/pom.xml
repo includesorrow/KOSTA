@@ -132,7 +132,20 @@
     <artifactId>Rserve</artifactId>
     <version>1.8.1</version>
 </dependency>
-
+	
+  <dependency>
+    <groupId>org.renjin</groupId>
+    <artifactId>renjin-script-engine</artifactId>
+    <version>RELEASE</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/com.github.yannrichet/Rsession --> 
+<dependency>
+    <groupId>com.github.yannrichet</groupId>
+    <artifactId>Rsession</artifactId>
+    <version>2.0.4</version>
+</dependency>
+  
+  
 	</dependencies>
   
   

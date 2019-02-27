@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>RnJava</groupId>
-  <artifactId>RnJava</artifactId>
+  <groupId>Spring0227</groupId>
+  <artifactId>Spring0227</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <build>
@@ -24,8 +24,7 @@
       </plugin>
     </plugins>
   </build>
-  
-   <dependencies>
+  <dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -85,68 +84,5 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.3.2</version>
 		</dependency>
-		
-		<!-- tiles 설정 -->
-<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
-<dependency>
-    <groupId>org.apache.tiles</groupId>
-    <artifactId>tiles-jsp</artifactId>
-    <version>3.0.5</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-servlet -->
-<dependency>
-    <groupId>org.apache.tiles</groupId>
-    <artifactId>tiles-servlet</artifactId>
-    <version>3.0.5</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
-<dependency>
-    <groupId>org.apache.tiles</groupId>
-    <artifactId>tiles-extras</artifactId>
-    <version>3.0.5</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.8.6</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
-<dependency>
-    <groupId>org.jsoup</groupId>
-    <artifactId>jsoup</artifactId>
-    <version>1.8.3</version>
-</dependency>
-
-
-<dependency>
-    <groupId>org.rosuda.REngine</groupId>
-    <artifactId>REngine</artifactId>
-    <version>2.1.0</version>
-</dependency>
-<dependency>
-    <groupId>org.rosuda.REngine</groupId>
-    <artifactId>Rserve</artifactId>
-    <version>1.8.1</version>
-</dependency>
-	
-  <dependency>
-    <groupId>org.renjin</groupId>
-    <artifactId>renjin-script-engine</artifactId>
-    <version>RELEASE</version>
-  </dependency>
-  <!-- https://mvnrepository.com/artifact/com.github.yannrichet/Rsession --> 
-<dependency>
-    <groupId>com.github.yannrichet</groupId>
-    <artifactId>Rsession</artifactId>
-    <version>2.0.4</version>
-</dependency>
-  
-  
-	</dependencies>
-  
-  
+		</dependencies>
 </project>
