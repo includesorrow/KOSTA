@@ -28,6 +28,7 @@ $(function(){
 	};
 	array.push(addMember);
 	$.each(array,function(idx,item){
+		//each= 향상된for문
 		//var print='';
 		//print +="<h1 ["+item.addr+"]+"   "+item.name+"</h1>";
 		//document.getElementById("res").innerHTML += print;
