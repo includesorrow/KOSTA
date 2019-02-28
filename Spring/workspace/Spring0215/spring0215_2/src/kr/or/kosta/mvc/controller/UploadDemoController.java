@@ -3,8 +3,6 @@ package kr.or.kosta.mvc.controller;
 import java.io.File;
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +21,7 @@ public class UploadDemoController {
 	//MultipartFile mfile  를 이용해 업로드 파라미터 처리
 	//CommonsMultipartResolver 라는 별도의 Resolver Common 관련 라이브러리가 필요
 	@PostMapping("/upload")
-	public String uploadFile(MultipartFile mfile, Model m, HttpServletRequest request) {
+	public String uploadFile(MultipartFile mfile, Model m, HttpServlet request) {
 		String img_path = "resources\\imgfile";
 		String r_path = request.getRealPath("/");
 		String oriFn = mfile.getOriginalFilename();
