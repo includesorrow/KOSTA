@@ -84,7 +84,7 @@ public class DefaultController {
 		ifile=ifile.substring(ifile.lastIndexOf("\\"));
 		System.out.println(ifile);
 		ImageVO vo = new ImageVO();
-		vo.setIfile(ifile);
+		vo.setIfile( ifile);
 		m.addAttribute("msg",dao.imagechk(vo));
 		return "imagechk";
 	}

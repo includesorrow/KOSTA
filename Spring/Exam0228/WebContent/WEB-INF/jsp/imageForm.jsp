@@ -39,7 +39,7 @@ $(function(){
 	$("#send").prop("disabled",true);
 	$("#chk").click(function(){
 		$("#idk").load("imagechk?ifile="+$("#mfile").val(),function(response){
-			console.log($("#mfile").val());
+			console.log($("#mfile").val());	
 			if(response==="0"){
 				$("#send").prop("disabled",false);
 				alert("가능합니다.");

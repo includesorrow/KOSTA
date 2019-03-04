@@ -1,5 +1,4 @@
-import org.apache.tomcat.jni.File;
-import org.rosuda.REngine.REXP;
+
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.rosuda.REngine.Rserve.RserveException;
@@ -51,7 +50,6 @@ public class RServeExample1 {
 	           
 	           
 	           
-	        File file = new File();
 			c.assign("myvalues", myvalues);
 				} catch (Exception e) {
 			e.printStackTrace();
