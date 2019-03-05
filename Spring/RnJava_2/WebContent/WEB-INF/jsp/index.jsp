@@ -1,17 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Rserve.Rserve_C" %>
 <html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+  <head>
+    <title>Rserve</title>
+  </head>
+  <body>
+<h1> hello world </h1>
 <%
   Rserve_C rc = new Rserve_C();
   out.print(rc.returnRClass());
 %>
-
-</body>
+  </body>
 </html>
