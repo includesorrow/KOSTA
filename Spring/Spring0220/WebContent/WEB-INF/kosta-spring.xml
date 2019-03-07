@@ -60,5 +60,16 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<tx:annotation-driven transaction-manager="tm" />
+	
+	<!-- Interceptor -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/my*"/>
+			<!-- interceptor를 제외할 경우 -->
+			<mvc:exclude-mapping path="/mytest"/>
+			<bean class="kr.or.kosta.mvc.inter.MyHandlerIntercepter"/>
+		</mvc:interceptor>
+	
+	</mvc:interceptors>
 
 </beans>

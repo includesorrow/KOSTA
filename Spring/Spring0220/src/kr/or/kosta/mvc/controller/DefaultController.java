@@ -43,6 +43,16 @@ public class DefaultController {
 	}
 	
 	
+	@RequestMapping(value="/myindex")
+	public String myDefaultView() {
+		return "index";
+	}
+	
+	@RequestMapping(value="/mytest")
+	public String myDefaultView1() {
+		return "index";
+	}
+	
 	
 	
 	

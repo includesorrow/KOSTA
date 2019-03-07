@@ -162,8 +162,28 @@
 <version>1.5</version>
 
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/com.github.yannrichet/Rsession -->
+<dependency>
+    <groupId>com.github.yannrichet</groupId>
+    <artifactId>Rsession</artifactId>
+    <version>2.0.4</version>
+</dependency>
+  <dependency>
+    <groupId>org.renjin</groupId>
+    <artifactId>renjin-script-engine</artifactId>
+    <version>RELEASE</version>
+  </dependency>
+
   
 	</dependencies>
    
+<repositories>
+  <repository>
+    <id>bedatadriven</id>
+    <name>bedatadriven public repo</name>
+    <url>https://nexus.bedatadriven.com/content/groups/public/</url>
+  </repository>
+</repositories>
   
 </project>
