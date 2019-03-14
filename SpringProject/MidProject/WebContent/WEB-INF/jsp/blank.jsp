@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
@@ -365,48 +367,370 @@
       <section class="wrapper site-min-height">
         <h3><i class="fa fa-angle-right"></i> Blank Page</h3>
         <div class="row mt">
-          <div class="col-lg-12">
-            <p>Place your content here.</p>
+        
           </div>
+       
+              <c:choose>
+						<c:when test="${texttest == 'Y'}">
+ 						Add 	
+						</c:when>
+						<c:otherwise>
+						 Edit 
+</c:otherwise>
+</c:choose>
+            
+            
+            <!-- 테스트 -->
+            <select name="movietag" id="movietag" onchange="영화태그선택">
+<option value="moviename">영화제목</option>
+<option value="actor">배우</option>
+<option value="director">감독</option>
+<option value="company">영화사</option>
+
+</select>
+
+검색어를 입력해주세요. <input type="text" name="search" size="20"> 
+
+
+	<input type="button" value="검색">
+	
+<br>	
+<br>
+<textarea rows="5" cols="80" name="choicearea">영화를 선택해주세요.</textarea>
+<br>
+<br>
+<br>
+	
+	
+	
+	<input type="image" src="img/portfolio/movietest.jpg">	
+	<div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <form action="#" class="form-horizontal style-form">
+                
+             
+                <div class="form-group last">
+                  <label class="control-label col-md-3">영화 포스터 바꾸기</label>
+                  <div class="col-md-9">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                    
+                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                      <div>
+                      
+                        <input type="file" class="default" />
+                  		
+                        <input type="button" value="사진 바꾸기">
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
         </div>
+	
+
+	
+	<textarea rows="10" cols="80" name="resultarea">영화 결과창</textarea>
+	
+	<br>
+	<br>
+	
+	    <!--  MODALS1_영화수정 -->
+            <div class="showback">
+              <!-- Button trigger modal -->
+              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_moviemodify">
+               영화 수정
+                </button>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal_moviemodify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                      
+                      
+                      
+                      
+                      	
+                      	
+                      	
+                      	<div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <form action="#" class="form-horizontal style-form">
+                
+             
+                <div class="form-group last">
+                		
+                       	기존 포스터
+                       	<br>
+                       	<input type="image" src="img/portfolio/movietest.jpg">	
+                       	<br>
+                  <label class="control-label col-md-3">포스터 바꾸기</label>
+                  <div class="col-md-9">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                    
+                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+            
+                      <div>
+                      
+                        <input type="file" class="default" />
+                  		
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
+                      	
+                      	영화 제목 : <input type="text" name="modifytitle" size="20"> 
+                      	<br>
+                      	영화 배우 : <input type="text" name="modifyactor" size="20">
+                      	<br>
+                      	영화 감독 : <input type="text" name="modifydirector" size="20">
+                      	<br>
+                      	영화 태그 : <input type="text" name="modifytag" size="20">
+                      	<br>
+                      	영화사 : <input type="text" name="modifycompany" size="20">
+                      	<br>
+                      	<br>
+                      	<div>
+                      	<input type="button" value="수정완료">
+                      	
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              <!--  MODALS20_영화추가 -->
+
+              <!-- Button trigger modal -->
+              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_movieadd">
+               영화 추가
+                </button>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal_movieadd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                      
+                      
+                      
+                      
+                      	
+                      	
+                      	
+                      	<div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <form action="#" class="form-horizontal style-form">
+                
+             
+                <div class="form-group last">
+                		
+                  
+                       	<br>
+                  <label class="control-label col-md-3">포스터 추가하기</label>
+                  <div class="col-md-9">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                    
+                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+            
+                      <div>
+                      
+                        <input type="file" class="default" />
+                  		
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
+                      	
+                      	영화 제목 : <input type="text" name="addtitle" size="20"> 
+                      	<br>
+                      	영화 배우 : <input type="text" name="addactor" size="20">
+                      	<br>
+                      	영화 감독 : <input type="text" name="adddirector" size="20">
+                      	<br>
+                      	영화 태그 : <input type="text" name="addtag" size="20">
+                      	<br>
+                      	영화사 : <input type="text" name="addcompany" size="20">
+                      	<br>
+                      	<br>
+                      	<input type="button" value="추가하기">
+                      		
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+       
+              
+              
+                 <!--  MODALS_영화삭제 -->
+              <!-- Button trigger modal -->
+              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_moviedelete">
+                영화 삭제
+                </button>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal_moviedelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                    	정말로 영화를 삭제하시겠습니까?
+                    	<br>
+                    	<button type="button" value="moviedeletebtn">영화 삭제</button>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+	
+              
+              
+              
+              
+	
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
+	--------------------
+	-------------------
+	----------
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
+	
+						분석대상 정보
+						<br>
+						분석 영화 제목 : <input type="text" name="analysistitle" size="20"> 
+                      	<br>
+                      	분석 영화 판권 구매 금액 : <input type="number" name="analysisbuymoney" size="20">
+                      	<br>
+                      	분석 영화 태그 : <input type="text" name="analysistag" size="20">
+                      	<br>
+                      	
+						        	<input type="button" value="분석하기">
+						        	
+						        	<br>
+						        	<br>
+						        	<br>
+	
+	
+	
+	<textarea rows="5" cols="80" name="analysisarea">분석결과</textarea>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 경계선 -->
       </section>
       <!-- /wrapper -->
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="blank.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
-          </a>
-      </div>
-    </footer>
+    
     <!--footer end-->
   </section>
+
+
+
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
-  <script src="lib/jquery.ui.touch-punch.min.js"></script>
   <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
   <script src="lib/jquery.scrollTo.min.js"></script>
   <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
   <!--common script for all pages-->
   <script src="lib/common-scripts.js"></script>
   <!--script for this page-->
+  <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/date.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+  <script src="lib/advanced-form-components.js"></script>
+
+
 
 </body>
 

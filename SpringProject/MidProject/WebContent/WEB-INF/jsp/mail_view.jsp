@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
-  <meta charset="utf-8">
+ <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
@@ -482,7 +483,7 @@
                 </div>
                 <div class="attachment-mail">
                   <p>
-                    <span><i class="fa fa-paperclip"></i> 2 attachments — </span>
+                    <span><i class="fa fa-paperclip"></i> 2 attachments â </span>
                     <a href="#">Download all attachments</a> |
                     <a href="#">View all images</a>
                   </p>

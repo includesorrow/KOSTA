@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
-  <meta charset="utf-8">
+ <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
@@ -450,9 +451,9 @@
             <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
               <div class="slides"></div>
               <h3 class="title"></h3>
-              <a class="prev">‹</a>
-              <a class="next">›</a>
-              <a class="close">×</a>
+              <a class="prev">â¹</a>
+              <a class="next">âº</a>
+              <a class="close">Ã</a>
               <a class="play-pause"></a>
               <ol class="indicator"></ol>
             </div>

@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
-  <meta charset="utf-8">
+ <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
@@ -516,7 +517,7 @@
               <div class="col-md-4 col-sm-4 mb">
                 <div class="weather pn">
                   <i class="fa fa-cloud fa-4x"></i>
-                  <h2>11º C</h2>
+                  <h2>11Âº C</h2>
                   <h4>BUDAPEST</h4>
                 </div>
               </div>
@@ -540,9 +541,9 @@
                   </div>
                   <div class="row data">
                     <div class="col-sm-6 col-xs-6 goleft">
-                      <h4><b>16 ºC</b></h4>
-                      <h6>21º max</h6>
-                      <h6>8º min</h6>
+                      <h4><b>16 ÂºC</b></h4>
+                      <h6>21Âº max</h6>
+                      <h6>8Âº min</h6>
                     </div>
                     <div class="col-sm-6 col-xs-6 goright">
                       <h5><i class="fa fa-sun-o fa-2x"></i></h5>
@@ -557,7 +558,7 @@
               <div class="col-lg-4 col-md-4 col-sm-4 mb">
                 <div class="weather-3 pn centered">
                   <i class="fa fa-sun-o"></i>
-                  <h1>30º C</h1>
+                  <h1>30Âº C</h1>
                   <div class="info">
                     <div class="row">
                       <h3 class="centered">MADRID</h3>

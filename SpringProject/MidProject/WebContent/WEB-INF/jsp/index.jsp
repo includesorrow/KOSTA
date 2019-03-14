@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
-  <meta charset="utf-8">
+ <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
@@ -14,7 +15,7 @@
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
@@ -494,7 +495,7 @@
               <div class="col-md-4 mb">
                 <div class="weather pn">
                   <i class="fa fa-cloud fa-4x"></i>
-                  <h2>11º C</h2>
+                  <h2>11Âº C</h2>
                   <h4>BUDAPEST</h4>
                 </div>
               </div>
@@ -887,5 +888,6 @@
     }
   </script>
 </body>
-
+<script src="/webjars/jquery/2.1.3/dist/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 </html>

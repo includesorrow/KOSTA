@@ -15,4 +15,5 @@ where rownum<6;
 select rownum,ibun,ilabel, idate, ifile from 
 (select * from image_info order by ibun desc) where rownum in (1,2,3,4,5);
 
-insert into image_info(ibun) values
+insert into image_info(ibun) values;
+

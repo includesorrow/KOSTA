@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <head>
-  <meta charset="utf-8">
+ <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
@@ -382,28 +383,28 @@
                       <td>
                         <span class="check"><input type="checkbox" class="checked"></span>
                         <a href="index.html#">Send invoice</a></span>
-                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">Ã</button>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <span class="check"><input type="checkbox" class="checked"></span>
                         <a href="index.html#">Check messages</a></span>
-                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">Ã</button>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <span class="check"><input type="checkbox" class="checked"></span>
                         <a href="index.html#">Pay bills</a></span>
-                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">Ã</button>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <span class="check"><input type="checkbox" class="checked"></span>
                         <a href="index.html#">Schedule site </a></span>
-                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">Ã</button>
                       </td>
                     </tr>
                   </tbody>
