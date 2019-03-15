@@ -20,7 +20,7 @@ public class DynamicExample {
 	@Autowired
 	private DynamicExampleDao dao; 
 	
-	@GetMapping(value={"/sawonlist","/dyex1","/dyex2"})
+	@GetMapping(value={"/sawonlist"})
 	public String sawonList(Model m) {
 		Map<String, String> map= new HashMap<String, String>();
 		m.addAttribute("list",dao.getSawonList(map));

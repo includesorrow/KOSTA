@@ -395,7 +395,13 @@
                 <div class="form-group">
                             <label class="col-lg-2 control-label">검색 결과</label>
                             <div class="col-lg-10">
-                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
+                            
+                              <textarea rows="10" cols="30" class="form-control" id="txtid" name="txtid">
+                            
+                              <c:forEach items="${list }" var="movie">
+								${movie.movie_number },	${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date }
+								</c:forEach>
+                              </textarea>
                             </div>
                           </div>
 	  <button class="btn btn-theme" type="submit">검색하기</button>
@@ -404,402 +410,46 @@
 	</div>
 	</div>
 	
+		<form action="blank2" method="get">
+		<fieldset>
+			<legend>사원 리스트 예제</legend>
+			<div>
+				<table>
+					<tbody>
+						<tr style="background: pink; height: 50px">
+						
+							<td>영화이름</td>
+						</tr>
+						<c:forEach items="${list }" var="movie">
+							<tr style="text-align: center;">
+								
+								<td>${movie.movie_title }</td>
+								<td>${movie.movie_number }</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="5">사원이름 : <input type="search" name="movie_title"> <input
+								type="submit" value="검색"></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</fieldset>
+	</form>
 	
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-     
-     
-     
-     
-     
-     
-     
-     
-     
-        <div class="row mt">
-        
-          </div>
-       
-              <c:choose>
-						<c:when test="${texttest == 'Y'}">
- 						Add 	
-						</c:when>
-						<c:otherwise>
-						 Edit 
-</c:otherwise>
-</c:choose>
-            
-            
-            <!-- 테스트 -->
-            <select name="movietag" id="movietag" onchange="영화태그선택">
-<option value="moviename">영화제목</option>
-<option value="actor">배우</option>
-<option value="director">감독</option>
-<option value="company">영화사</option>
-
-</select>
-
-검색어를 입력해주세요. <input type="text" name="search" size="20"> 
-
-
-	<input type="button" value="검색">
-	
-<br>	
-<br>
-<textarea rows="5" cols="80" name="choicearea">영화를 선택해주세요.</textarea>
-<br>
-<br>
-<br>
-	
-	
-	
-	<input type="image" src="img/portfolio/movietest.jpg">	
-	<div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <form action="#" class="form-horizontal style-form">
-                
-             
-                <div class="form-group last">
-                  <label class="control-label col-md-3">영화 포스터 바꾸기</label>
-                  <div class="col-md-9">
-                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                    
-                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                      <div>
-                      
-                        <input type="file" class="default" />
-                  		
-                        <input type="button" value="사진 바꾸기">
-                      </div>
-                    </div>
-                  
-                  </div>
-                </div>
-              </form>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-        </div>
-	
-
-	
-	<textarea rows="10" cols="80" name="resultarea">영화 결과창</textarea>
-	
-	<br>
-	<br>
-	
-	    <!--  MODALS1_영화수정 -->
-            <div class="showback">
-              <!-- Button trigger modal -->
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_moviemodify">
-               영화 수정
-                </button>
-              <!-- Modal -->
-              <div class="modal fade" id="myModal_moviemodify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                    </div>
-                    <div class="modal-body">
-                      
-                      
-                      
-                      
-                      
-                      	
-                      	
-                      	
-                      	<div class="row mt">
-          <div class="col-lg-12">
-            <div class="form-panel">
-              <form action="#" class="form-horizontal style-form">
-                
-             
-                <div class="form-group last">
-                		
-                       	기존 포스터
-                       	<br>
-                       	<input type="image" src="img/portfolio/movietest.jpg">	
-                       	<br>
-                  <label class="control-label col-md-3">포스터 바꾸기</label>
-                  <div class="col-md-9">
-                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                    
-                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-            
-                      <div>
-                      
-                        <input type="file" class="default" />
-                  		
-                      </div>
-                    </div>
-                  
-                  </div>
-                </div>
-              </form>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-        </div>
-                      	
-                      	영화 제목 : <input type="text" name="modifytitle" size="20"> 
-                      	<br>
-                      	영화 배우 : <input type="text" name="modifyactor" size="20">
-                      	<br>
-                      	영화 감독 : <input type="text" name="modifydirector" size="20">
-                      	<br>
-                      	영화 태그 : <input type="text" name="modifytag" size="20">
-                      	<br>
-                      	영화사 : <input type="text" name="modifycompany" size="20">
-                      	<br>
-                      	<br>
-                      	<div>
-                      	<input type="button" value="수정완료">
-                      	
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              
-              <!--  MODALS20_영화추가 -->
-
-              <!-- Button trigger modal -->
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_movieadd">
-               영화 추가
-                </button>
-              <!-- Modal -->
-              <div class="modal fade" id="myModal_movieadd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                    </div>
-                    <div class="modal-body">
-                      
-                      
-                      
-                      
-                      
-                      	
-                      	
-                      	
-                      	<div class="row mt">
-          <!-- /col-lg-12 -->
-        </div>
-                      	
-                      	영화 제목 : <input type="text" name="addtitle" size="20"> 
-                      	<br>
-                      	영화 배우 : <input type="text" name="addactor" size="20">
-                      	<br>
-                      	영화 감독 : <input type="text" name="adddirector" size="20">
-                      	<br>
-                      	영화 태그 : <input type="text" name="addtag" size="20">
-                      	<br>
-                      	영화사 : <input type="text" name="addcompany" size="20">
-                      	<br>
-                      	<br>
-                      	<input type="button" value="추가하기">
-                      		
-                      
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-       
-              
-              
-                 <!--  MODALS_영화삭제 -->
-              <!-- Button trigger modal -->
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_moviedelete">
-                영화 삭제
-                </button>
-              <!-- Modal -->
-              <div class="modal fade" id="myModal_moviedelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                    </div>
-                    <div class="modal-body">
-                    	정말로 영화를 삭제하시겠습니까?
-                    	<br>
-                    	<button type="button" value="moviedeletebtn">영화 삭제</button>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-	
-              
-              
-              
-              
-	
-	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-	
-	--------------------
-	-------------------
-	----------
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-	
-	
-						분석대상 정보
-						<br>
-						분석 영화 제목 : <input type="text" name="analysistitle" size="20"> 
-                      	<br>
-                      	분석 영화 판권 구매 금액 : <input type="number" name="analysisbuymoney" size="20">
-                      	<br>
-                      	분석 영화 태그 : <input type="text" name="analysistag" size="20">
-                      	<br>
-                      	
-						        	<input type="button" value="분석하기">
-						        	
-						        	<br>
-						        	<br>
-						        	<br>
-	
-	
-	
-	<textarea rows="5" cols="80" name="analysisarea">분석결과</textarea>
-	
-	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-	
-	 <div id="edit" class="tab-pane">
-                    <div class="row">
-                      <div class="col-lg-8 col-lg-offset-2 detailed">
-                        <h4 class="mb">분석 대상 정보</h4>
-                        <form role="form" class="form-horizontal">
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">분석 영화 제목</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="c-name" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">분석 영화 판권 구매금액</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="lives-in" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">분석 영화 태그 정보</label>
-                            <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="country" class="form-control">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-lg-2 control-label">분석 결과</label>
-                            <div class="col-lg-10">
-                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="col-lg-8 col-lg-offset-2 detailed mt">
-                        <form role="form" class="form-horizontal">
-                         
-                          <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-theme" type="submit">분석하기</button>
-                              <button class="btn btn-theme04" type="button">초기화</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <!-- /col-lg-8 -->
-                    </div>
-                    <!-- /row -->
-                  </div>
-                  <!-- /tab-pane -->
-                
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- 경계선 -->
-      </section>
-      <!-- /wrapper -->
-    </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
     
     <!--footer end-->
   </section>
-
+</section>
 
 
   <!-- js placed at the end of the document so the pages load faster -->
@@ -821,8 +471,14 @@
   <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
   <script src="lib/advanced-form-components.js"></script>
 
+<script>
 
-
+$(document).ready(function(){
+  $('#txtid').click(function() { alert('clicked'); }); 
+  $('#txtid').trigger('click');
+});
+</script>
 </body>
+
 
 </html>
