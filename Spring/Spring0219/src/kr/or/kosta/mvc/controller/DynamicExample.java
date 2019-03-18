@@ -32,8 +32,7 @@ public class DynamicExample {
 		Map<String, String> map= new HashMap<String, String>();
 		map.put("saname", saname);
 		m.addAttribute("list",dao.getSawonList(map));
-		return "sawonlist";
-	}
+		return "sawonlist";	}
 	
 	
 	@GetMapping(value={"/sawonlist2","/dyex2"})
@@ -49,7 +48,8 @@ public class DynamicExample {
 		map.put("sajob", sajob);
 		m.addAttribute("list",dao.getSawonList2(map));
 		return "sawonlist2";
-	}
+		}
+	
 	@GetMapping(value={"/sawonlist3","/dyex3"})
 	public String sawonList3(Model m) {
 		Map<String, String> map= new HashMap<String, String>();
@@ -65,11 +65,7 @@ public class DynamicExample {
 		m.addAttribute("searchType",searchType);
 		return "sawonlist3";
 	}
-	private void dataHandler(Map<String, String> map, Model model) {
-		List<SawonVO> list = dao.getSawonList(map);
-		model.addAttribute("list",list);
-	}
-	
+
 	@GetMapping(value= {"/dynamicfor","/dyfor"})
 	public String sawonList4(Model m) {
 //		Map<String,List<String>> map = new HashMap<String, List<String>>();

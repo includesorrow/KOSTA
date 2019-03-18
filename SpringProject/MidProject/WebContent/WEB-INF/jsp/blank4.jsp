@@ -366,72 +366,27 @@
     <section id="main-content">
       <section class="wrapper site-min-height">
      
+     
      	 <div id="edit" class="tab-pane">
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
                         <h4 class="mb">영화 관리 페이지</h4>
-                        
-                       
-                    <!-- 라디오버튼 -->
      
      <div class="movietag">
     <label class="col-lg-2 control-label">영화 태그 선택 </label>  
-    <br>
-    <br>
-           
-           <ul>
-      <li>
-        <input type="radio" name="radioTxt" value="radiotitle" checked>영화제목
-      </li>
-      <li>
-        <input type="radio" name="radioTxt" value="radioactor">배우
-      </li>
-      <li>
-        <input type="radio" name="radioTxt" value="radiodirector">감독
-      </li>
-      <li>
-      	<input type="radio" name="radioTxt" value="radiokeyword">댓글키워드
-      </li>
-      <li>
-      	<input type="radio" name="radioTxt" value="radiocompany">영화사
-    </ul>
-
+              <select class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
                 </div>
- <script>
- function asdf(){
-	  alert('g');
- }
- 
-	  function testtemp(){
-		  return '<c:forEach items="${list }" var="movie"> <p class="movielistclick" onclick="asdf();"> ${movie.movie_number },${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date } </p></c:forEach>';
-	  }
-	  
-	  
-	  </script>
-	  
                 <br>
                  <label class="col-lg-2 control-label">검색어</label>
 
-
-
-
                  <div class="col-lg-2">
-                 <table>
-                <tfoot>
-						<tr>
-							<td colspan="5">사원이름 : <input type="search" name="movie_title"> 
-							
-							 <button class="btn btn-theme" type="submit" id="searchbtn" name="searchbtn" onclick="testtemp();">검색하기
-	   
-	  </button>
-	  
-							
-							
-						</tr>
-					</tfoot>
-				</table>
-               
-                              <input type="text" placeholder=" " id="searchtext" class="form-control">
+                              <input type="text" placeholder=" " id="c-name" class="form-control">
                             
                             </div>
                             
@@ -440,36 +395,54 @@
                 <div class="form-group">
                             <label class="col-lg-2 control-label">검색 결과</label>
                             <div class="col-lg-10">
-                                   	영화번호, 영화가격, 영화제목, 영화개봉일자, 영화구입일자	
-                                   	<div class="searchresultvalue" id="searchresultvalue">
-																		
-                                   	</div>
-                            <div style="width: 600px; height: 300px;" >
-                  		  	
+                            
+                              <textarea rows="10" cols="30" class="form-control" id="txtid" name="txtid">
+                            
+                              <c:forEach items="${list }" var="movie">
+								${movie.movie_number },	${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date }
+								</c:forEach>
+                              </textarea>
                             </div>
                           </div>
-                          <div class="searchbtndiv">
+	  <button class="btn btn-theme" type="submit">검색하기</button>
 	
-	 
-	
-	
-	
-	  <button class="btn btn-theme" type="submit" id="searchbtn" name="searchbtn" onclick="testtemp();">검색하기
-	   
-	  </button>
-	  
-			
-	  
-	</div>
-                            
 	</div>
 	</div>
 	</div>
-                            </div>
+	
+		<form action="blank2" method="get">
+		<fieldset>
+			<legend>사원 리스트 예제</legend>
+			<div>
+				<table>
+					<tbody>
+						<tr style="background: pink; height: 50px">
+						
+							<td>영화이름</td>
+						</tr>
+						<c:forEach items="${list }" var="movie">
+							<tr style="text-align: center;">
+								
+								<td>${movie.movie_title }</td>
+								<td>${movie.movie_number }</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="5">사원이름 : <input type="search" name="movie_title"> <input
+								type="submit" value="검색"></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</fieldset>
+	</form>
 	
 	
-<%-- 	//$("#searchresultvalue").html('<c:forEach items="${list }" var="movie"> <p class="movielistclick"> ${movie.movie_number },	${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date }</p> </c:forEach>'); --%>
-    	
+	
+	
+	
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
@@ -499,46 +472,11 @@
   <script src="lib/advanced-form-components.js"></script>
 
 <script>
-$(document).ready(function () {
-
-    $('#searchbtn').click(function(){
-    	var radioVal = $('input[name="radioTxt"]:checked').val();
-    	var txt = $('#searchtext').val();
-    	if(radioVal == "radiotitle"){
-    	//	$("#searchresultvalue").text('test');
-    	//	$("#searchresultavlue").text($('#searchtext').val());
-//(작업중)연동작업 	
-
-		$("#searchresultvalue").html(testtemp());
-    		alert(radioVal);
-    	}
-    
-    	else if(radioVal == "radioactor"){
-    		alert(radioVal);
-    	}
-    	else if(radioVal == "radiodirector"){
-    		alert(radioVal);
-    	}
-    	else if(radioVal == "radiokeyword"){
-    		alert(radioVal);
-    	}
-    	else if(radioVal =="radiocompany"){
-    		alert(radioVal);
-    	}
-    	alert(txt);
-    	
-    });
-    	
-
+$(document).ready(function(){
+  $('#txtid').click(function() { alert('clicked'); }); 
+  $('#txtid').trigger('click');
 });
-	
-	
-
-
-
 </script>
-
-</section>
 </body>
 
 

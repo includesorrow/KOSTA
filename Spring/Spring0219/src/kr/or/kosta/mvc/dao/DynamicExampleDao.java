@@ -22,37 +22,29 @@ public class DynamicExampleDao {
 			dao = new DynamicExampleDao();
 		return dao;
 	}
-
 	public List<SawonVO> getSawonList(Map<String, String> map) {
 		List<SawonVO> list = ss.selectList("exam1.iftest1", map);
 		return list;
 	}
-
 	public List<SawonVO> getSawonList2(Map<String, String> map) {
 		List<SawonVO> list = ss.selectList("exam2.iftest2", map);
 		return list;
 	}
-
 	// choose 예제
 	public List<SawonVO> getSawonChooseList(Map<String, String> map) {
 		List<SawonVO> list = ss.selectList("exam3.chooseTest", map);
 		return list;
 	}
-
 	public List<SawonVO> getSawonList3(Map<String, String> map) {
 		return ss.selectList("exam3.iftest3", map);
 	}
-
 	// ForEach문 예제
 	public List<SawonVO> getSawonForeachList(Map<String, List<String>> map) {
 		List<SawonVO> list = ss.selectList("exam4.sawonDeptnoList", map);
 		return list;
 	}
-
 	public List<populationVO> getSawonFull() {
 		List<populationVO> list = ss.selectList("exam5.iftest5");
 		return list;
-
 	}
-
 }

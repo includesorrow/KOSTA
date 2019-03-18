@@ -19,5 +19,14 @@
   			 --> 
   			 
   			 </select>
+  			 
+  			 
+  			 <select id="movietitlelist" parameterType="hashmap"
+  			 resultType="movievo">
+  			 select movie_title from movie
+  			 where movie_title like '%' || #{movie_title} || '%'
+  			 
+  			 </select>
+  			
  </mapper>
  

@@ -41,31 +41,6 @@ public class DefaultController {
 	}
 	
 	
-//	@GetMapping(value= {"/blank2"})
-//	public String movielist(Model m) {
-//		System.out.println("blank2");
-//		Map<String, String> map = new HashMap<String, String>();
-//		String movielistt = dao.getMovieList();
-//		System.out.println("aa : "+movielistt);
-////		for(MovieVO e : movielistt) {
-////			System.out.println(e.getMovie_title());
-////		}
-//		m.addAttribute("list",movielistt);
-//		
-//		return "blank2";
-//	}
-//	
-//	@PostMapping("/blank2")
-//	public String searchMovie(String movie_title, Model m) {
-//		Map<String,String> map = new HashMap<String,String>();
-//		map.put("movie_title",movie_title);
-//		
-////		List<MovieVO> movielistt = dao.getMovieList(map);
-////		System.out.println(movielistt);
-////		m.addAttribute("list",dao.getMovieList(map));
-//		return "blank2";
-//	}
-	
 	@GetMapping(value={"/blank2"})
 	public String movielist(Model m) {
 		Map<String, String> map= new HashMap<String, String>();
@@ -76,11 +51,29 @@ public class DefaultController {
 	@PostMapping("/blank2")
 	public String searchTitle(String movie_title,Model m) {
 		Map<String, String> map= new HashMap<String, String>();
-		map.put("movie_title", movie_title);
-		m.addAttribute("list",dao.getMovieList(map));
+		map.put("movie_title",movie_title);
+		m.addAttribute("list",dao.getMovieTitleList(map)); 
 		return "blank2";
 	}
 	
+
+	@GetMapping(value={"/blank5"})
+	public String movielist5(Model m) {
+		Map<String, String> map= new HashMap<String, String>();
+		m.addAttribute("list",dao.getMovieList3(map));
+		return "blank5";
+	}
+	
+	@PostMapping("/blank5")
+	public String searchTitle5(String searchType,String search,Model m) {
+		Map<String, String> map= new HashMap<String, String>();
+		map.put("searchType", searchType);
+		map.put("search", search); 
+		System.out.println(search);
+		m.addAttribute("list",dao.getMovieList3(map)); 
+		m.addAttribute("searchType",searchType);
+		return "blank5";
+	}
 	
 	
-}
+	}

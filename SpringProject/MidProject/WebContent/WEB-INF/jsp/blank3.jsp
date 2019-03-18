@@ -366,71 +366,97 @@
     <section id="main-content">
       <section class="wrapper site-min-height">
      
+     
      	 <div id="edit" class="tab-pane">
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
                         <h4 class="mb">영화 관리 페이지</h4>
                         
-                       
-                    <!-- 라디오버튼 -->
-     
-     <div class="movietag">
-    <label class="col-lg-2 control-label">영화 태그 선택 </label>  
-    <br>
-    <br>
-           
-           <ul>
-      <li>
-        <input type="radio" name="radioTxt" value="radiotitle" checked>영화제목
-      </li>
-      <li>
-        <input type="radio" name="radioTxt" value="radioactor">배우
-      </li>
-      <li>
-        <input type="radio" name="radioTxt" value="radiodirector">감독
-      </li>
-      <li>
-      	<input type="radio" name="radioTxt" value="radiokeyword">댓글키워드
-      </li>
-      <li>
-      	<input type="radio" name="radioTxt" value="radiocompany">영화사
-    </ul>
-
                 </div>
- <script>
- function asdf(){
-	  alert('g');
- }
- 
-	  function testtemp(){
-		  return '<c:forEach items="${list }" var="movie"> <p class="movielistclick" onclick="asdf();"> ${movie.movie_number },${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date } </p></c:forEach>';
-	  }
-	  
-	  
-	  </script>
-	  
                 <br>
-                 <label class="col-lg-2 control-label">검색어</label>
-
-
-
-
-                 <div class="col-lg-2">
-                 <table>
-                <tfoot>
+                <br>
+                <br>
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                
+                
+                <form action="dyex3" method="post" >
+		<fieldset style="margin: auto">
+			<legend>사원 리스트 예제</legend>
+			<div style="border: margin:auto;">
+				<table>
+					<tbody>
+						<tr style="background: white; height: 300px">
+							<td>영화번호</td>
+							<td>영화제목</td>
+<!-- 					미구현
+						<td>영화배우</td>
+						<td>영화감독</td> 
+						<td>영화태그</td>
+							<td>영화사</td>
+							-->
+						</tr>
+						<c:forEach items="${list }" var="movie">
+							<tr>
+								<td>${movie.movie_number }</td>
+								<td>${movie.movie_title }</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					<tfoot>
 						<tr>
-							<td colspan="5">사원이름 : <input type="search" name="movie_title"> 
-							
-							 <button class="btn btn-theme" type="submit" id="searchbtn" name="searchbtn" onclick="testtemp();">검색하기
-	   
-	  </button>
-	  
-							
-							
+							<td colspan="6">
+							<select name="searchType">
+							<c:if test="${empty searchType}">
+								<option value="" selected="selected">선택 </option>
+								<option value="1">영화번호 </option>
+								<option value="2">영화제목 </option></c:if>
+							<c:if test="${searchType eq 2}">
+								<option value="">선택 </option>
+								<option value="1">영화번호 </option>
+								<option value="2" selected="selected">영화제목 </option></c:if>
+							<c:if test="${searchType eq 1}">
+								<option value="">선택 </option>
+								<option value="1" selected="selected">영화번호 </option>
+								<option value="2">영화제목 </option></c:if>
+							</select>
+ 								<input type="search" name="search"> 
+ 								<input type="submit" value="검색"></td>
 						</tr>
 					</tfoot>
 				</table>
-               
+			</div>
+		</fieldset>
+	</form>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+                <br>
+                 <label class="col-lg-2 control-label">검색어</label>
+
+                 <div class="col-lg-2">
                               <input type="text" placeholder=" " id="searchtext" class="form-control">
                             
                             </div>
@@ -442,34 +468,34 @@
                             <div class="col-lg-10">
                                    	영화번호, 영화가격, 영화제목, 영화개봉일자, 영화구입일자	
                                    	<div class="searchresultvalue" id="searchresultvalue">
-																		
+                                   	
                                    	</div>
                             <div style="width: 600px; height: 300px;" >
-                  		  	
+                  		   <!-- 
+                              <c:forEach items="${list }" var="movie">
+								<p class="movielistclick">${movie.movie_number },	${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date }</p>
+								
+								</c:forEach>
+							-->	
+							
                             </div>
                           </div>
                           <div class="searchbtndiv">
-	
-	 
-	
-	
-	
-	  <button class="btn btn-theme" type="submit" id="searchbtn" name="searchbtn" onclick="testtemp();">검색하기
-	   
-	  </button>
+	  <button class="btn btn-theme" type="submit" id="searchbtn" >검색하기</button>
 	  
-			
+	  
 	  
 	</div>
-                            
 	</div>
 	</div>
 	</div>
+	
+	
+							
                             </div>
 	
 	
-<%-- 	//$("#searchresultvalue").html('<c:forEach items="${list }" var="movie"> <p class="movielistclick"> ${movie.movie_number },	${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date }</p> </c:forEach>'); --%>
-    	
+	
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
@@ -500,19 +526,23 @@
 
 <script>
 $(document).ready(function () {
+    $('#radioButton').click(function () {
+      // getter
+      radioVal = $('input[name="radioTxt"]:checked').val();
+      alert(radioVal);
+    });
+    
+     
 
     $('#searchbtn').click(function(){
     	var radioVal = $('input[name="radioTxt"]:checked').val();
     	var txt = $('#searchtext').val();
     	if(radioVal == "radiotitle"){
-    	//	$("#searchresultvalue").text('test');
-    	//	$("#searchresultavlue").text($('#searchtext').val());
-//(작업중)연동작업 	
-
-		$("#searchresultvalue").html(testtemp());
+    		$("#searchresultvalue").text('test');
+    		$("#searchresultavlue").text($('#searchtext').val());
+//(작업중)연동작업 
     		alert(radioVal);
     	}
-    
     	else if(radioVal == "radioactor"){
     		alert(radioVal);
     	}
@@ -528,17 +558,21 @@ $(document).ready(function () {
     	alert(txt);
     	
     });
-    	
 
-});
-	
-	
+    $('#radioButton2').click(function () {
+      // setter
+      // 선택한 부분을 세팅할 수 있다.
+      $('input[name="radioTxt"]').val(['Banana']);
+    });
+  });
+
+
 
 
 
 </script>
 
-</section>
+
 </body>
 
 

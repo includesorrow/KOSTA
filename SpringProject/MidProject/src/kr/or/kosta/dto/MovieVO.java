@@ -3,7 +3,8 @@ package kr.or.kosta.dto;
 public class MovieVO {
 
 	private String movie_number, movie_title, movie_open_date, movie_purchase_date;
-	private int movie_price, movie_rating, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copylight_cost;
+	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copylight_cost;
+	private double movie_rating;
 	public String getMovie_number() {
 		return movie_number;
 	}
@@ -34,7 +35,7 @@ public class MovieVO {
 	public void setMovie_price(int movie_price) {
 		this.movie_price = movie_price;
 	}
-	public int getMovie_rating() {
+	public double getMovie_rating() {
 		return movie_rating;
 	}
 	public void setMovie_rating(int movie_rating) {

@@ -35,7 +35,7 @@
 						<tr>
 							<td colspan="6">
 							<select name="searchType">
-							<c:if test="${empty searchType}">
+							<c:if test="${empty searchType}">	
 								<option value="" selected="selected">선택 </option>
 								<option value="1">사원이름 </option>
 								<option value="2">직책 </option></c:if>

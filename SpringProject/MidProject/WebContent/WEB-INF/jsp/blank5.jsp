@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
+<%@ page session="false" language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
@@ -366,107 +366,73 @@
     <section id="main-content">
       <section class="wrapper site-min-height">
      
+      <script>
+ function asdf(){
+	  alert('g');
+ }
+ </script>
+     
      	 <div id="edit" class="tab-pane">
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
                         <h4 class="mb">영화 관리 페이지</h4>
                         
-                       
-                    <!-- 라디오버튼 -->
-     
-     <div class="movietag">
-    <label class="col-lg-2 control-label">영화 태그 선택 </label>  
-    <br>
-    <br>
-           
-           <ul>
-      <li>
-        <input type="radio" name="radioTxt" value="radiotitle" checked>영화제목
-      </li>
-      <li>
-        <input type="radio" name="radioTxt" value="radioactor">배우
-      </li>
-      <li>
-        <input type="radio" name="radioTxt" value="radiodirector">감독
-      </li>
-      <li>
-      	<input type="radio" name="radioTxt" value="radiokeyword">댓글키워드
-      </li>
-      <li>
-      	<input type="radio" name="radioTxt" value="radiocompany">영화사
-    </ul>
-
-                </div>
- <script>
- function asdf(){
-	  alert('g');
- }
- 
-	  function testtemp(){
-		  return '<c:forEach items="${list }" var="movie"> <p class="movielistclick" onclick="asdf();"> ${movie.movie_number },${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date } </p></c:forEach>';
-	  }
-	  
-	  
-	  </script>
-	  
-                <br>
-                 <label class="col-lg-2 control-label">검색어</label>
-
-
-
-
-                 <div class="col-lg-2">
-                 <table>
-                <tfoot>
+                	<form action="blank5" method="post">
+		<fieldset>
+			<legend>사원 리스트 예제</legend>
+			<div>
+				<table>
+					<tbody>
+						<tr style="background: pink; height: 50px">
+							<td>사원번호</td>
+							<td>사원이름</td>
+							<td>부서번호</td>
+							<td>성별</td>
+							<td>가입날짜</td>
+						</tr>
+						<c:forEach items="${list }" var="movie2">
+							<tr>
+								<td><p class="movielistclick" onclick="asdf();">${movie2.movie_title }</p></td>
+								<td>${movie2.movie_price }</td>
+								<td>${movie2.movie_number }</td>
+								<td>${movie2.movie_rating }</td>
+								<td>${movie2.movie_investment }</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+					<tfoot>
 						<tr>
-							<td colspan="5">사원이름 : <input type="search" name="movie_title"> 
-							
-							 <button class="btn btn-theme" type="submit" id="searchbtn" name="searchbtn" onclick="testtemp();">검색하기
-	   
-	  </button>
-	  
-							
-							
+							<td colspan="6">
+							<select name="searchType">
+							<c:if test="${empty searchType}">	
+								<option value="" selected="selected">선택 </option>
+								<option value="1">영화제목 </option>
+								<option value="2">영화가격 </option></c:if>
+							<c:if test="${searchType eq 2}">
+								<option value="">선택 </option>
+								<option value="1">영화제목 </option>
+								<option value="2" selected="selected">영화가격 </option></c:if>
+							<c:if test="${searchType eq 1}">
+								<option value="">선택 </option>
+								<option value="1" selected="selected">영화제목 </option>
+								<option value="2">영화가격 </option></c:if>
+							</select>
+ 								<input type="search" name="search"> 
+ 								<input type="submit" value="검색"></td>
 						</tr>
 					</tfoot>
 				</table>
-               
-                              <input type="text" placeholder=" " id="searchtext" class="form-control">
-                            
-                            </div>
-                            
-                            <br>
-                            <br>
-                <div class="form-group">
-                            <label class="col-lg-2 control-label">검색 결과</label>
-                            <div class="col-lg-10">
-                                   	영화번호, 영화가격, 영화제목, 영화개봉일자, 영화구입일자	
-                                   	<div class="searchresultvalue" id="searchresultvalue">
-																		
-                                   	</div>
-                            <div style="width: 600px; height: 300px;" >
-                  		  	
-                            </div>
-                          </div>
-                          <div class="searchbtndiv">
-	
-	 
-	
-	
-	
-	  <button class="btn btn-theme" type="submit" id="searchbtn" name="searchbtn" onclick="testtemp();">검색하기
-	   
-	  </button>
-	  
+			</div>
+		</fieldset>
+	</form>
+			
+			
 			
 	  
 	</div>
                             
 	</div>
 	</div>
-	</div>
-                            </div>
-	
 	
 <%-- 	//$("#searchresultvalue").html('<c:forEach items="${list }" var="movie"> <p class="movielistclick"> ${movie.movie_number },	${movie.movie_price },${movie.movie_title },${movie.movie_open_date },${movie.movie_purchase_date }</p> </c:forEach>'); --%>
     	
@@ -498,45 +464,45 @@
   <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
   <script src="lib/advanced-form-components.js"></script>
 
-<script>
-$(document).ready(function () {
+<!-- <script> -->
+// $(document).ready(function () {
 
-    $('#searchbtn').click(function(){
-    	var radioVal = $('input[name="radioTxt"]:checked').val();
-    	var txt = $('#searchtext').val();
-    	if(radioVal == "radiotitle"){
-    	//	$("#searchresultvalue").text('test');
-    	//	$("#searchresultavlue").text($('#searchtext').val());
-//(작업중)연동작업 	
+//     $('#searchbtn').click(function(){
+//     	var radioVal = $('input[name="radioTxt"]:checked').val();
+//     	var txt = $('#searchtext').val();
+//     	if(radioVal == "radiotitle"){
+//     	//	$("#searchresultvalue").text('test');
+//     	//	$("#searchresultavlue").text($('#searchtext').val());
+// //(작업중)연동작업 	
 
-		$("#searchresultvalue").html(testtemp());
-    		alert(radioVal);
-    	}
+// 		$("#searchresultvalue").html(testtemp());
+//     		alert(radioVal);
+//     	}
     
-    	else if(radioVal == "radioactor"){
-    		alert(radioVal);
-    	}
-    	else if(radioVal == "radiodirector"){
-    		alert(radioVal);
-    	}
-    	else if(radioVal == "radiokeyword"){
-    		alert(radioVal);
-    	}
-    	else if(radioVal =="radiocompany"){
-    		alert(radioVal);
-    	}
-    	alert(txt);
+//     	else if(radioVal == "radioactor"){
+//     		alert(radioVal);
+//     	}
+//     	else if(radioVal == "radiodirector"){
+//     		alert(radioVal);
+//     	}
+//     	else if(radioVal == "radiokeyword"){
+//     		alert(radioVal);
+//     	}
+//     	else if(radioVal =="radiocompany"){
+//     		alert(radioVal);
+//     	}
+//     	alert(txt);
     	
-    });
+//     });
     	
 
-});
+// });
 	
 	
 
 
 
-</script>
+<!-- </script> -->
 
 </section>
 </body>

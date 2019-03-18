@@ -33,8 +33,8 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<td colspan="5">사원이름 : <input type="search" name="saname"> <input
-								type="submit" value="검색"></td>
+							<td colspan="5">사원이름 : <input type="search" name="saname"> 
+							<input type="submit" value="검색"></td>
 						</tr>
 					</tfoot>
 				</table>
