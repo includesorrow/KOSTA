@@ -34,7 +34,6 @@ public class DynamicExample {
 		m.addAttribute("list",dao.getSawonList(map));
 		return "sawonlist";	}
 	
-	
 	@GetMapping(value={"/sawonlist2","/dyex2"})
 	public String sawonList2(Model m) {
 		Map<String, String> map= new HashMap<String, String>();
@@ -83,7 +82,6 @@ public class DynamicExample {
 	public String dynamicForQuery(String[] dlist, Model model) {
 		Map<String,List<String>> map = new HashMap<>();
 		List<String> dept_list=null;
-		//checkbox의 선택한 값, 배열 -> list변환
 		try{
 			dept_list = Arrays.asList(dlist);
 		}catch (Exception e){
@@ -95,9 +93,6 @@ public class DynamicExample {
 		model.addAttribute("list",list);
 		return "dynamicSawonForeachList";
 		
-//		for(String e : dlist) {
-//			System.out.println(e);
-//		}
 	
 	}
 	

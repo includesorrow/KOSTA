@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <head>
   <meta charset="UTF-8">
@@ -32,41 +30,6 @@
     License: https://templatemag.com/license/
   ======================================================= -->
 </head>
-
-
-<script>
-$(document).ready(function(){
-
-$("#btnUpdate").click(function(){
-
-	var movie_number = document.updateform.movie_number.value;
-	var movie_price = document.updateform.movie_price.value;
-	document.updateform.action="update.do"
-	document.updateform.submit();
-
-});
-	$("#btnSave").click(function(){
-		var movie_number = document.addform.movie_number.value;
-		var movie_price = document.addform.movie_price.value;
-		var movie_title = document.addform.movie_title.value;
-		var movie_copyright_cost = document.addform.movie_copyright_cost.value;
-		document.addform.action="insert.do"
-		document.addform.submit();
-		
-	});
-	
-	$("#btnDelete").click(function(){
-		if(confirm("정말 삭제하실껍니까?")){
-			document.deleteform.action="delete.do";
-			document.deleteform.submit();
-			
-		}
-	});
-	
-	
-});
-
-</script>
 
 <body>
   <section id="container">
@@ -408,11 +371,34 @@ $("#btnUpdate").click(function(){
 	  alert('g');
  }
  </script>
+ <form name="frm_boardWrite" id="frm_boardWrite" method="post" action="/spring/write"> 
+ 
+ <table > 
+ 
+<caption>게시글 작성</caption> 
+<tbody> 
+<tr> 
+<th scope="row">제목</th> 
+<td>
+<input type="text" id="TITLE" name="TITLE" class="wdp_90" style="width:500px"></input>
+</td> </tr> 
+
+<tr> 
+<td colspan="2" class="view_text"> 
+<textarea rows="20" cols="100" title="내용" id="CONTENTS" name="CONTENTS"></textarea> 
+</td> </tr> </tbody> </table> 
+<input type="submit" name="업로드" value="작성하기" id="write"> 
+<a href="/spring/boardMain" class="btn" id="list" >목록으로</a>
+ </form> 
+
+ 
+     
      	 <div id="edit" class="tab-pane">
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
                         <h4 class="mb">영화 관리 페이지</h4>
-        <form action="blank5" method="post">
+                        
+                	<form action="blank6" method="post">
 		<fieldset>
 			<legend>영화 리스트</legend>
 			<div>
@@ -428,24 +414,33 @@ $("#btnUpdate").click(function(){
 							<td>영화매출</td>
 							<td>영화태그</td>
 						</tr>
-						
-						
-						
-						<c:forEach items="${list }" var="movie2" begin="0" end="10">
+						<c:forEach items="${list }" var="movie2" begin="0" end="20">
 							<tr>
 								<td>${movie2.movie_number }</td>
-								<td>${movie2.movie_title }</td>
+								<td><p class="movielistclick" onclick="asdf();">${movie2.movie_title }</p></td>
 								<td>${movie2.movie_price }</td>
 								<td>${movie2.movie_open_date }</td>
 								<td>${movie2.movie_purchase_date }</td>
 								<td>${movie2.movie_rating }</td>
 								<td>${movie2.movie_investment }</td>
-								<td>${movie2.tag_name }</td>
+<%-- 								<td>${movie2.tag_name }</td> --%>
+								
 							</tr>
 						</c:forEach	>
 						
+						
+						
+						
+
+						
+						
+						
+						
+						
+						
+						
+						
 					</tbody>
-					
 					<tfoot>
 						<tr>
 							<td colspan="6">
@@ -480,12 +475,13 @@ $("#btnUpdate").click(function(){
 	</div>
 	</div>
 	
-
-
-                      
 	
 	
-	<!-- -------------------------------------------------------------------------------------------------------------------------- -->
+	
+	
+	
+<!-- mordal -->    
+    
 	    <!--  MODALS1_영화수정 -->
             <div class="showback">
               <!-- Button trigger modal -->
@@ -498,27 +494,54 @@ $("#btnUpdate").click(function(){
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">영화수정</h4>
+                      <h4 class="modal-title" id="myModalLabel">영화 수정</h4>
                     </div>
                     <div class="modal-body">
                       
                       
                       
                       
-	    <form name="updateform" method="post">
-	<div>
-	영화 번호 : <input name="movie_number" id="movie_number" size="80" value="movie_number" placeholder="영화번호를 입력해주세요">
-	
-	</div>
+                      
+                      	
+                      	
+                      	
+                      	영화 번호 : <input type="text" name="modifymovienumber" size="20"> 
+                      	<br>
+                      	영화 태그 : <input type="text" name="modifymovietag" size="20">
+                      	<br>
+                      	영화 가격 : <input type="text" name="modifymovieprice" size="20">
+                      	<br>
+                      	<br>
+                      	<div>
+                      	<input type="button" value="수정완료">
+                      	
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              <!--  MODALS20_영화추가 -->
 
-	<div>
-	영화 가격 : <input name="movie_price" id="movie_price" size="80" value="movie_price" placeholder="원하는 가격을 입력해주세요">
-	</div>
-
-	<button type="button" id="btnUpdate">수정하기</button>
-
-</form>
-                  
+              <!-- Button trigger modal -->
+              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_movieadd">
+               영화 추가
+                </button>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal_movieadd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                      
                       
                       
                       
@@ -526,56 +549,22 @@ $("#btnUpdate").click(function(){
                       	
                       	
                       	<div class="row mt">
-          <div class="col-lg-12">
-                
-             
-              	  		
-             
-            <!-- /form-panel -->
-          </div>
           <!-- /col-lg-12 -->
         </div>
                       	
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-	<!-- -------------------------------------------------------------------------------------------------------------------------- -->
-<!--                MODALS_영화추가 -->
-
-<!--               Button trigger modal -->
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_movieadd">
-               영화 추가
-                </button>
-<!--               Modal -->
-              <div class="modal fade" id="myModal_movieadd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">영화 추가</h4>
-                    </div>
-                    <div class="modal-body">
-                      
-                      
-                      
-                      
-                      
-                      	
-
-                      	<form name="addform" method="post">
-                      	영화코드 : <input type="text" name="movie_number" id="movie_number" size="20"> 
+                      	영화 제목 : <input type="text" name="addtitle" size="20"> 
                       	<br>
-                      	가격번호 : <input type="text" name="movie_price" id="movie_price" size="20">
+                      	영화 배우 : <input type="text" name="addactor" size="20">
                       	<br>
-                      	영화제목 : <input type="text" name="movie_title" id="movie_title" size="20">
+                      	영화 감독 : <input type="text" name="adddirector" size="20">
                       	<br>
-                      	영화판권구입액 : <input type="text" name="movie_copyright_cost" id="movie_copyright_cost" size="20">
+                      	영화 태그 : <input type="text" name="addtag" size="20">
                       	<br>
-						<button type="button" id="btnSave">저장하기</button>
-                      		</form>
+                      	영화사 : <input type="text" name="addcompany" size="20">
+                      	<br>
+                      	<br>
+                      	<input type="button" value="추가하기">
+                      		
                       
                     </div>
                     <div class="modal-footer">
@@ -586,29 +575,24 @@ $("#btnUpdate").click(function(){
               </div>
        
               
-	
-	
-<!--                   MODALS_영화삭제 -->
-<!--               Button trigger modal -->
+              
+                 <!--  MODALS_영화삭제 -->
+              <!-- Button trigger modal -->
               <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_moviedelete">
-              영화삭제
-<!--                 영화 삭제 -->
+                영화 삭제
                 </button>
-<!--               Modal -->
+              <!-- Modal -->
               <div class="modal fade" id="myModal_moviedelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">영화 삭제</h4>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
                     <div class="modal-body">
-                    
-                    	<form name="deleteform" method="post">
-                      	영화코드 : <input type="text" name="movie_number" id="movie_number" size="20"> 
-                      	<br>
-                    	<button type="button" id="btnDelete">삭제하기</button>
-                    </form>
+                    	정말로 영화를 삭제하시겠습니까?
+                    	<br>
+                    	<button type="button" value="moviedeletebtn">영화 삭제</button>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
@@ -622,8 +606,9 @@ $("#btnUpdate").click(function(){
               
               
               
-	
-	
+    
+    
+    	
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
@@ -651,12 +636,48 @@ $("#btnUpdate").click(function(){
   <script type="text/javascript" src="lib/bootstrap-daterangepicker/moment.min.js"></script>
   <script type="text/javascript" src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
   <script src="lib/advanced-form-components.js"></script>
+
+<!-- <script> 
+// $(document).ready(function () {
+
+//     $('#searchbtn').click(function(){
+//     	var radioVal = $('input[name="radioTxt"]:checked').val();
+//     	var txt = $('#searchtext').val();
+//     	if(radioVal == "radiotitle"){
+//     	//	$("#searchresultvalue").text('test');
+//     	//	$("#searchresultavlue").text($('#searchtext').val());
+// //(작업중)연동작업 	
+
+// 		$("#searchresultvalue").html(testtemp());
+//     		alert(radioVal);
+//     	}
+    
+//     	else if(radioVal == "radioactor"){
+//     		alert(radioVal);
+//     	}
+//     	else if(radioVal == "radiodirector"){
+//     		alert(radioVal);
+//     	}
+//     	else if(radioVal == "radiokeyword"){
+//     		alert(radioVal);
+//     	}
+//     	else if(radioVal =="radiocompany"){
+//     		alert(radioVal);
+//     	}
+//     	alert(txt);
+    	
+//     });
+    	
+
+// });
+	
+	
+
+
+
+<!-- </script> -->
+
 </section>
-
-
-
-
-
 </body>
 
 

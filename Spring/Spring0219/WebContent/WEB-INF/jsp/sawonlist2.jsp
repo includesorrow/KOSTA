@@ -34,8 +34,8 @@
 					<tfoot>
 						<tr>
 							<td colspan="5">사원이름 : <input type="search" name="saname"> 
-							사원직급 : <input type="search" name="sajob"> <input
-								type="submit" value="검색"></td>
+							사원직급 : <input type="search" name="sajob"> 
+							<input type="submit" value="검색"></td>
 						</tr>
 					</tfoot>
 				</table>

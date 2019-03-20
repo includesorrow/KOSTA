@@ -1,33 +1,20 @@
 package kr.or.kosta.dto;
 
-public class MovieVO {
+public class MovietagVO {
 
-	private String movie_number, movie_title, movie_open_date, movie_purchase_date,tag_name;
-	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copyright_cost;
+	private String movie_title, movie_open_date, movie_purchase_date,tag_name, movie_number;
+	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copylight_cost;
 	private double movie_rating;
 	private String tag_table_num;
-	private MovietagVO movietagvo;
+	
+	private MovieVO movievo;
 	private TagtableVO tagtablevo;
-	
-	private int tag_category_num;
-	public int getTag_category_num() {
-		return tag_category_num;
+
+	public MovieVO getMovievo() {
+		return movievo;
 	}
-	public void setTag_category_num(int tag_category_num) {
-		this.tag_category_num = tag_category_num;
-	}
-	public String getTag_name() {
-		return tag_name;
-	}
-	public void setTag_name(String tag_name) {
-		this.tag_name = tag_name;
-	}
-	
-	public MovietagVO getMovietagvo() {
-		return movietagvo;
-	}
-	public void setMovietagvo(MovietagVO movietagvo) {
-		this.movietagvo = movietagvo;
+	public void setMovievo(MovieVO movievo) {
+		this.movievo = movievo;
 	}
 	public TagtableVO getTagtablevo() {
 		return tagtablevo;
@@ -35,17 +22,9 @@ public class MovieVO {
 	public void setTagtablevo(TagtableVO tagtablevo) {
 		this.tagtablevo = tagtablevo;
 	}
-	public String getTag_table_num() {
-		return tag_table_num;
-	}
-	public void setTag_table_num(String tag_table_num) {
-		this.tag_table_num = tag_table_num;
-	}
+	
 	public String getMovie_number() {
 		return movie_number;
-	}
-	public void setMovie_rating(double movie_rating) {
-		this.movie_rating = movie_rating;
 	}
 	public void setMovie_number(String movie_number) {
 		this.movie_number = movie_number;
@@ -68,17 +47,17 @@ public class MovieVO {
 	public void setMovie_purchase_date(String movie_purchase_date) {
 		this.movie_purchase_date = movie_purchase_date;
 	}
+	public String getTag_name() {
+		return tag_name;
+	}
+	public void setTag_name(String tag_name) {
+		this.tag_name = tag_name;
+	}
 	public int getMovie_price() {
 		return movie_price;
 	}
 	public void setMovie_price(int movie_price) {
 		this.movie_price = movie_price;
-	}
-	public double getMovie_rating() {
-		return movie_rating;
-	}
-	public void setMovie_rating(int movie_rating) {
-		this.movie_rating = movie_rating;
 	}
 	public int getMovie_view_count() {
 		return movie_view_count;
@@ -104,14 +83,23 @@ public class MovieVO {
 	public void setMovie_investment(int movie_investment) {
 		this.movie_investment = movie_investment;
 	}
-	public int getMovie_copyright_cost() {
-		return movie_copyright_cost;
+	public int getMovie_copylight_cost() {
+		return movie_copylight_cost;
 	}
-	public void setMovie_copyright_cost(int movie_copyright_cost) {
-		this.movie_copyright_cost = movie_copyright_cost;
+	public void setMovie_copylight_cost(int movie_copylight_cost) {
+		this.movie_copylight_cost = movie_copylight_cost;
+	}
+	public double getMovie_rating() {
+		return movie_rating;
+	}
+	public void setMovie_rating(double movie_rating) {
+		this.movie_rating = movie_rating;
+	}
+	public String getTag_table_num() {
+		return tag_table_num;
+	}
+	public void setTag_table_num(String tag_table_num) {
+		this.tag_table_num = tag_table_num;
 	}
 	
-
-
-
 }

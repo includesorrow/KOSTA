@@ -1,17 +1,17 @@
 package kr.or.kosta.mvc.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.kosta.dto.MovieVO;
@@ -19,7 +19,7 @@ import kr.or.kosta.mvc.dao.DynamicExampleDao;
 
 
 /*
- * DispatcherServlet ¿äÃ»¿¡ ÀÀ´äÇÏ´Â ¸ðµ¨
+ * DispatcherServlet ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
  * RequestMapping => HandlerMapping
  * 
  * */
@@ -28,6 +28,8 @@ public class DefaultController {
 
 	@Autowired
 	private DynamicExampleDao dao; 
+	
+	
 	
 	@RequestMapping("/")
 	public String index() {
@@ -74,6 +76,30 @@ public class DefaultController {
 		m.addAttribute("searchType",searchType);
 		return "blank5";
 	}
+	
+	
+	@RequestMapping(value="update.do", method=RequestMethod.POST)
+	public String update(@ModelAttribute MovieVO vo) throws Exception{
+		dao.updateprice(vo);
+		return "redirect:blank5";
+	}
+	
+	@RequestMapping(value="insert.do", method=RequestMethod.POST)
+	public String insert(@ModelAttribute MovieVO vo) throws Exception{
+		dao.createmovie(vo);
+		return "redirect:blank5";
+	}
+	
+	@RequestMapping(value="delete.do", method=RequestMethod.POST)
+	public String delete(@ModelAttribute MovieVO vo) throws Exception{
+		dao.deletemovie(vo);
+		return "redirect:blank5";
+	}
+
+	
+
+
+
 	
 	
 	}

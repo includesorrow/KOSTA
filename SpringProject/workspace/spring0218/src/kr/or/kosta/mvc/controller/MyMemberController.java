@@ -13,7 +13,6 @@ import kr.or.kosta.mvc.dao.MemberDaoInter;
 @Controller
 public class MyMemberController {
 
-	// Dao¸¦ ÁÖÀÔ
 	@Autowired
 	private MemberDaoInter memberDaoInter;
 
@@ -43,9 +42,9 @@ public class MyMemberController {
 	@GetMapping("/idcheck")
 	public String idCheck(Model m, String id) {
 		int cnt = memberDaoInter.idChk(id);
-		String msg = "ÀÌ¹Ì »ç¿ëÁßÀÎ ¾ÆÀÌµð ÀÔ´Ï´Ù.";
+		String msg = "ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô´Ï´ï¿½.";
 		if (cnt == 0) {
-			msg = "»ç¿ë °¡´ÉÇÑ ¾ÆÀÌµð ÀÔ´Ï´Ù.";
+			msg = "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô´Ï´ï¿½.";
 		}
 		System.out.println(msg);
 		m.addAttribute("cnt", cnt);

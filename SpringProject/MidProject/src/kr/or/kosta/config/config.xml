@@ -5,6 +5,10 @@
 <configuration>
 	<typeAliases>
 	<typeAlias type="kr.or.kosta.dto.MovieVO" alias="movievo"></typeAlias>
+	<typeAlias type="kr.or.kosta.dto.MovietagVO" alias="movietagvo"></typeAlias>
+	<typeAlias type="kr.or.kosta.dto.TagtableVO" alias="tagtablevo"></typeAlias>
+	
+	
 		<!-- 마이바티스에서 설정했떤 confgif.xml
 		맵퍼를 와이드 카드로 잡았으니깐 다 잡아줌.
 		클래스명만 바꾸더라도 매핑 자동으로, 마이바티스는 됨. -->
