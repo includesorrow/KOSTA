@@ -43,21 +43,6 @@ public class DefaultController {
 	}
 	
 	
-	@GetMapping(value={"/blank2"})
-	public String movielist(Model m) {
-		Map<String, String> map= new HashMap<String, String>();
-		m.addAttribute("list",dao.getMovieList(map));
-		return "blank2";
-	}
-	
-	@PostMapping("/blank2")
-	public String searchTitle(String movie_title,Model m) {
-		Map<String, String> map= new HashMap<String, String>();
-		map.put("movie_title",movie_title);
-		m.addAttribute("list",dao.getMovieTitleList(map)); 
-		return "blank2";
-	}
-	
 
 	@GetMapping(value={"/blank5"})
 	public String movielist5(Model m) {
@@ -96,6 +81,7 @@ public class DefaultController {
 		return "redirect:blank5";
 	}
 
+		
 	
 
 

@@ -16,7 +16,6 @@ import kr.or.kosta.mvc.dao.MemberDaoInter;
 
 @Controller
 public class LoginCheckController {
-	   //Dao ÁÖÀÔ
   @Autowired
   private MemberDaoInter memberDaoInter;
   
@@ -37,7 +36,7 @@ public class LoginCheckController {
 		ModelAndView mav = new ModelAndView();
 		if(map==null) {
 			mav.setViewName("error");
-		} else { //·Î±×ÀÎ ¼º°ø
+		} else { //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				session.setAttribute("uname", map.getName());
 				session.setAttribute("uid", vo.getId());
 				mav.setViewName("index");
@@ -51,7 +50,7 @@ public class LoginCheckController {
 	@GetMapping("/logout")
 	public ModelAndView loginfoutProcess(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("uname");
-		session.removeAttribute("uid");//·Î±×ÀÎÇÑ »ç¿ëÀÚÀÇ ¼¼¼Ç »èÁ¦
+		session.removeAttribute("uid");//ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/");
 		return mav;

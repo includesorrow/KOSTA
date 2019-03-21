@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <head>
   <meta charset="UTF-8">
@@ -30,6 +32,78 @@
     License: https://templatemag.com/license/
   ======================================================= -->
 </head>
+
+  
+ <script>
+ $(document).ready(function(){
+ $('#btn3').on('click', function(){
+     var form = {
+    		 analysistitle: $('#analysistitle').val(),
+    		 analysisprice : $('#analysisprice').val(),
+    		 analysistag : $('#analysistag').val()
+    		 
+            
+     }
+     $.ajax({
+         url: " stringify",
+         type: "POST",
+         data: JSON.stringify(form),
+         contentType: "application/json; charset=utf-8;",
+         dataType: "json",
+         success: function(data){
+        	 
+             $('#analysisresult').text(txt);
+         },
+         error: function(){
+             alert("stringify err");
+         }
+     });
+ });
+ 
+ $('#btn4').on('click', function(){
+   
+	 var form = {
+			 analysistitle: $('#analysistitle').val(),
+    		 analysisprice : $('#analysisprice').val(),
+    		 analysistag : $('#analysistag').val()
+     }
+	 var txt1 = "분석 영화 제목 : "
+	 var txt2 = "분석 영화 판권 금액 : "
+	 var txt3 = "분석 영화 태그 정보 : "
+     $.ajax({
+         url: " restController",
+         type: "POST",
+         data: JSON.stringify(form),
+         contentType: "application/json; charset=utf-8;",
+         dataType: "json",
+         success: function(data){
+        	 
+        	 
+        	 $('#analysisresult').append(txt1);
+             $('#analysisresult').append(data[0]+"\n");
+             $('#analysisresult').append(txt2);
+             $('#analysisresult').append(data[1]+"\n");
+             $('#analysisresult').append(txt3);
+             $('#analysisresult').append(data[2] + "\n");
+        	 
+        	 
+//         	 for(var i=0; i<data.length; i++){
+//                  $('#analysisresult').append(data[i] + "<br>");
+//              }
+        	 
+        	 
+         },
+         error: function(){
+             alert("restController err");
+         }
+     });
+ });
+ 
+ 
+ });
+   </script>
+
+
 
 <body>
   <section id="container">
@@ -381,38 +455,39 @@
                         <h4 class="mb">분석 대상 정보</h4>
                         <form role="form" class="form-horizontal">
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">분석 영화 제목</label>
+                            <label class="col-lg-2 control-label" id="">분석 영화 제목</label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="c-name" class="form-control">
+                              <input type="text" placeholder=" " id="analysistitle" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">분석 영화 판권 구매금액</label>
+                            <label class="col-lg-2 control-label" id="">분석 영화 판권 구매금액</label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="lives-in" class="form-control">
+                              <input type="text" placeholder=" " id="analysisprice" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-lg-2 control-label">분석 영화 태그 정보</label>
+                            <label class="col-lg-2 control-label" id="">분석 영화 태그 정보</label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="country" class="form-control">
+                              <input type="text" placeholder=" " id="analysistag" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">분석 결과</label>
                             <div class="col-lg-10">
-                              <textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
+                              <textarea rows="10" cols="30" class="form-control" id="analysisresult" name="analysisresult"></textarea>
                             </div>
                           </div>
                         </form>
                       </div>
+                     
                       <div class="col-lg-8 col-lg-offset-2 detailed mt">
                         <form role="form" class="form-horizontal">
                          
                           <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-theme" type="submit">분석하기</button>
-                              <button class="btn btn-theme04" type="button">초기화</button>
+                       
+                              <button class="btn btn-theme04" type="button" id="btn4">분석하기</button>
                             </div>
                           </div>
                         </form>
@@ -422,20 +497,7 @@
                     <!-- /row -->
                   </div>
                   <!-- /tab-pane -->
-                
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+                 
 	
 	
 	

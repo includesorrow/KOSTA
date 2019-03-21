@@ -31,7 +31,7 @@ DROP TABLE "MINWON" CASCADE CONSTRAINTS;
 DROP TABLE "COUNSEL_CATEGORY" CASCADE CONSTRAINTS;
 DROP TABLE "MOVIE_TAG" CASCADE CONSTRAINTS;
 DROP TABLE "MY_RANK_TABLE" CASCADE CONSTRAINTS;
-
+DROP TABLE "MOVIE_MODIFY_LOG" CASCADE CONSTRAINTS;
 
    insert into counsel_category values(1, '건의');
    insert into counsel_category values(2, '신고');
@@ -88,6 +88,12 @@ Insert Into MEMBER VALUES(1,'Admin@Admin.ad','최고관리자','admin',to_date('1900-
    insert into tag_category values(2, '배우');
    insert into tag_category values(3, '감독');
    insert into tag_category values(4, '댓글');
+   
+   insert into price values(1,0);
+   insert into price values(2,1000);
+   insert into price values(3,2500);
+   insert into price values(4,5000);
+   insert into price values(5,10000);
    commit;
    
    insert into movie values(111111,1,'극한직업',to_date('1999-01-01'),to_date('1999-01-01'),10,1000,1000,1000,1000,1000);
@@ -208,6 +214,55 @@ BEGIN
 
 (select movie_price
 from movie
-where movie_price >= 6;)
+where movie_price >= 6);
 end;
 
+CREATE OR REPLACE VIEW name_query
+     AS
+       SELECT a.ename, b.dname
+       FROM  emp a, dept b
+       WHERE a.deptno = b.deptno
+         AND b.deptno = 20;
+         
+         
+    create or replace view movie_search
+    as
+    select m.movie_number, m.movie_title, m.movie_price,m.movie_open_date, m.movie_purchase_date, m.movie_rating,m.movie_investment,  t.tag_table_num,tt.tag_category_num, tt.tag_name
+    from movie m, movie_tag t, tag_table tt
+    where m.movie_number = t.movie_number
+				and t.tag_table_num = tt.tag_table_num
+				and tt.tag_category_num = 1;	
+		
+commit;
+rollback;
+
+delete from movie where movie_number='20124054';
+
+select movie_number from movie
+where movie_number = '20071053';
+
+
+delete from movie m, movie_Rating mr, moviesoldlog msl, movie_tag mt, viewlog vl, my_rank_table mrt, list_table lt,
+review_usedwords ruw, watchlog wl
+
+where m.movie_number = '20080698'
+and mr.movie_number = '20080698'
+and msl.movie_number = '20080698'
+and mt.movie_number = '20080698'
+and vl.movie_number = '20080698'
+and mrt.movie_number = '20080698'
+and lt.movie_number = '20080698'
+and ruw.movie_number = '20080698'
+and wl.movie_number = '20080698';
+
+delete from 
+where movie_number=20080698;
+
+
+
+create VIEW delete_movie
+as select m.movie_number, t.movie_number
+from movie m, movie_tag t;
+         commit;
+         
+         

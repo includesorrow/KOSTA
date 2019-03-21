@@ -6,6 +6,7 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import kr.or.kosta.dto.MovieVO;
 
@@ -15,6 +16,8 @@ public class DynamicExampleDao {
 
 	@Autowired
 	private SqlSessionTemplate ss;
+	
+
 
 	public static DynamicExampleDao getDao() {
 		if (dao == null)

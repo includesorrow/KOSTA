@@ -6,7 +6,7 @@
    
  <mapper namespace="movie5">
  <delete id="delete">
- 	delete from movie
+ 	delete from delete_movie
  	where movie_number=#{movie_number}
  </delete>
 
