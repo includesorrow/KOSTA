@@ -32,7 +32,103 @@
     License: https://templatemag.com/license/
   ======================================================= -->
 </head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<style type="text/css">
+.form-style-6{
+	font: 95% Arial, Helvetica, sans-serif;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 16px;
+	background: #F7F7F7;
+}
+.form-style-6 h1{
+	background: #43D1AF;
+	padding: 20px 0;
+	font-size: 140%;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+.form-style-6 input[type="text"],
+.form-style-6 input[type="date"],
+.form-style-6 input[type="datetime"],
+.form-style-6 input[type="email"],
+.form-style-6 input[type="number"],
+.form-style-6 input[type="search"],
+.form-style-6 input[type="time"],
+.form-style-6 input[type="url"],
+.form-style-6 textarea,
+.form-style-6 select 
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+.form-style-6 input[type="text"]:focus,
+.form-style-6 input[type="date"]:focus,
+.form-style-6 input[type="datetime"]:focus,
+.form-style-6 input[type="email"]:focus,
+.form-style-6 input[type="number"]:focus,
+.form-style-6 input[type="search"]:focus,
+.form-style-6 input[type="time"]:focus,
+.form-style-6 input[type="url"]:focus,
+.form-style-6 textarea:focus,
+.form-style-6 select:focus
+{
+	box-shadow: 0 0 5px #43D1AF;
+	padding: 3%;
+	border: 1px solid #43D1AF;
+}
+
+.form-style-6 input[type="submit"],
+.form-style-6 input[type="button"]{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: #43D1AF;
+	border-bottom: 2px solid #30C29E;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;	
+	color: #fff;
+}
+.form-style-6 input[type="submit"]:hover,
+.form-style-6 input[type="button"]:hover{
+	background: #2EBC99;
+}
+</style>
 
 <script>
 $(document).ready(function(){
@@ -418,7 +514,7 @@ $("#btnUpdate").click(function(){
 			<div>
 				<table>
 					<tbody>
-						<tr style="background: black; height: 50px; margin: auto">
+						<tr style=" height: 50px; margin: auto">
 							<td>영화번호</td>
 							<td>영화제목</td>
 							<td>영화가격</td>
@@ -504,22 +600,22 @@ $("#btnUpdate").click(function(){
                       
                       
                       
-                      
+                           <div class="form-style-6">
 	    <form name="updateform" method="post">
 	<div>
-	영화 번호 : <input name="movie_number" id="movie_number" size="80" value="movie_number" placeholder="영화번호를 입력해주세요">
+	영화 번호 : <input type="text" name="movie_number" id="movie_number" size="20">
 	
 	</div>
 
 	<div>
-	영화 가격 : <input name="movie_price" id="movie_price" size="80" value="movie_price" placeholder="원하는 가격을 입력해주세요">
+	영화 가격 : <input type="text" name="movie_price" id="movie_price" size="20">
 	</div>
 
 	<button type="button" id="btnUpdate">수정하기</button>
 
 </form>
                   
-                      
+                      </div>
                       
                       
                       	
@@ -564,7 +660,7 @@ $("#btnUpdate").click(function(){
                       
                       
                       	
-
+       <div class="form-style-6">
                       	<form name="addform" method="post">
                       	영화코드 : <input type="text" name="movie_number" id="movie_number" size="20"> 
                       	<br>
@@ -576,6 +672,7 @@ $("#btnUpdate").click(function(){
                       	<br>
 						<button type="button" id="btnSave">저장하기</button>
                       		</form>
+                      		</div>
                       
                     </div>
                     <div class="modal-footer">
@@ -603,12 +700,27 @@ $("#btnUpdate").click(function(){
                       <h4 class="modal-title" id="myModalLabel">영화 삭제</h4>
                     </div>
                     <div class="modal-body">
-                    
+                       <div class="form-style-6">
+                       
                     	<form name="deleteform" method="post">
                       	영화코드 : <input type="text" name="movie_number" id="movie_number" size="20"> 
                       	<br>
+                      	
                     	<button type="button" id="btnDelete">삭제하기</button>
+                    	
+                    	
+                    	
+                    	
+                    	
+                    	
                     </form>
+                    
+                 
+</div>
+                    
+                    
+                    
+                    
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
