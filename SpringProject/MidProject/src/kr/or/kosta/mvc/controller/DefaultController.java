@@ -1,6 +1,7 @@
 package kr.or.kosta.mvc.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.kosta.dto.MovieVO;
+import kr.or.kosta.dto.PricecountVO;
 import kr.or.kosta.mvc.dao.DynamicExampleDao;
 
 
 /*
- * DispatcherServlet ��û�� �����ϴ� ��
- * RequestMapping => HandlerMapping
  * 
  * */
 @Controller
@@ -46,9 +46,18 @@ public class DefaultController {
 
 	@GetMapping(value={"/blank5"})
 	public String movielist5(Model m) {
-		Map<String, String> map= new HashMap<String, String>();
+		Map<String, String> map= new HashMap<String, String>();		
 		m.addAttribute("list",dao.getMovieList3(map));
 		return "blank5";
+	}
+	
+	@GetMapping("/chartjs")
+	public String sendchartvalue(String cmd, Model m) {
+		List<Integer> result = null;
+		result = dao.getprice1();
+		System.out.println(result);
+		m.addAttribute("chart1",dao.getprice1());
+		return "chartjs";
 	}
 	
 	@PostMapping("/blank5")
@@ -80,9 +89,6 @@ public class DefaultController {
 		dao.deletemovie(vo);
 		return "redirect:blank5";
 	}
-
-		
-	
 
 
 

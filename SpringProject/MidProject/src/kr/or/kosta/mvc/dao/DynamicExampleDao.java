@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import kr.or.kosta.dto.MovieVO;
+import kr.or.kosta.dto.PricecountVO;
 
 @Repository
 public class DynamicExampleDao {
@@ -36,6 +37,12 @@ public class DynamicExampleDao {
 		return list;
 	}
 
+	public List<Integer> getprice1() {
+		return ss.selectList("pricecount.test");
+		
+	}
+	
+
 	public List<MovieVO> getMovieList3(Map<String, String> map) {
 		return ss.selectList("movie2.iftest3", map);
 	}
@@ -51,5 +58,7 @@ public class DynamicExampleDao {
 	public void deletemovie(MovieVO vo) {
 		ss.delete("movie5.delete",vo);
 	}
+	
+	
 	
 }

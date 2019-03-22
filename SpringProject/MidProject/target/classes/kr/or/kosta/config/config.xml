@@ -7,6 +7,7 @@
 	<typeAlias type="kr.or.kosta.dto.MovieVO" alias="movievo"></typeAlias>
 	<typeAlias type="kr.or.kosta.dto.MovietagVO" alias="movietagvo"></typeAlias>
 	<typeAlias type="kr.or.kosta.dto.TagtableVO" alias="tagtablevo"></typeAlias>
+	<typeAlias type="kr.or.kosta.dto.PricecountVO" alias="pricecountvo"></typeAlias>
 	
 	
 		<!-- 마이바티스에서 설정했떤 confgif.xml
