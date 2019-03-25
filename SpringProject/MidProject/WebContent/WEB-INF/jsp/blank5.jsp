@@ -133,6 +133,8 @@ th {
 <script>
 $(document).ready(function(){
 
+	
+	
 $("#btnUpdate").click(function(){
 
 	var movie_number = document.updateform.movie_number.value;
@@ -152,9 +154,12 @@ $("#btnUpdate").click(function(){
 	});
 	
 	$("#btnDelete").click(function(){
-		if(confirm("정말 삭제하실껍니까?")){
-			document.deleteform.action="delete.do";
-			document.deleteform.submit();
+		
+		if(confirm("정말 영화 상태 변경을 하시겠습니까?")){
+			var movie_number = document.updatestatusform.movie_number.value;
+			var active_check_number = document.updatestatusform.active_check_number;
+			document.updatestatusform.action="updatestatus.do"
+			document.updatestatusform.submit();
 			
 		}
 	});
@@ -523,6 +528,7 @@ $("#btnUpdate").click(function(){
 							<td>영화점수</td>
 							<td>영화매출</td>
 							<td>영화태그</td>
+							<td>영화 활성화 번호 </td>
 						</tr>
 						
 						
@@ -537,6 +543,7 @@ $("#btnUpdate").click(function(){
 								<td>${movie2.movie_rating }</td>
 								<td>${movie2.movie_investment }</td>
 								<td>${movie2.tag_name }</td>
+								<td>${movie2.active_check_number }</td>
 							</tr>
 						</c:forEach	>
 						
@@ -685,10 +692,10 @@ $("#btnUpdate").click(function(){
               
 	
 	
-<!--                   MODALS_영화삭제 -->
+<!--                   MODALS_영화비활성화-->
 <!--               Button trigger modal -->
               <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_moviedelete">
-              영화삭제
+              영화 활성화 상태 변경
 <!--                 영화 삭제 -->
                 </button>
 <!--               Modal -->
@@ -697,16 +704,17 @@ $("#btnUpdate").click(function(){
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">영화 삭제</h4>
+                      <h4 class="modal-title" id="myModalLabel">영화 활성화 상태 변경</h4>
                     </div>
                     <div class="modal-body">
                        <div class="form-style-6">
                        
-                    	<form name="deleteform" method="post">
+                    	<form name="updatestatusform" method="post">
                       	영화코드 : <input type="text" name="movie_number" id="movie_number" size="20"> 
                       	<br>
-                      	
-                    	<button type="button" id="btnDelete">삭제하기</button>
+                      	상태코드 : <input type="text" name="active_check_number" id="active_check_number" size="20">
+                      	<br>
+                    	<button type="button" id="btnDelete">영화 활성화 상태 변경</button>
                     	
                     	
                     	

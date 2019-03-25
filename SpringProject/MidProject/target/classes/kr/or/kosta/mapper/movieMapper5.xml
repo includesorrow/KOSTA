@@ -5,10 +5,10 @@
   
    
  <mapper namespace="movie5">
- <delete id="delete">
- 	delete from delete_movie
- 	where movie_number=#{movie_number}
- </delete>
-
-
+ 
+ <update id="updatestatus" parameterType="movievo">
+ update movie set active_check_number = #{active_check_number}
+ where movie_number= '#{movie_number}'
+ 
+ </update>
 </mapper>

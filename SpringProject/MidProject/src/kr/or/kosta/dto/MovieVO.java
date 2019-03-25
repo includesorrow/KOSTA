@@ -3,9 +3,18 @@ package kr.or.kosta.dto;
 public class MovieVO {
 
 	private String movie_number, movie_title, movie_open_date, movie_purchase_date,tag_name;
-	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copyright_cost;
+	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copyright_cost, active_check_number;
 	private double movie_rating;
 	private String tag_table_num;
+	
+	
+	
+	public int getActive_check_number() {
+		return active_check_number;
+	}
+	public void setActive_check_number(int active_check_number) {
+		this.active_check_number = active_check_number;
+	}
 	private MovietagVO movietagvo;
 	private TagtableVO tagtablevo;
 	

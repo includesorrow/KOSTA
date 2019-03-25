@@ -3,7 +3,7 @@ package kr.or.kosta.dto;
 public class MovietagVO {
 
 	private String movie_title, movie_open_date, movie_purchase_date,tag_name, movie_number;
-	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copylight_cost;
+	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copylight_cost,active_check_number;
 	private double movie_rating;
 	private String tag_table_num;
 	
@@ -15,6 +15,12 @@ public class MovietagVO {
 	}
 	public void setMovievo(MovieVO movievo) {
 		this.movievo = movievo;
+	}
+	public int getActive_check_number() {
+		return active_check_number;
+	}
+	public void setActive_check_number(int active_check_number) {
+		this.active_check_number = active_check_number;
 	}
 	public TagtableVO getTagtablevo() {
 		return tagtablevo;

@@ -75,8 +75,15 @@ public class DefaultController {
 	@RequestMapping(value="update.do", method=RequestMethod.POST)
 	public String update(@ModelAttribute MovieVO vo) throws Exception{
 		dao.updateprice(vo);
+		return "redirect:blank5"; 
+	}
+	
+	@RequestMapping(value="updatestatus.do", method=RequestMethod.POST)
+	public String updatestatus(@ModelAttribute MovieVO vo) throws Exception{
+		dao.updatestatus(vo);
 		return "redirect:blank5";
 	}
+	
 	
 	@RequestMapping(value="insert.do", method=RequestMethod.POST)
 	public String insert(@ModelAttribute MovieVO vo) throws Exception{
@@ -84,11 +91,11 @@ public class DefaultController {
 		return "redirect:blank5";
 	}
 	
-	@RequestMapping(value="delete.do", method=RequestMethod.POST)
-	public String delete(@ModelAttribute MovieVO vo) throws Exception{
-		dao.deletemovie(vo);
-		return "redirect:blank5";
-	}
+//	@RequestMapping(value="delete.do", method=RequestMethod.POST)
+//	public String delete(@ModelAttribute MovieVO vo) throws Exception{
+//		dao.deletemovie(vo);
+//		return "redirect:blank5";
+//	}
 
 
 

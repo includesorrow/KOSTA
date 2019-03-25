@@ -51,14 +51,18 @@ public class DynamicExampleDao {
 		ss.update("movie3.update", vo);
 	}
 	
+	public void updatestatus(MovieVO vo){
+		ss.update("movie5.updatestatus", vo);
+	}
+	
 	public void createmovie(MovieVO vo) {
 		ss.insert("movie4.insert",vo);
 	}
-	
-	public void deletemovie(MovieVO vo) {
-		ss.delete("movie5.delete",vo);
-	}
-	
+//	
+//	public void deletemovie(MovieVO vo) {
+//		ss.delete("movie5.delete",vo);
+//	}
+//	
 	
 	
 }

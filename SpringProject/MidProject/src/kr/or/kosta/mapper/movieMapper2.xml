@@ -37,7 +37,7 @@
 	</resultMap>
 	
 	<select id="iftest3" resultMap="movietagvo" parameterType="hashmap">
-		select m.movie_number, m.movie_title, m.movie_price,m.movie_open_date, m.movie_purchase_date, m.movie_rating,m.movie_investment,  t.tag_table_num,tt.tag_category_num, tt.tag_name
+		select m.movie_number, m.movie_title, m.movie_price,m.movie_open_date, m.movie_purchase_date, m.movie_rating,m.movie_investment,m.active_check_number,  t.tag_table_num,tt.tag_category_num, tt.tag_name
 		from movie m, movie_tag t, tag_table tt
 		
 			<where>

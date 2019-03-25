@@ -8,19 +8,18 @@ where movie_number = 20164442;
 rollback;
 
  SELECT 'DROP TABLE "' || TABLE_NAME || '" CASCADE CONSTRAINTS;' FROM user_tables;
-DROP TABLE "MOVIE" CASCADE CONSTRAINTS;
 DROP TABLE "MYLISTS" CASCADE CONSTRAINTS;
 DROP TABLE "NOTICE" CASCADE CONSTRAINTS;
 DROP TABLE "EVENT" CASCADE CONSTRAINTS;
 DROP TABLE "MEMBER" CASCADE CONSTRAINTS;
 DROP TABLE "REVIEW_USEDWORDS" CASCADE CONSTRAINTS;
-DROP TABLE "WATCHLOG" CASCADE CONSTRAINTS;
-DROP TABLE "SEARCHLOG" CASCADE CONSTRAINTS;
-DROP TABLE "LOGINLOG" CASCADE CONSTRAINTS;
-DROP TABLE "VIEWLOG" CASCADE CONSTRAINTS;
+DROP TABLE "WATCH_LOG" CASCADE CONSTRAINTS;
+DROP TABLE "SEARCH_LOG" CASCADE CONSTRAINTS;
+DROP TABLE "LOGIN_LOG" CASCADE CONSTRAINTS;
+DROP TABLE "VIEW_LOG" CASCADE CONSTRAINTS;
 DROP TABLE "TAG_CATEGORY" CASCADE CONSTRAINTS;
 DROP TABLE "TAG_TABLE" CASCADE CONSTRAINTS;
-DROP TABLE "MOVIESOLDLOG" CASCADE CONSTRAINTS;
+DROP TABLE "MOVIE_SOLD_LOG" CASCADE CONSTRAINTS;
 DROP TABLE "LIST_CATEGORY" CASCADE CONSTRAINTS;
 DROP TABLE "LIST_TABLE" CASCADE CONSTRAINTS;
 DROP TABLE "ANIVERSARY_TABLE" CASCADE CONSTRAINTS;
@@ -32,6 +31,8 @@ DROP TABLE "COUNSEL_CATEGORY" CASCADE CONSTRAINTS;
 DROP TABLE "MOVIE_TAG" CASCADE CONSTRAINTS;
 DROP TABLE "MY_RANK_TABLE" CASCADE CONSTRAINTS;
 DROP TABLE "MOVIE_MODIFY_LOG" CASCADE CONSTRAINTS;
+DROP TABLE "PRICE" CASCADE CONSTRAINTS;
+commit;
 
    insert into counsel_category values(1, '건의');
    insert into counsel_category values(2, '신고');
@@ -68,18 +69,18 @@ INSERT INTO MEMBER_GRADE VALUES(7,'민원담당자');
 INSERT INTO MEMBER_GRADE VALUES(6,'영화담당자');
 INSERT INTO MEMBER_GRADE VALUES(5,'회원담당자');
 INSERT INTO MEMBER_GRADE VALUES(1,'일반유저');
-Insert Into MEMBER VALUES(1,'Admin@Admin.ad','최고관리자','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,9);
-   Insert Into MEMBER VALUES(2,'Minwon_Admin1@Admin.ad','민원담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7);
-   Insert Into MEMBER VALUES(3,'Minwon_Admin2@Admin.ad','민원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7);
-   Insert Into MEMBER VALUES(4,'Minwon_Admin3@Admin.ad','민원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7);
+Insert Into MEMBER VALUES(1,'Admin@Admin.ad','최고관리자','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,9,1);
+   Insert Into MEMBER VALUES(2,'Minwon_Admin1@Admin.ad','민원담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7,1);
+   Insert Into MEMBER VALUES(3,'Minwon_Admin2@Admin.ad','민원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7,1);
+   Insert Into MEMBER VALUES(4,'Minwon_Admin3@Admin.ad','민원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7,1);
 
-   Insert into member values(5,'Movie_Admin1@Admin.ad','영화담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6);
-   Insert into member values(6,'Movie_Admin2@Admin.ad','영화담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6);
-   Insert into member values(7,'Movie_Admin3@Admin.ad','영화담당자3','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6);
+   Insert into member values(5,'Movie_Admin1@Admin.ad','영화담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6,1);
+   Insert into member values(6,'Movie_Admin2@Admin.ad','영화담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6,1);
+   Insert into member values(7,'Movie_Admin3@Admin.ad','영화담당자3','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6,1);
 
-   Insert into member values(8,'Client_Admin1@Admin.ad','회원담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5);
-   Insert into member values(9,'Client_Admin2@Admin.ad','회원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5);
-   Insert into member values(10,'Client_Admin3@Admin.ad','회원담당자3','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5);
+   Insert into member values(8,'Client_Admin1@Admin.ad','회원담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5,1);
+   Insert into member values(9,'Client_Admin2@Admin.ad','회원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5,1);
+   Insert into member values(10,'Client_Admin3@Admin.ad','회원담당자3','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5,1);
    insert into counsel_category values(1, '건의');
    insert into counsel_category values(2, '신고');
    insert into counsel_category values(3, '문의');
@@ -94,6 +95,11 @@ Insert Into MEMBER VALUES(1,'Admin@Admin.ad','최고관리자','admin',to_date('1900-
    insert into price values(3,2500);
    insert into price values(4,5000);
    insert into price values(5,10000);
+   insert into active_check values(0, '비활성화');
+insert into active_check values(1, '활성화');
+   
+   
+   
    commit;
    
    insert into movie values(111111,1,'극한직업',to_date('1999-01-01'),to_date('1999-01-01'),10,1000,1000,1000,1000,1000);
@@ -268,7 +274,8 @@ from movie m, movie_tag t;
          
          
          
-
+select movie_title from movie
+where active_check_number=0;
 
          
          
