@@ -1,5 +1,11 @@
 package kr.or.kosta.dto;
-public class Jamong {
+public class ChartVO {
+	
+	
+	/*
+	 * 차트 VO
+	 */
+	
     private String analysistitle,analysisprice;
     private String analysistag;
 

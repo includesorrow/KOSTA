@@ -4,20 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
     <mapper namespace="movie">
+    
+    
+    <!-- 영화 검색시 초기값 출력을  위한 것 -->
 <select id="movielist" parameterType="hashmap"
   	resultType="movievo">
   		select * from movie
-  		<!-- where
-  			조건1) saname saname like '%' || #{saname} || '%'
-  			조건2) and sajob = #{sajob}
-  			조건 1 만족할 때는 and가 문제가 된다.
-  			<WHERE> 이유가 여기에 있다.
-  			where 기능 : where절 추가한 다음에 바로 and, or 같은 연산자가
-  			붙으면 선별해서 삭제한다.
-  			where sajob = #{sajob} 형태가 된다.
-  			dynamicExample2.jsp에서 검색 폼에서 sajob을 추가
-  			 --> 
-  			 
+  	
   			 </select>
   			 
   			 
@@ -27,6 +20,69 @@
   			 where movie_title like '%' || #{movie_title} || '%'
   			 
   			 </select>
+  			 
+  			 
+  			 
+  			 <!-- 차트를 위한 가격리스트 -->
+  			 <select id="price" resultType="int" parameterType="list">
+  	select count(*)
+         from movie
+         group by movie_price
+         order by movie_price asc
+ 
+</select>
+
+
+
+
+
+
+
+
+
+<!-- 영화 페이지에서 영화 테이블 active_number 수정을 위한 update -->
+ <update id="updatestatus" parameterType="movievo">
+ update movie set active_check_number = #{active_check_number}
+ where movie_number= #{movie_number}
+ 
+ </update>
+ 
+ 
+ 
+ <!-- 영화 페이지에서 영화 추가를 위한 insert -->
+ <insert id="insert" parameterType="movievo">
+ insert into movie(
+    movie_number,
+    movie_price,
+    movie_title,
+    movie_purchase_date,
+    movie_copyright_cost
+ 
+ 
+ ) values(
+ 	#{movie_number},
+ 	#{movie_price},
+ 	#{movie_title},
+ 	sysdate,
+ 	#{movie_copyright_cost}
+ 	
+    
+ 
+ )
+ 
+ 
+ </insert>
+ 
+ 
+ 
+ <!-- 영화 페이지에서 가격 수정을 위한 update -->
+ <update id="update" parameterType="movievo">
+ update movie set movie_price = #{movie_price}
+ where movie_number=#{movie_number}
+ 
+ </update>
+ 
+  			 
   			
  </mapper>
  

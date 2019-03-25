@@ -1,6 +1,10 @@
 package kr.or.kosta.dto;
 
 public class TagtableVO {
+	
+	/*
+	 * 태그 테이블 VO
+	 */
 
 	private int tag_category_num;
 	private String tag_table_num, tag_name;

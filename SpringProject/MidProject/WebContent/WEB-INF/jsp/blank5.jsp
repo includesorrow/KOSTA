@@ -504,11 +504,6 @@ $("#btnUpdate").click(function(){
     <section id="main-content">
       <section class="wrapper site-min-height">
      
-      <script>
- function asdf(){
-	  alert('g');
- }
- </script>
      	 <div id="edit" class="tab-pane">
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
@@ -516,6 +511,7 @@ $("#btnUpdate").click(function(){
         <form action="blank5" method="post">
 		<fieldset>
 			<legend>영화 리스트</legend>
+			<!-- 영화 리스트 출력 -->
 			<div>
 				<table>
 					<tbody>
@@ -532,7 +528,7 @@ $("#btnUpdate").click(function(){
 						</tr>
 						
 						
-						
+						<!-- 검색시 영화 리스트 출력 -->
 						<c:forEach items="${list }" var="movie2" begin="0" end="10">
 							<tr>
 								<td>${movie2.movie_number }</td>
@@ -551,20 +547,21 @@ $("#btnUpdate").click(function(){
 					
 					<tfoot>
 						<tr>
+						<!-- 검색 -->
 							<td colspan="6">
 							<select name="searchType">
 							<c:if test="${empty searchType}">	
 								<option value="" selected="selected">선택 </option>
 								<option value="1">영화제목 </option>
-								<option value="2">영화가격 </option></c:if>
+								<option value="2">활성화 상태 </option></c:if>
 							<c:if test="${searchType eq 2}">
 								<option value="">선택 </option>
 								<option value="1">영화제목 </option>
-								<option value="2" selected="selected">영화가격 </option></c:if>
+								<option value="2" selected="selected">활성화 상태 </option></c:if>
 							<c:if test="${searchType eq 1}">
 								<option value="">선택 </option>
 								<option value="1" selected="selected">영화제목 </option>
-								<option value="2">영화가격 </option></c:if>
+								<option value="2">활성화 상태</option></c:if>
 							</select>
  								<input type="search" name="search"> 
  								<input type="submit" value="검색"></td>
@@ -593,7 +590,7 @@ $("#btnUpdate").click(function(){
             <div class="showback">
               <!-- Button trigger modal -->
               <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_moviemodify">
-               영화 수정
+               영화 가격 수정
                 </button>
               <!-- Modal -->
               <div class="modal fade" id="myModal_moviemodify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -601,7 +598,7 @@ $("#btnUpdate").click(function(){
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">영화수정</h4>
+                      <h4 class="modal-title" id="myModalLabel">영화 가격 수정</h4>
                     </div>
                     <div class="modal-body">
                       

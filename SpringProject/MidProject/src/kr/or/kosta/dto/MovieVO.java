@@ -2,6 +2,10 @@ package kr.or.kosta.dto;
 
 public class MovieVO {
 
+	/*
+	 * 영화 VO
+	 */
+	
 	private String movie_number, movie_title, movie_open_date, movie_purchase_date,tag_name;
 	private int movie_price, movie_view_count, movie_watch_count, movie_number_of_audience,movie_investment, movie_copyright_cost, active_check_number;
 	private double movie_rating;

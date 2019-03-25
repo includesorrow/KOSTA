@@ -33,11 +33,13 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- jquery	 -->
+
 
 <script>
 window.onload = function () {
 	
-
+//차트를 위한 스크립트
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	exportEnabled: true,
@@ -76,19 +78,9 @@ var chart = new CanvasJS.Chart("chartContainer", {
 				
 });
 chart.render();
-// 				chart.options.data[1].dataPoints[1]={y:${chart1[1]} label:"가격 :2"},
-// 				chart.options.data[2].dataPoints[2]={y:${chart1[2]} label:"가격:3"},
-// 				chart.options.data[3].dataPoints[3]={y:${chart1[3]} label:"가격 :4"},
-// 				chart.options.data[4].dataPoints[4]={y:${chart1[4]} label:"가격 :5"}
-			
-
 
 }
 
-
-//// chart.option.data.pop();
-//chart.option.data[0].dataPoints=
-//	{y:${chart1[0]} label:"jhj"}
 	
 </script>
 
@@ -434,20 +426,9 @@ chart.render();
       <section class="wrapper">
     
           
-          <c:forEach items="${chart1}" var="list" begin="0" end="0">
-				chart.option.data[0].dataPoints={y:${chart1[0]} label:"가격:1"},
-				chart.option.data[1].dataPoints={y:${chart1[1]} label:"가격 :2"},
-				chart.option.data[2].dataPoints={y:${chart1[2]} label:"가격:3"},
-				chart.option.data[3].dataPoints={y:${chart1[3]} label:"가격 :4"},
-				chart.option.data[4].dataPoints={y:${chart1[4]} label:"가격 :5"}
-			
-
-				</c:forEach	>
-				
-          
       
       
-      
+      <!-- 차트 출력 -->
         <h3><i class="fa fa-angle-right"></i> Chartjs Charts</h3>
         <!-- page start-->
         <div class="tab-pane" id="chartjs">

@@ -35,9 +35,10 @@
 		</collection>
 	
 	</resultMap>
-	
-	<select id="iftest3" resultMap="movietagvo" parameterType="hashmap">
-		select m.movie_number, m.movie_title, m.movie_price,m.movie_open_date, m.movie_purchase_date, m.movie_rating,m.movie_investment,m.active_check_number,  t.tag_table_num,tt.tag_category_num, tt.tag_name
+	<!-- 영화페이지에서 join을 하면서 검색할 때 사용하는 resultmap -->
+	<select id="moviehashmap" resultMap="movietagvo" parameterType="hashmap">
+		select m.movie_number, m.movie_title, m.movie_price,m.movie_open_date, m.movie_purchase_date, m.movie_rating,m.movie_investment,
+		m.active_check_number,  t.tag_table_num,tt.tag_category_num, tt.tag_name
 		from movie m, movie_tag t, tag_table tt
 		
 			<where>
@@ -52,7 +53,7 @@
 					
 					</when>
 					<when test="searchType == 2">
-						and m.movie_price like '%' || #{search} || '%'
+						and m.active_check_number like '%' || #{search} || '%'
 					</when>
 					<otherwise></otherwise>
 				</choose>

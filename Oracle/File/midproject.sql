@@ -276,7 +276,9 @@ from movie m, movie_tag t;
          
 select movie_title from movie
 where active_check_number=0;
-
-         
-         
+    
+    
+    update movie set active_check_number = 1
+    where movie_number = '20031141';
+    rollback;     
          

@@ -36,14 +36,9 @@
   
  <script>
  $(document).ready(function(){
- $('#btn3').on('click', function(){
-     var form = {
-    		 analysistitle: $('#analysistitle').val(),
-    		 analysisprice : $('#analysisprice').val(),
-    		 analysistag : $('#analysistag').val()
-    		 
-            
-     }
+
+	 
+	 //Ajax를 위해 입력한 값. post방식, JSON으로 전송, UTF-8.
      $.ajax({
          url: " stringify",
          type: "POST",
@@ -60,13 +55,19 @@
      });
  });
  
+ 
+ //
  $('#btn4').on('click', function(){
    
+	 
+	 //분석시 분석 결과에 출력하기 위한 FUNCTION
 	 var form = {
 			 analysistitle: $('#analysistitle').val(),
     		 analysisprice : $('#analysisprice').val(),
     		 analysistag : $('#analysistag').val()
      }
+	 
+	 
 	 var txt1 = "분석 영화 제목 : "
 	 var txt2 = "분석 영화 판권 금액 : "
 	 var txt3 = "분석 영화 태그 정보 : "
@@ -441,6 +442,14 @@
       <section class="wrapper site-min-height">
      
      
+     
+     
+ 
+ 
+ 
+ 
+     
+     <!-- 헤더같은 역할 -->
      	 <div id="edit" class="tab-pane">
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
@@ -448,7 +457,11 @@
      </div>
      </div>
      </div>
-	
+     
+     
+     
+     
+	<!-- 분석에 대한 div.  -->
 	 <div id="edit" class="tab-pane">
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
@@ -500,7 +513,7 @@
                  
 	
 	
-	
+	<!-- 분석에 대한 div END.  -->
 	
 	
 	
