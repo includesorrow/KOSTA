@@ -23,6 +23,8 @@ public class Ajax_Json_Controller {
     public Object stringify(@RequestBody ChartVO chartvo) {
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("name", chartvo.getAnalysistitle());
+        map.put("price",chartvo.getAnalysisprice());
+        map.put("tag",chartvo.getAnalysistag());
        
         return map;
     }

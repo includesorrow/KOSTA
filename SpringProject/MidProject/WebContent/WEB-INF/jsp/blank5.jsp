@@ -148,7 +148,10 @@ $("#btnUpdate").click(function(){
 		var movie_price = document.addform.movie_price.value;
 		var movie_title = document.addform.movie_title.value;
 		var movie_copyright_cost = document.addform.movie_copyright_cost.value;
+		var tag_table_num = document.addform.tag_table_num.value;
+		
 		document.addform.action="insert.do"
+		
 		document.addform.submit();
 		
 	});
@@ -674,6 +677,7 @@ $("#btnUpdate").click(function(){
                       	<br>
                       	영화판권구입액 : <input type="text" name="movie_copyright_cost" id="movie_copyright_cost" size="20">
                       	<br>
+                      	영화 장르 : <input type="text" name="tag_table_num" id="tag_table_num" size="20">
 						<button type="button" id="btnSave">저장하기</button>
                       		</form>
                       		</div>

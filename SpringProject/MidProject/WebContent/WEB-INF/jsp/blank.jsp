@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <head>
   <meta charset="UTF-8">
@@ -32,29 +30,14 @@
     License: https://templatemag.com/license/
   ======================================================= -->
 </head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   
  <script>
  $(document).ready(function(){
 
 	 
-	 //Ajax를 위해 입력한 값. post방식, JSON으로 전송, UTF-8.
-     $.ajax({
-         url: " stringify",
-         type: "POST",
-         data: JSON.stringify(form),
-         contentType: "application/json; charset=utf-8;",
-         dataType: "json",
-         success: function(data){
-        	 
-             $('#analysisresult').text(txt);
-         },
-         error: function(){
-             alert("stringify err");
-         }
-     });
- });
- 
  
  //
  $('#btn4').on('click', function(){
@@ -75,7 +58,7 @@
          url: " restController",
          type: "POST",
          data: JSON.stringify(form),
-         contentType: "application/json; charset=utf-8;",
+         contentType: "application/json; charset=UTF-8;",
          dataType: "json",
          success: function(data){
         	 
@@ -99,16 +82,19 @@
          }
      });
  });
- 
- 
  });
+ 
    </script>
 
 
 
 <body>
   <section id="container">
+  
+  
     <!-- **********************************************************************************************************************************************************
+  
+  
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
     <!--header start-->

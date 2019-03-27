@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.or.kosta.dto.MovieVO;
+import kr.or.kosta.dto.MovietagVO;
 import kr.or.kosta.mvc.dao.DynamicExampleDao;
 
 
@@ -90,8 +91,11 @@ public class DefaultController {
 	
 	
 	@RequestMapping(value="insert.do", method=RequestMethod.POST)
-	public String insert(@ModelAttribute MovieVO vo) throws Exception{
+	public String insert(@ModelAttribute MovieVO vo, @ModelAttribute MovietagVO voo) throws Exception{
 		dao.createmovie(vo);
+		dao.beforeinsertmovie(voo);
+		
+		
 		return "redirect:blank5";
 	}
 	//영화에서 영화를 추가하기 위한 Mapping

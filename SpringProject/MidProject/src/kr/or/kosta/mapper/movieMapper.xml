@@ -50,12 +50,28 @@
  
  
  <!-- 영화 페이지에서 영화 추가를 위한 insert -->
+ <insert id="beforeinsert" parameterType="movietagvo">
+ insert into movie_tag(
+ 	movie_number,
+ 	tag_table_num
+ 	
+ ) values(
+ 	#{movie_number},
+ 	#{tag_table_num}
+ )
+ 
+ 
+ 
+ 
+ </insert>
+ 
  <insert id="insert" parameterType="movievo">
  insert into movie(
     movie_number,
     movie_price,
     movie_title,
     movie_purchase_date,
+    movie_open_date,
     movie_copyright_cost
  
  
@@ -63,6 +79,7 @@
  	#{movie_number},
  	#{movie_price},
  	#{movie_title},
+ 	sysdate,
  	sysdate,
  	#{movie_copyright_cost}
  	

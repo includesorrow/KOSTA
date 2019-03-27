@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.or.kosta.dto.MovieVO;
+import kr.or.kosta.dto.MovietagVO;
 
 @Repository
 public class DynamicExampleDao {
@@ -62,6 +63,10 @@ public class DynamicExampleDao {
 	
 	public void createmovie(MovieVO vo) {
 		ss.insert("movie.insert",vo);
+	}
+	
+	public void beforeinsertmovie(MovietagVO vo) {
+		ss.insert("movie.beforeinsert",vo);
 	}
 	//영화 추가. 태그추가는 추후에 해야 함.
 
