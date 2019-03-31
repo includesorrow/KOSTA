@@ -3,7 +3,7 @@ package kr.or.kosta.dto;
 public class PricecountVO {
 
 	/*
-	 * 차트를 위한 price count VO
+	 *  price count VO
 	 */
 	
 	private int price1,price2,price3,price4,price5, movie_price;

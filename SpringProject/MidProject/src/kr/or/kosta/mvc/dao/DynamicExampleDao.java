@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.or.kosta.dto.InserttagVO;
+import kr.or.kosta.dto.MemberVO;
 import kr.or.kosta.dto.MovieVO;
 import kr.or.kosta.dto.MovietagVO;
 
@@ -30,46 +32,83 @@ public class DynamicExampleDao {
 		List<MovieVO> list = ss.selectList("movie.movielist", map);
 		return list;
 	}
-	//ì˜í™” ê²€ìƒ‰ì°½ì—ì„œ ì´ˆê¸°ê°’ ì¶œë ¥ì„ ìœ„í•œê²ƒ 1
+	//¿µÈ­ °Ë»öÃ¢¿¡¼­ ÃÊ±â°ª Ãâ·ÂÀ» À§ÇÑ°Í 1
 	
 	public List<MovieVO> getMovieTitleList(Map<String, String> map) {
 		List<MovieVO> list = ss.selectList("movie.movietitlelist", map);
 		return list;
 	}
-	//ì˜í™” ê²€ìƒ‰ì°½ì—ì„œ ì´ˆê¸°ê°’ ì¶œë ¥ì„ ìœ„í•œê²ƒ 2
+	//¿µÈ­ °Ë»öÃ¢¿¡¼­ ÃÊ±â°ª Ãâ·ÂÀ» À§ÇÑ°Í 2
 
 	
 	
 	public List<Integer> getprice1() {
 		return ss.selectList("movie.price");
 	}
-	//ì°¨íŠ¸ë¥¼ ìœ„í•´ ì˜í™” ê°€ê²© ë½‘ì•„ì˜¤ê¸°
+	//Â÷Æ®¸¦ À§ÇØ ¿µÈ­ °¡°İ »Ì¾Æ¿À±â
 	
 
 	public List<MovieVO> getMovieList3(Map<String, String> map) {
 		return ss.selectList("movie2.moviehashmap", map);
 	}
-	//ì˜í™” ê²€ìƒ‰ì‹œ ì¶œë ¥ì„ ìœ„í•œ ê²ƒ
+	//¿µÈ­ °Ë»ö½Ã Ãâ·ÂÀ» À§ÇÑ °Í
 
 	public void updateprice(MovieVO vo){ 
 		ss.update("movie.update", vo);
 	}
-	//ì˜í™” ê°€ê²© ìˆ˜ì •ì‹œ ì‚¬ìš©
+	//¿µÈ­ °¡°İ ¼öÁ¤½Ã »ç¿ë
 	
 	public void updatestatus(MovieVO vo){
 		ss.update("movie.updatestatus", vo);
 	}
-	//ì˜í™” active_check_number ìˆ˜ì •ì„ ìœ„í•œ ì—†ë°ì´íŠ¸
+	//¿µÈ­ active_check_number ¼öÁ¤À» À§ÇÑ ¾øµ¥ÀÌÆ®
 	
 	public void createmovie(MovieVO vo) {
 		ss.insert("movie.insert",vo);
 	}
+	//¿µÈ­»ı¼º
 	
 	public void beforeinsertmovie(MovietagVO vo) {
 		ss.insert("movie.beforeinsert",vo);
 	}
-	//ì˜í™” ì¶”ê°€. íƒœê·¸ì¶”ê°€ëŠ” ì¶”í›„ì— í•´ì•¼ í•¨.
+	//¿µÈ­ Ãß°¡. ÅÂ±×Ãß°¡´Â ÃßÈÄ¿¡ ÇØ¾ß ÇÔ.
+	
+	public void inserttag(InserttagVO vo) {
+		ss.insert("inserttag.insert",vo);
+	}
+	//ÅÂ±×insert dao
 
+	public List<MovieVO> getsavetaglist() {
+		return ss.selectList("inserttag.select");
+	}
+	//ÅÂ±×¸¦ ÀÔ·ÂÇÏ±â À§ÇØ ¸®½ºÆ® ºÒ·¯¿À±â
+	
+	public void insertmovietag(Map<String,String> map) {
+		ss.insert("inserttag.insertmovietag",map);
+	}
+	//movie_tag Å×ÀÌºí¿¡ °ª ÀúÀåÇÒ ¶§ »ç¿ë
+
+
+	public int checktagname(String tag_name) {
+		return ss.selectOne("inserttag.checktagname",tag_name);
+	}
+	//ÅÂ±×ÀÌ¸§ºÒ·¯¿À±â
+	
+	public void updatecommunitymember(MemberVO vo) {
+		ss.update("updatecommunity.update",vo);
+	}
+	//±ºÁıÈ­ ÇÑ ³»¿ëµé ¾÷µ¥ÀÌÆ®
+	
+	public int insertcommunity(MemberVO vo) {
+		return ss.selectOne("updatecommunity.select",vo);
+	
+	}
+	//±ºÁıÈ­ÇÑ ³»¿ëµéºÒ·¯¿À±â
+	
+	public int memberfinalnumber() {
+		return ss.selectOne("updatecommunity.memberfinalnumber");
+	}
+	//¸â¹ö ÃÑ °¹¼ö ¾ò¾î¿À±â
 	
 	
 }

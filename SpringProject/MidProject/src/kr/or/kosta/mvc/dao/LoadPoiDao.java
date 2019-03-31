@@ -26,7 +26,7 @@ import org.springframework.stereotype.Repository;
 import kr.or.kosta.dto.ExcelVO;
 
 
-@Repository
+//@Repository
 public class LoadPoiDao {
 	
 	private LoadPoiDao poi;
@@ -34,30 +34,30 @@ public class LoadPoiDao {
 	public List<Map<String,Object>> readExsel(String fileName) throws IOException {
 		List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 		
-		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Îµï¿½ È®ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
+		//¿¢¼¿ÆÄÀÏÀÌ ÀÖ´Â °æ·Îµµ È®ÀÎÇØ¼­ ¼öÁ¤ÇØ¾ßÇÔ
 		String path = "C:\\bigdataStudy\\webapp\\spring\\spring_MVC\\WebContent\\resources\\xls\\"+fileName;
 		FileInputStream fis = new FileInputStream(path);
-		// ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// ¾×¼¿ÆÄÀÏÀ» »ý¼º
 		HSSFWorkbook workbook = new HSSFWorkbook(fis);
 		int rowindex = 0;
 		int columnindex = 0;
-		// ï¿½ï¿½Æ® ï¿½ï¿½ (Ã¹ï¿½ï¿½Â°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ 0ï¿½ï¿½ ï¿½Ø´ï¿½)
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ FORï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½
+		// ½ÃÆ® ¼ö (Ã¹¹øÂ°¿¡¸¸ Á¸ÀçÇÏ¹Ç·Î 0À» ÁØ´Ù)
+		// ¸¸¾à °¢ ½ÃÆ®¸¦ ÀÐ±âÀ§ÇØ¼­´Â FOR¹®À» ÇÑ¹ø´õ µ¹·ÁÁØ´Ù
 		HSSFSheet sheet = workbook.getSheetAt(0);
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+		// ÇàÀÇ ¼ö
 		int rows = sheet.getPhysicalNumberOfRows();
 		for (rowindex = 1; rowindex < rows; rowindex++) {
 			ExcelVO vo = new ExcelVO();
 			HashMap<String, Object> map2 = new HashMap<String, Object>();
 		
-			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´Â´ï¿½
+			// ÇàÀ» ÀÐ´Â´Ù
 			HSSFRow row = sheet.getRow(rowindex);
 			if (row != null) {
-				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+				// ¼¿ÀÇ ¼ö
 				int cells = row.getPhysicalNumberOfCells();
 				for (columnindex = 0; columnindex <= cells; columnindex++) {
 					
-					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´Â´ï¿½
+					// ¼¿°ªÀ» ÀÐ´Â´Ù
 					HSSFCell cell = row.getCell(columnindex);
 //					if(cell != null) {
 //					System.out.println("cell "+cell);
@@ -65,11 +65,11 @@ public class LoadPoiDao {
 					String key= "";
 					String value = "";
 					String count="";
-					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ì¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼Å©
+					// ¼¿ÀÌ ºó°ªÀÏ°æ¿ì¸¦ À§ÇÑ ³ÎÃ¼Å©
 					if (cell == null) {
 						continue;
 					} else {
-						// Å¸ï¿½Ôºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½
+						// Å¸ÀÔº°·Î ³»¿ë ÀÐ±â
 						switch (cell.getCellType()) {
 						case HSSFCell.CELL_TYPE_FORMULA:
 							value = cell.getCellFormula();
@@ -114,35 +114,35 @@ public class LoadPoiDao {
 	public void excelDataMerge() {
 		  Map<String, Map<String, Object>> resultMap = new HashMap<String, Map<String, Object>>();
 		  
-		  //ï¿½ï¿½Ä¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
+		  //ÇÕÄ¥ ÆÄÀÏÀÌ ÀÖ´Â °æ·Î
 		  String folder="C:\\bigdataStudy\\webapp\\spring\\spring_MVC\\WebContent\\resources\\xls";
-		  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+		  //Æú´õ¸íÀ¸·Î ÆÄÀÏ°´Ã¼ »ý¼º
 		  File file=new File(folder);
 
 		  if(!file.isDirectory()){
-		   System.out.println("ï¿½Ø´ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
+		   System.out.println("ÇØ´çµð·ºÅä¸®´Â Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
 		   System.exit(1);
 		   
 		  }
-		  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Þ´Â´ï¿½.
+		  //Æú´õ¶ó¸é Æú´õ°¡ °¡Áø ÆÄÀÏ°´Ã¼¸¦ ¸®½ºÆ®·Î ¹Þ´Â´Ù.
 		  File[] list=file.listFiles();
 		  LoadPoiDao poi = new LoadPoiDao();
 		  List<Map<String,Object>> aa = null;
-		  try {	//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½Ç¾ï¿½ï¿½ ï¿½ï¿½
+		  try {	
 				for(int a=0; a<list.length; a++) {
-				aa = poi.readExsel(list[a].getName());
+				aa = poi.readExsel(list[a].getName()); //ÀÌ ¸Þ¼Òµå¿¡ ÇÕÄ¥ ÆÄÀÏÀÇ ÀÌ¸§µéÀ» ³ÖÀ¸¸é ÆÄÀÏÀÇ ³»¿ëµéÀÌ list¿¡ ÀúÀåµÇ¾î ¸®ÅÏµÈ´Ù
 					for(int i=0; i<aa.size(); i++){
 						String orderNumber = aa.get(i).get("keyword").toString(); //KEY VALUE
 						
 						if(resultMap.containsKey(orderNumber)){
 						
-							//KEYï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ø´ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+							//KEY°ªÀÌ Á¸ÀçÇÏ¸é ÇØ´ç Å°°ªÀÇ ÇØ´çµÇ´Â °¡°ÝÀ» °¡Á®¿Í ´õÇØÁÜ
 							resultMap.get(orderNumber).put("count", 
 							  Integer.parseInt(resultMap.get(orderNumber).get("count").toString().replace(".0","")) 
 							+ Integer.parseInt(aa.get(i).get("count").toString().replace(".0","")) );
 					
 						}else{
-							//KEYï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MAPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½
+							//KEY°ªÀÌ Á¸ÀçÇÏÁö ¾ÊÀ¸¸é MAP¿¡ µ¥ÀÌÅÍ¸¦ ³Ö¾îÁÜ
 							resultMap.put(orderNumber, aa.get(i));
 							
 						}
@@ -150,7 +150,7 @@ public class LoadPoiDao {
 					}
 				} 
 			   	
-				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½
+				//ÆÄÀÏÀÌ ÀúÀåµÇ´Â °æ·Î
 				String path="C:\\Users\\KOSTA\\Downloads\\TagDataExcel.csv";
 				PrintWriter pw = null;
 				
@@ -158,14 +158,13 @@ public class LoadPoiDao {
 					pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(path))),true);
 					StringBuffer sb = new StringBuffer();
 					String cNameList=",";
-					//ï¿½ï¿½ï¿½ï¿½Æ®
+					//¸®½ºÆ®
 					sb.append(cNameList);
 					sb.append("\n");
 					
-					//Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¾ï¿½  ï¿½Ï´Âµï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ getï¿½ï¿½ ï¿½Æ´ï¿½ entry ï¿½ï¿½ ï¿½Ì¾Æ³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+					//Å°ÀÇ °ªÀ» °¡Á®¿Í¾ß  ÇÏ´Âµ¥ µ¿ÀûÅ°¶ó¼­ getÀÌ ¾Æ´Ñ entry ·Î »Ì¾Æ³»¾î »ç¿ë
 					for (Entry<String, Map<String, Object>> entry : resultMap.entrySet()) {
-
-			 	        String key = entry.getKey();
+						String key = entry.getKey();
 			 	        Object value = entry.getValue();
 			 	        sb.append(key).append(",");
 						sb.append(resultMap.get(key).get("count"));
@@ -174,7 +173,7 @@ public class LoadPoiDao {
 
 					pw.write(sb.toString());
 					pw.close();
-					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+					System.out.println("¸¶¹«¸®!");
 				
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
@@ -184,7 +183,7 @@ public class LoadPoiDao {
 				e.printStackTrace();
 			}
 	}
-	
+		//¸ÞÀÎ¸Þ¼Òµå´Â ¿©±â¼­ ¹Ù·Î ÀÛ¾÷ÇÏ±â À§ÇØ ÀÛ¼º
 		public static void main(String[] args) {
 		
 		LoadPoiDao poi = new LoadPoiDao();

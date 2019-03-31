@@ -1,6 +1,6 @@
 package kr.or.kosta.mvc.controller;
 
-import java.util.HashMap;import java.util.List;
+import java.util.ArrayList;import java.util.HashMap;import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +13,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.or.kosta.dto.InserttagVO;
+import kr.or.kosta.dto.MemberVO;
 import kr.or.kosta.dto.MovieVO;
 import kr.or.kosta.dto.MovietagVO;
+import kr.or.kosta.mvc.dao.CommunityDao;
 import kr.or.kosta.mvc.dao.DynamicExampleDao;
+import kr.or.kosta.mvc.dao.TagListDao;
+
+import static kr.or.kosta.mvc.dao.CommunityDao.countlist;
+
 
 
 /*
- * ì»¨íŠ¸ë¡¤ëŸ¬ ë¶€ë¶„
+ * ÄÁÆ®·Ñ·¯ ºÎºĞ
  * */
 @Controller
 public class DefaultController {
 
 	@Autowired
 	private DynamicExampleDao dao; 
-	//Daoë¥¼ ì˜¤í† ì™€ì´ì–´ë“œ ì‹œí‚´
+	//Dao¸¦ ¿ÀÅä¿ÍÀÌ¾îµå ½ÃÅ´
 	
 	
 	@RequestMapping("/")
@@ -34,13 +41,13 @@ public class DefaultController {
 		System.out.println("index");
 		return "index";
 	}
-	//index ì¶œë ¥ì„ ìœ„í•¨.
+	//index Ãâ·ÂÀ» À§ÇÔ.
 	
 	@GetMapping("/{path}")
 	public String ex1(@PathVariable String path) {
 		return path;
 	}
-	//ê°ê° ê²½ë¡œë¥¼ ì•Œì•„ì„œ ë³´ë‚´ê¸° ìœ„í•œ Get Mapping
+	//°¢°¢ °æ·Î¸¦ ¾Ë¾Æ¼­ º¸³»±â À§ÇÑ Get Mapping
 	
 	
 
@@ -50,7 +57,7 @@ public class DefaultController {
 		m.addAttribute("list",dao.getMovieList3(map));
 		return "blank5";
 	}
-	//blank5 ( ì˜í™” ê²€ìƒ‰ ë° ì¶”ê°€ ë“±)ë¥¼ ìœ„í•œ Getë°©ì‹ì˜ Mapping
+	//blank5 ( ¿µÈ­ °Ë»ö ¹× Ãß°¡ µî)¸¦ À§ÇÑ Get¹æ½ÄÀÇ Mapping
 	
 	@GetMapping("/chartjs")
 	public String sendchartvalue(String cmd, Model m) {
@@ -60,7 +67,7 @@ public class DefaultController {
 		m.addAttribute("chart1",dao.getprice1());
 		return "chartjs";
 	}
-	//ì°¨íŠ¸ì— ê°’ì„ ë³´ë‚´ê¸° ìœ„í•œ Mapping.
+	//Â÷Æ®¿¡ °ªÀ» º¸³»±â À§ÇÑ Mapping.
 	
 	@PostMapping("/blank5")
 	public String searchTitle5(String searchType,String search,Model m) {
@@ -72,7 +79,7 @@ public class DefaultController {
 		m.addAttribute("searchType",searchType);
 		return "blank5";
 	}
-	//ê²€ìƒ‰ì— ê°’ì„ ë°›ê¸° ìœ„í•œ Postë°©ì‹ì˜ Mapping
+	//°Ë»ö¿¡ °ªÀ» ¹Ş±â À§ÇÑ Post¹æ½ÄÀÇ Mapping
 	
 	
 	@RequestMapping(value="update.do", method=RequestMethod.POST)
@@ -80,14 +87,14 @@ public class DefaultController {
 		dao.updateprice(vo);
 		return "redirect:blank5"; 
 	}
-	//ì˜í™”ì—ì„œ ì˜í™”ì˜ ê°€ê²©ì´ ì—…ë°ì´íŠ¸ì‹œ ë§¤í•‘
+	//¿µÈ­¿¡¼­ ¿µÈ­ÀÇ °¡°İÀÌ ¾÷µ¥ÀÌÆ®½Ã ¸ÅÇÎ
 	
 	@RequestMapping(value="updatestatus.do", method=RequestMethod.POST)
 	public String updatestatus(@ModelAttribute MovieVO vo) throws Exception{
 		dao.updatestatus(vo);
 		return "redirect:blank5";
 	}
-	//ì˜í™”ì—ì„œ ì˜í™”ì˜ active_status_number ìˆ˜ì •ì„ ìœ„í•œ ë§¤í•‘
+	//¿µÈ­¿¡¼­ ¿µÈ­ÀÇ active_status_number ¼öÁ¤À» À§ÇÑ ¸ÅÇÎ
 	
 	
 	@RequestMapping(value="insert.do", method=RequestMethod.POST)
@@ -98,7 +105,80 @@ public class DefaultController {
 		
 		return "redirect:blank5";
 	}
-	//ì˜í™”ì—ì„œ ì˜í™”ë¥¼ ì¶”ê°€í•˜ê¸° ìœ„í•œ Mapping
+	//¿µÈ­ Ãß°¡¸¦ À§ÇÑ ¸ÅÇÎ
+	
+	@RequestMapping(value="inserttag.do",method=RequestMethod.POST)
+	public String inserttag(@ModelAttribute InserttagVO vo ) throws Exception{
+		
+		TagListDao tldao = new TagListDao();
+		
+		List<MovieVO> movienumberlist =dao.getsavetaglist();
+		
+		String movie_num="";
+	for(MovieVO mv: movienumberlist) {
+		movie_num=mv.getMovie_number();
+		System.out.println("movie_num : "+movie_num);
+		
+		
+		
+		for(int i = 0; i<=9; i++) {
+			vo.setMovie_number(movie_num);
+			
+			
+			
+			tldao.connectR(movie_num);
+			String tag_name;
+			tag_name = tldao.namelist[i];
+			vo.setTag_name(tag_name);
+			Map<String,String> map = new HashMap<String,String>();
+			
+			map.put("movie_number",movie_num);
+			map.put("tag_name",tag_name);
+			
+				
+			if(dao.checktagname(tag_name)==0) {
+				dao.inserttag(vo);
+				dao.insertmovietag(map);
+			} else {
+				dao.insertmovietag(map);
+			}
+		
+		
+		}	
+		}
+		System.out.println("insert end");
+		return "redirect:blank5";
+	}	
+	//´ñ±Û Å¾ 10°³¸¦ Ãâ·ÂÇÏ±â À§ÇÑ ¸ÅÇÎ
 
 	
+	
+	@RequestMapping(value="updatecommunity.do",method=RequestMethod.POST)
+	public String insertMemberCommunity(@ModelAttribute MemberVO vo ) throws Exception{
+		CommunityDao co = new CommunityDao();
+		
+		
+		
+		int mem_community_number = 0;
+		
+		
+		co.connectR();
+		
+		
+		
+		int member_list_number = dao.memberfinalnumber();
+		
+		
+		for(int i=11; i<=member_list_number; i++) {
+			vo.setMember_number(i);
+			mem_community_number = countlist[i-10];
+			vo.setMember_community_number(mem_community_number);
+			dao.updatecommunitymember(vo);
+			
+			
+		}
+		
+	return "redirect:blank4";
 	}
+	//±ºÁıÈ­¸¦ À§ÇÑ ¸ÅÇÎ
+}

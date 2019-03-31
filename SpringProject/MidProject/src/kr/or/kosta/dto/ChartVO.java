@@ -1,11 +1,9 @@
 package kr.or.kosta.dto;
 public class ChartVO {
 	
-	
 	/*
-	 * ì°¨íŠ¸ VO
+	 * Â÷Æ®VO
 	 */
-	
     private String analysistitle,analysisprice;
     private String analysistag;
 

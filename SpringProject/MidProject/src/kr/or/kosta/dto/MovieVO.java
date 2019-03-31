@@ -3,7 +3,7 @@ package kr.or.kosta.dto;
 public class MovieVO {
 
 	/*
-	 * ì˜í™” VO
+	 * ¹«ºñvo
 	 */
 	
 	private String movie_number, movie_title, movie_open_date, movie_purchase_date,tag_name;

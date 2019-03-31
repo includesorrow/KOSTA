@@ -1,7 +1,6 @@
 package kr.or.kosta.mvc.controller;
 
 import java.util.ArrayList;import java.util.HashMap;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,9 +27,9 @@ public class Ajax_Json_Controller {
        
         return map;
     }
-	//ì°¨íŠ¸ë¥¼ ìœ„í•œ ì»¨íŠ¸ë¡¤ëŸ¬
-	//ChartVOë¥¼ ë°›ëŠ”ë‹¤.
-	//ì—¬ê¸°ì„œ Hashmap + Ajax + Propertyë¥¼ ì‚¬ìš©í•¨.
+	//Â÷Æ®¸¦ À§ÇÑ ÄÁÆ®·Ñ·¯
+	//ChartVO¸¦ ¹Ş´Â´Ù.
+	//¿©±â¼­ Hashmap + Ajax + Property¸¦ »ç¿ëÇÔ.
 	
 	    @PostMapping("/restController")
 	    public Object restController(@RequestBody ChartVO chartvo) {
@@ -43,7 +42,7 @@ public class Ajax_Json_Controller {
 	        return arrList;
 	    }
 	    //restController
-	    //ì°¨íŠ¸ì˜ ê°’ì„ POSTë°©ì‹ìœ¼ë¡œ í•˜ëŠ” ì»¨íŠ¸ë¡¤ëŸ¬ ì—­í• ì„.
+	    //Â÷Æ®ÀÇ °ªÀ» POST¹æ½ÄÀ¸·Î ÇÏ´Â ÄÁÆ®·Ñ·¯ ¿ªÇÒÀÓ.
 	}
 
 	

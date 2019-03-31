@@ -156,6 +156,16 @@ $("#btnUpdate").click(function(){
 		
 	});
 	
+	$("#btnInsertTag").click(function(){
+		document.inserttagform.action="inserttag.do"
+		document.inserttagform.submit();
+	});
+	
+	$("#btnUpdateCommunity").click(function(){
+		document.updatecommunityform.action="updatecommunity.do"
+		document.updatecommunityform.submit();
+	});
+	
 	$("#btnDelete").click(function(){
 		
 		if(confirm("정말 영화 상태 변경을 하시겠습니까?")){
@@ -648,47 +658,45 @@ $("#btnUpdate").click(function(){
 	<!-- -------------------------------------------------------------------------------------------------------------------------- -->
 <!--                MODALS_영화추가 -->
 
-<!--               Button trigger modal -->
-              <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_movieadd">
-               영화 추가
-                </button>
-<!--               Modal -->
-              <div class="modal fade" id="myModal_movieadd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="myModalLabel">영화 추가</h4>
-                    </div>
-                    <div class="modal-body">
+<!--               <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal_movieadd"> -->
+<!--                영화 추가 -->
+<!--                 </button> -->
+<!--               <div class="modal fade" id="myModal_movieadd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+<!--                 <div class="modal-dialog"> -->
+<!--                   <div class="modal-content"> -->
+<!--                     <div class="modal-header"> -->
+<!--                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+<!--                       <h4 class="modal-title" id="myModalLabel">영화 추가</h4> -->
+<!--                     </div> -->
+<!--                     <div class="modal-body"> -->
                       
                       
                       
                       
                       
                       	
-       <div class="form-style-6">
-                      	<form name="addform" method="post">
-                      	영화코드 : <input type="text" name="movie_number" id="movie_number" size="20"> 
-                      	<br>
-                      	가격번호 : <input type="text" name="movie_price" id="movie_price" size="20">
-                      	<br>
-                      	영화제목 : <input type="text" name="movie_title" id="movie_title" size="20">
-                      	<br>
-                      	영화판권구입액 : <input type="text" name="movie_copyright_cost" id="movie_copyright_cost" size="20">
-                      	<br>
-                      	영화 장르 : <input type="text" name="tag_table_num" id="tag_table_num" size="20">
-						<button type="button" id="btnSave">저장하기</button>
-                      		</form>
-                      		</div>
+<!--        <div class="form-style-6"> -->
+<!--                       	<form name="addform" method="post"> -->
+<!--                       	영화코드 : <input type="text" name="movie_number" id="movie_number" size="20">  -->
+<!--                       	<br> -->
+<!--                       	가격번호 : <input type="text" name="movie_price" id="movie_price" size="20"> -->
+<!--                       	<br> -->
+<!--                       	영화제목 : <input type="text" name="movie_title" id="movie_title" size="20"> -->
+<!--                       	<br> -->
+<!--                       	영화판권구입액 : <input type="text" name="movie_copyright_cost" id="movie_copyright_cost" size="20"> -->
+<!--                       	<br> -->
+<!--                       	영화 장르 : <input type="text" name="tag_table_num" id="tag_table_num" size="20"> -->
+<!-- 						<button type="button" id="btnSave">저장하기</button> -->
+<!--                       		</form> -->
+<!--                       		</div> -->
                       
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<!--                     </div> -->
+<!--                     <div class="modal-footer"> -->
+<!--                       <button type="button" class="btn btn-default" data-dismiss="modal">나가기</button> -->
+<!--                     </div> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--               </div> -->
        
               
 	
@@ -742,6 +750,17 @@ $("#btnUpdate").click(function(){
               
               
               
+              <!-- 버튼을 누르면 댓글을 태그로 전환해주는 것 -->
+              <form name="inserttagform" method="post">
+               
+						<button type="button" id="btnInsertTag">댓글에서 상위 10개 태그 출력하기</button>
+                      		</form>
+                      		
+                      		
+              <!-- 버튼을 누르면 군집화한 내용을 db에 저장시키는 것 -->
+              <form name="updatecommunityform" method="post">
+              	<button type="button" id="btnUpdateCommunity"> 군집화 내용을 db에 저장하기</button>
+              </form>
               
 	
 	

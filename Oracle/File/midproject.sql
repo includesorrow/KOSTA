@@ -7,7 +7,49 @@ update movie set movie_price = 10
 where movie_number = 20164442;
 rollback;
 
+INSERT INTO MEMBER_GRADE VALUES(9,'최고관리자');
+INSERT INTO MEMBER_GRADE VALUES(7,'민원담당자');
+INSERT INTO MEMBER_GRADE VALUES(6,'영화담당자');
+INSERT INTO MEMBER_GRADE VALUES(5,'회원담당자');
+INSERT INTO MEMBER_GRADE VALUES(1,'일반유저');
 
+ insert into counsel_category values(1, '건의');
+ insert into counsel_category values(2, '신고');
+ insert into counsel_category values(3, '문의');
+
+ insert into tag_category values(1, '장르');
+ insert into tag_category values(2, '배우');
+ insert into tag_category values(3, '감독');
+ insert into tag_category values(4, '댓글');
+
+ insert into price values(1,0);
+ insert into price values(2,1000);
+ insert into price values(3,2500);
+ insert into price values(4,5000);
+ insert into price values(5,10000);
+
+insert into active_check values(0, '비활성화');
+insert into active_check values(1, '활성화');
+
+
+Insert Into MEMBER VALUES(1,'Admin@Admin.ad','최고관리자','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,9,1,null);
+  Insert Into MEMBER VALUES(2,'Minwon_Admin1@Admin.ad','민원담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7,1,null);
+  Insert Into MEMBER VALUES(3,'Minwon_Admin2@Admin.ad','민원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7,1,null);
+  Insert Into MEMBER VALUES(4,'Minwon_Admin3@Admin.ad','민원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,7,1,null);
+
+  Insert into member values(5,'Movie_Admin1@Admin.ad','영화담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6,1,null);
+  Insert into member values(6,'Movie_Admin2@Admin.ad','영화담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6,1,null);
+  Insert into member values(7,'Movie_Admin3@Admin.ad','영화담당자3','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,6,1,null);
+
+  Insert into member values(8,'Client_Admin1@Admin.ad','회원담당자1','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5,1,null);
+  Insert into member values(9,'Client_Admin2@Admin.ad','회원담당자2','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5,1,null);
+  Insert into member values(10,'Client_Admin3@Admin.ad','회원담당자3','admin',to_date('1900-01-01'),to_date('1900-01-01'),null,5,1,null);
+
+INSERT INTO gsb_table values(1,'금메달');
+insert into gsb_table values(2,'은메달');
+insert into gsb_table values(3,'동메달');
+
+commit;
 alter table review_usedwords modify(usedwords_contents varchar2(3000));
 
 Insert Into MEMBER VALUES(11,'oracle1@naver.com','김길동','abcd',to_date('1900-01-01'),to_date('1900-01-01'),null,1,1);
@@ -284,6 +326,11 @@ DROP TABLE "MY_RANK_TABLE" CASCADE CONSTRAINTS;
 DROP TABLE "MOVIE_MODIFY_LOG" CASCADE CONSTRAINTS;
 DROP TABLE "PRICE" CASCADE CONSTRAINTS;
 DROP TABLE "ACTIVE_CHECK" CASCADE CONSTRAINTS;
+DROP TABLE "GSB_TABLE" CASCADE CONSTRAINTS;
+DROP TABLE "MOVIE_COMMUNITY" CASCADE CONSTRAINTS;
+DROP TABLE "MEMBER_COMMUNITY" CASCADE CONSTRAINTS;
+
+
 
    insert into counsel_category values(1, '건의');
    insert into counsel_category values(2, '신고');
@@ -564,9 +611,206 @@ where active_check_number=0;
                 where movie_title like '%'||'0000'||'%';
                 select * from movie_tag
                 where movie_number like '0000';
-                
-                
+ --tag_table 에 값 넣을때 사용하는 시퀀스               
+--      create sequence tag_table_seq
+--      start with 1
+--      increment by 1;
+--      
+ 
+        insert into movie_Tag(
+  			movie_number,
+  			tag_table_num,
+  			
+  		) values(
+  		 
+  		 #{movie_number},
+         (select tag_table_num from tag_table where tag_name = #{tag_name})
+  		)
+       
+        insert into movie_Tag(
+  			movie_number,
+  			tag_table_num
+  			
+  		) values(20129370,(select tag_table_num from tag_table where tag_name = '이런')
+  		);
+        
+        select tag_table_num from tag_table where tag_name = '이런';
+    
+        
+        
+        
+        select tag_table_num from tag_table where tag_name = '이런';
+     
+     
+     insert into tag_table(
+  			tag_category_num,
+  			tag_table_num,
+  			tag_name,
+  			active_check_number
+  		) values(
+  		 4,
+  		 're'||tag_table_seq.nextVal,
+  		 '봄',
+  		 1
+  		);   
+        
+      select * from tag_table
+      where tag_table_num like '%re%'; 
+      
+      
+       select movie_number,rownum
+                from (select movie_number
+                from movie
+                order by MOVIE_NUMBER_OF_AUDIENCE desc)
+                where rownum <=50
+                ;
                 
                 select movie_number
                 from review_usedwords 
                 where movie_number like '%' || '201'|| '%';
+                
+                
+                select * from tag_table;
+                
+                select *
+                from tag_table ;
+               
+               
+               select tag_table_num from tag_table where tag_name = '이마리오' and rownum=1
+                order by tag_table_num desc;
+              
+            insert into movie_Tag(movie_number,tag_table_num) values
+            ('20129370',(select tag_table_num from 
+                            (select tag_table_num 
+                                from tag_table 
+					         where tag_name = '이런' 
+                                order by tag_table_num desc) 
+                            where rownum=1) );
+             
+
+select * from table order by asdf~
+
+                select * from tag_table
+                where tag_name like '%'||'너무'||'%';
+                
+                delete from tag_table
+                where tag_table_num like '%'||'Re'||'%';
+                
+                delete from movie_tag
+                where tag_table_num like '%'||'Re'||'%';
+                
+                select * from tag_table
+                where tag_category_num=4;
+                
+                select * from movie_tag
+                where tag_table_num like '%'||'re'||'%';
+                
+                select rownum,tag_name from tag_table
+                order by rowmnum desc;
+                
+                select movie_number,rownum
+                from (select movie_number
+                from movie
+                order by MOVIE_NUMBER_OF_AUDIENCE desc)
+                where rownum <=50
+                ;
+                
+                DELETE FROM tag_table
+                where tag_category_num=4;
+                commit;
+                
+       
+    select * from tag_table
+    where tag_table_num like '%'||'re'||'%';
+                
+                
+                
+                delete from movie_tag
+                where tag_table_num like '%' || 're'||'%';
+                
+                select * from movie_tag
+                where tag_table_num like '%'||'Re'||'%';
+                
+                delete from tag_table
+                where tag_table_num like '%'||'re'||'%';
+commit;
+
+
+
+select msl.movie_number,sum(p.movie_real_price) as month_sum
+from movie_sold_log msl, price p, movie m
+where msl.movie_price=p.movie_price
+and msl.MOVIE_NUMBER=m.MOVIE_NUMBER
+and msl.movie_sold_date between add_months(MOVIE_PURCHASE_DATE,0) and add_months(MOVIE_PURCHASE_DATE,1)
+group by msl.movie_number;
+
+
+
+
+
+
+CREATE FUNCTION month_begyo
+(testmonth in number)
+return number
+is
+testmonth number(10);
+begin
+select msl.movie_number,sum(p.movie_real_price) as month_sum
+from movie_sold_log msl, price p, movie m
+where msl.movie_price=p.movie_price
+and msl.MOVIE_NUMBER=m.MOVIE_NUMBER
+and msl.movie_sold_date between add_months(MOVIE_PURCHASE_DATE,testmonth) and add_months(MOVIE_PURCHASE_DATE,testmonth)
+group by msl.movie_number;
+    
+    delete from member
+    where member_number >= 11;
+    
+    return sum(p.movie_real_price);
+    
+    end;
+    /
+    select member_number, member_community_number
+    from member;
+    
+    select * from member;
+    
+    
+    INSERT INTO MEMBER_GRADE VALUES(9,'최고관리자');
+INSERT INTO MEMBER_GRADE VALUES(7,'민원담당자');
+INSERT INTO MEMBER_GRADE VALUES(6,'영화담당자');
+INSERT INTO MEMBER_GRADE VALUES(5,'회원담당자');
+INSERT INTO MEMBER_GRADE VALUES(1,'일반유저');
+
+insert into counsel_category values(1, '건의');
+insert into counsel_category values(2, '신고');
+insert into counsel_category values(3, '문의');
+
+insert into tag_category values(1, '장르');
+insert into tag_category values(2, '배우');
+insert into tag_category values(3, '감독');
+insert into tag_category values(4, '댓글');
+
+insert into price values(1,0);
+insert into price values(2,1000);
+insert into price values(3,2500);
+insert into price values(4,5000);
+insert into price values(5,10000);
+
+insert into active_check values(0, '비활성화');
+insert into active_check values(1, '활성화');
+
+
+
+INSERT INTO gsb_table values(1,'금메달');
+insert into gsb_table values(2,'은메달');
+insert into gsb_table values(3,'동메달');
+
+commit;
+
+
+
+
+                select count(*)
+                from member
+                where member_grade=1
+                and active_check_number=1;

@@ -3,7 +3,7 @@ package kr.or.kosta.dto;
 public class TagtableVO {
 	
 	/*
-	 * íƒœê·¸ í…Œì´ë¸” VO
+	 * ÅÂ±×Å×ÀÌºívo
 	 */
 
 	private int tag_category_num;

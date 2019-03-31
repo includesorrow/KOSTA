@@ -50,7 +50,6 @@
     		 analysistag : $('#analysistag').val()
      }
 	 
-	 
 	 var txt1 = "분석 영화 제목 : "
 	 var txt2 = "분석 영화 판권 금액 : "
 	 var txt3 = "분석 영화 태그 정보 : "
@@ -62,19 +61,12 @@
          dataType: "json",
          success: function(data){
         	 
-        	 
         	 $('#analysisresult').append(txt1);
              $('#analysisresult').append(data[0]+"\n");
              $('#analysisresult').append(txt2);
              $('#analysisresult').append(data[1]+"\n");
              $('#analysisresult').append(txt3);
              $('#analysisresult').append(data[2] + "\n");
-        	 
-        	 
-//         	 for(var i=0; i<data.length; i++){
-//                  $('#analysisresult').append(data[i] + "<br>");
-//              }
-        	 
         	 
          },
          error: function(){
