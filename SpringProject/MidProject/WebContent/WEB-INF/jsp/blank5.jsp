@@ -161,6 +161,18 @@ $("#btnUpdate").click(function(){
 		document.inserttagform.submit();
 	});
 	
+	
+	$("#btnrecommendmovie").click(function(){
+		document.recommendmovieform.action="recommendmovie.do"
+		document.recommendmovieform.submit();
+	});
+	
+	$("#btnmoviepriceyearupdate").click(function(){
+		document.moviepriceyearupdateform.action="moviepriceyearupdate.do"
+		document.moviepriceyearupdateform.submit();
+		
+	});
+			
 	$("#btnUpdateCommunity").click(function(){
 		document.updatecommunityform.action="updatecommunity.do"
 		document.updatecommunityform.submit();
@@ -733,6 +745,12 @@ $("#btnUpdate").click(function(){
                     </form>
                     
                  
+                 
+                 
+                 
+                 
+                 
+                 
 </div>
                     
                     
@@ -745,6 +763,19 @@ $("#btnUpdate").click(function(){
                   </div>
                 </div>
               </div>
+              <form name="moviepriceyearupdateform" method="post">
+              
+              	<button class="btn btn-success btn-lg"  type="button" id="btnmoviepriceyearupdate">영화 가격 전체 업데이트</button>
+              </form>
+              
+              
+              
+                 <form name="recommendmovieform" method="post">
+              
+              	<button class="btn btn-success btn-lg"  type="button" id="btnrecommendmovie">영화추천해주세요</button>
+              </form>
+                
+              
             </div>
 	
               
@@ -753,14 +784,16 @@ $("#btnUpdate").click(function(){
               <!-- 버튼을 누르면 댓글을 태그로 전환해주는 것 -->
               <form name="inserttagform" method="post">
                
-						<button type="button" id="btnInsertTag">댓글에서 상위 10개 태그 출력하기</button>
+						<button class="btn btn-success btn-lg"  type="button" id="btnInsertTag">댓글에서 상위 10개 태그 출력하기</button>
                       		</form>
                       		
                       		
               <!-- 버튼을 누르면 군집화한 내용을 db에 저장시키는 것 -->
               <form name="updatecommunityform" method="post">
-              	<button type="button" id="btnUpdateCommunity"> 군집화 내용을 db에 저장하기</button>
+              	<button class="btn btn-success btn-lg"  type="button" id="btnrecommendmovie"> 군집화 내용을 db에 저장하기</button>
               </form>
+              
+              
               
 	
 	

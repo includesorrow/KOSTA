@@ -31,7 +31,7 @@
   		 
   		 #{movie_number},(select tag_table_num from 
                             (select tag_table_num 
-                                from tag_table 
+                                from tag_table  
 					         where tag_name = #{tag_name}
                                 order by tag_table_num desc) 
                             where rownum=1) )
@@ -48,7 +48,7 @@
                 from (select movie_number
                 from movie
                 order by MOVIE_NUMBER_OF_AUDIENCE desc)
-                where rownum <![CDATA[ <= ]]> 50
+                where rownum <![CDATA[ <= ]]> 1
                 
   	
   			 </select>

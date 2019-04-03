@@ -10,7 +10,7 @@
   		
   		update member
   		set member_community_number = #{member_community_number}
-  		where movie_number = #{movie_number}
+  		where member_number = #{member_number}
   		
   	</insert>
   	

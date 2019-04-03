@@ -35,6 +35,23 @@
 
 
 
+<!-- 영화 페이지에서 년도별 가격 업데이트-->
+ <update id="updateyearprice" parameterType="movievo">
+
+update movie
+set movie_price=
+case 
+
+
+ 
+when (months_between(sysdate,movie_purchase_date)<![CDATA[ >= ]]>48) then 1
+when months_between(sysdate,movie_purchase_date)<![CDATA[ >= ]]>36 and months_between(sysdate,movie_purchase_date) <![CDATA[ < ]]>48 then 2
+when months_between(sysdate,movie_purchase_date)<![CDATA[ >= ]]>24 and months_between(sysdate,movie_purchase_date) <![CDATA[ < ]]>36 then 3
+when months_between(sysdate,movie_purchase_date)<![CDATA[ >= ]]>12 and months_between(sysdate,movie_purchase_date) <![CDATA[ < ]]>24 then 4
+else 5
+end
+
+ </update>
 
 
 

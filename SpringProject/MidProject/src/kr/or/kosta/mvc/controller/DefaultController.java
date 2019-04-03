@@ -1,8 +1,6 @@
 package kr.or.kosta.mvc.controller;
 
-import java.util.ArrayList;import java.util.HashMap;import java.util.List;
-import java.util.Map;
-
+import java.util.ArrayList;import java.util.HashMap;import java.util.List;import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +20,7 @@ import kr.or.kosta.mvc.dao.DynamicExampleDao;
 import kr.or.kosta.mvc.dao.TagListDao;
 
 import static kr.or.kosta.mvc.dao.CommunityDao.countlist;
+import static kr.or.kosta.mvc.dao.TagListDao.namelist;
 
 
 
@@ -82,9 +81,25 @@ public class DefaultController {
 	//검색에 값을 받기 위한 Post방식의 Mapping
 	
 	
+	
+	
+	
+	@RequestMapping(value="recommendmovie.do",method=RequestMethod.POST)
+	public String recommendmovie() throws Exception{
+//		dao.outputmovierecommend(member_number);
+		int member_number = 11;
+		System.out.println("추천영화 : " + dao.outputmovierecommend(member_number));
+		return "redirect:blank5";
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value="update.do", method=RequestMethod.POST)
 	public String update(@ModelAttribute MovieVO vo) throws Exception{
 		dao.updateprice(vo);
+		
 		return "redirect:blank5"; 
 	}
 	//영화에서 영화의 가격이 업데이트시 매핑
@@ -107,42 +122,36 @@ public class DefaultController {
 	}
 	//영화 추가를 위한 매핑
 	
+	@RequestMapping(value="moviepriceyearupdate.do", method=RequestMethod.POST)
+	public String updatemoviepriceyear(@ModelAttribute MovieVO vo) throws Exception{
+		dao.updatemoviepriceyear();
+		
+		return "redirect:blank5";
+	}
+	
 	@RequestMapping(value="inserttag.do",method=RequestMethod.POST)
 	public String inserttag(@ModelAttribute InserttagVO vo ) throws Exception{
-		
 		TagListDao tldao = new TagListDao();
-		
 		List<MovieVO> movienumberlist =dao.getsavetaglist();
-		
 		String movie_num="";
 	for(MovieVO mv: movienumberlist) {
 		movie_num=mv.getMovie_number();
 		System.out.println("movie_num : "+movie_num);
-		
-		
-		
 		for(int i = 0; i<=9; i++) {
 			vo.setMovie_number(movie_num);
-			
-			
-			
 			tldao.connectR(movie_num);
 			String tag_name;
-			tag_name = tldao.namelist[i];
+			tag_name = TagListDao.namelist[i];
 			vo.setTag_name(tag_name);
 			Map<String,String> map = new HashMap<String,String>();
-			
 			map.put("movie_number",movie_num);
 			map.put("tag_name",tag_name);
-			
-				
 			if(dao.checktagname(tag_name)==0) {
 				dao.inserttag(vo);
 				dao.insertmovietag(map);
 			} else {
 				dao.insertmovietag(map);
 			}
-		
 		
 		}	
 		}
@@ -156,29 +165,21 @@ public class DefaultController {
 	@RequestMapping(value="updatecommunity.do",method=RequestMethod.POST)
 	public String insertMemberCommunity(@ModelAttribute MemberVO vo ) throws Exception{
 		CommunityDao co = new CommunityDao();
-		
-		
-		
 		int mem_community_number = 0;
-		
-		
 		co.connectR();
-		
-		
-		
 		int member_list_number = dao.memberfinalnumber();
-		
-		
-		for(int i=11; i<=member_list_number; i++) {
+		for(int i=11; i<=member_list_number-10; i++) {
+			System.out.println("시작!"+countlist[i-10]);
 			vo.setMember_number(i);
 			mem_community_number = countlist[i-10];
 			vo.setMember_community_number(mem_community_number);
 			dao.updatecommunitymember(vo);
-			
-			
 		}
-		
-	return "redirect:blank4";
+	return "redirect:blank5";
 	}
 	//군집화를 위한 매핑
+	
+	
+	
+	
 }

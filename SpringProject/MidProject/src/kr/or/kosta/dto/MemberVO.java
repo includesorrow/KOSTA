@@ -6,6 +6,15 @@ public class MemberVO {
 	 * ¸â¹öÅ×ÀÌºívo
 	 */
 	int member_number,member_grade,member_community_number;
+	String movie_number;
+
+	public String getMovie_number() {
+		return movie_number;
+	}
+
+	public void setMovie_number(String movie_number) {
+		this.movie_number = movie_number;
+	}
 
 	public int getMember_number() {
 		return member_number;

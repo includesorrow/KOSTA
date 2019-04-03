@@ -108,7 +108,23 @@ public class DynamicExampleDao {
 	public int memberfinalnumber() {
 		return ss.selectOne("updatecommunity.memberfinalnumber");
 	}
-	//¸â¹ö ÃÑ °¹¼ö ¾ò¾î¿À±â
 	
+	
+	//¸â¹ö ÃÑ °¹¼ö ¾ò¾î¿À±â
+	public List<MovieVO> movie_advice(MovieVO vo){
+		return ss.selectList("movieadvice.insert",vo);
+	}
+	
+	
+	public void updatemoviepriceyear() {
+		ss.update("movie.updateyearprice");
+	}
+	
+	public String outputmovierecommend(int member_number) {
+		return ss.selectOne("outputmovierecommend.select", member_number);
+	}
+		
+	
+	//°¡°Ý ¾÷µ¥ÀÌÆ®
 	
 }

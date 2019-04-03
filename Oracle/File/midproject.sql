@@ -7,6 +7,143 @@ update movie set movie_price = 10
 where movie_number = 20164442;
 rollback;
 
+select * from member;
+
+
+
+select * from movie;
+
+select m.member_community_number, member_id
+from member m, Login_Log ll, my_rank_table mrt
+where m.member_number = ll.member_number
+and m.member_number = mrt.member_number;
+
+
+--로그인한 회원
+select member_number from login_log;
+
+--같은회원 출력
+select member_number from member
+where member_community_number = #{member_community_number}
+
+--금은동 출력
+select member_number, movie_number
+from my_rank_table
+where member_number in
+        (select member_number 
+            from member 
+                where member_community_number = 3)
+and member_number not in 1 -- 1에는 로그인한 사람이 들어와야 함. #{member_number}
+and movie_number not in (select movie_number from Movie_Sold_Log where member_number = 1)--1은 로그인한 회원이여야 함.) -- 이미 구매한 영화는 제외,
+and rank_number = 1;
+
+
+select movie_number from( 
+    select member_number, movie_number
+from my_rank_table
+where member_number in
+        (select member_number 
+            from member 
+                where member_community_number = (select member_community_number from member where member_number = 11))
+and member_number not in 1 -- 1에는 로그인한 사람이 들어와야 함. #{member_number}
+and movie_number not in (select movie_number from Movie_Sold_Log where member_number = 1)--1은 로그인한 회원이여야 함.) -- 이미 구매한 영화는 제외,
+and rank_number = 1 
+order by dbms_random.random
+) 
+where rownum = 1;
+
+
+
+
+
+
+
+
+
+
+
+SELECT cetl(DBMS_RANDOM.VALUE(1000, 10000)) rand FROM DUAL ;
+
+
+and member_community_number 
+
+
+
+delete from my_rank_table
+where movie_number = 20050333;
+
+select *
+from my_rank_Table;
+
+
+insert into my_rank_table
+values(11,20177552,1);
+
+insert into my_rank_table
+values(12,20177552,1);
+
+insert into my_rank_table
+values(11,19990050,2);
+
+commit;
+
+insert into login_log
+values(1,11,sysdate,sysdate);
+commit;
+
+
+select * from tag_table
+where tag_category_num = 1;
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (161,16,'20159646',3,to_date('19/01/01','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (162,16,'20189161',5,to_date('18/03/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (163,16,'20171962',4,to_date('18/02/13','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (164,16,'20140144',2,to_date('18/01/02','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (165,16,'20186841',5,to_date('18/07/01','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (166,16,'20174964',4,to_date('18/08/19','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (167,16,'20157998',2,to_date('18/09/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (168,16,'19728181',1,to_date('18/10/22','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (169,16,'19590006',1,to_date('18/12/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (170,16,'20181200',5,to_date('18/12/13','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (171,16,'20140194',3,to_date('18/12/02','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (172,16,'20123422',1,to_date('18/12/01','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (173,16,'20196601',5,to_date('18/12/19','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (174,16,'20176717',4,to_date('18/12/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (175,16,'20140194',3,to_date('18/12/22','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (176,16,'20159646',3,to_date('19/01/01','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (177,16,'20155301',3,to_date('19/01/02','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (178,16,'20197470',5,to_date('19/01/03','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (179,16,'20000060',1,to_date('19/01/04','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (180,16,'20177245',4,to_date('19/01/05','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (181,16,'20020222',1,to_date('19/01/06','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (182,16,'20030029',1,to_date('19/01/07','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (183,16,'20155301',3,to_date('19/01/02','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (184,16,'20197470',5,to_date('19/01/03','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (185,16,'20000060',1,to_date('19/01/04','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (186,16,'20177245',4,to_date('19/01/05','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (187,16,'20000060',1,to_date('19/01/04','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (195,1,'20196601',3,to_date('19/02/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (196,1,'20196601',1,to_date('19/02/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (197,1,'20196601',1,to_date('19/02/14','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (198,1,'20196601',3,to_date('19/03/24','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (199,1,'20196601',2,to_date('19/03/24','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (200,1,'20196601',4,to_date('19/03/24','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (201,1,'20196601',4,to_date('19/03/25','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (202,16,'20196601',3,to_date('19/02/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (203,16,'20196601',1,to_date('19/02/11','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (204,16,'20196601',1,to_date('19/02/14','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (205,16,'20196601',3,to_date('19/03/24','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (206,16,'20196601',2,to_date('19/03/24','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (207,16,'20196601',4,to_date('19/03/24','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (208,16,'20196601',4,to_date('19/03/25','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (209,16,'20196601',3,to_date('19/02/21','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (210,16,'20196601',2,to_date('19/03/22','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (211,16,'20196601',5,to_date('19/03/23','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (215,16,'20196601',3,to_date('19/02/12','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (216,16,'20196601',5,to_date('19/02/13','RR/MM/DD'));
+Insert into MIDPROJECT.MOVIE_SOLD_LOG (SOLDLOG_NUMBER,MEMBER_NUMBER,MOVIE_NUMBER,MOVIE_PRICE,MOVIE_SOLD_DATE) values (217,16,'20196601',2,to_date('19/02/14','RR/MM/DD'));
+commit;
+
+
 INSERT INTO MEMBER_GRADE VALUES(9,'최고관리자');
 INSERT INTO MEMBER_GRADE VALUES(7,'민원담당자');
 INSERT INTO MEMBER_GRADE VALUES(6,'영화담당자');
@@ -616,7 +753,30 @@ where active_check_number=0;
 --      start with 1
 --      increment by 1;
 --      
- 
+
+
+
+
+    create sequence Movie_Modify_Log_seq
+    start with 1
+    increment by 1;
+
+		insert into Movie_Modify_Log(
+  			viewlog_number,
+  			movie_number,
+  			modify_before_price,
+  			modifylog_date
+  		) values(
+  		 Movie_Modify_Log_seq.nextVal,
+  		 19200001,
+  		 to_number('5'),
+  		 sysdate
+  		)
+
+select * from Movie_Modify_Log;
+
+
+ commit;
         insert into movie_Tag(
   			movie_number,
   			tag_table_num,
