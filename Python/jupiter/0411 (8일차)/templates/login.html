@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+{% set message = get_flashed_messages() %}
+
+<p>
+  <div style="width:300px; margin:auto;">
+  {% if message %}
+  <p style="color:red"> {{message[0]}}   </p>
+  <a href=""> 아이디 / 비번찾기 </a>
+  {% else %}
+
+
+    <form action="/login" method="post">
+      <p>아이디 : <input type="text" name="username" placeholder="username"> </p>
+      <p>비밀번호 : <input type="password" name="password" placeholder="password"> </p>
+      <p> <input type="submit" value="로그인"> </p>
+    </form>
+
+    <form action="/daepyomenu" method="get">
+      <input type="submit" name="" value="대표메뉴확인하기">
+
+    </form>
+    {% endif %}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<!--
+  templateDemo.html 이미 만들었던 layout.html을 가져와서
+  보여줄 view, content 영역에 해당
+-->
+
+{% extends "layout.html" %}
+{% block content %}
+<p>여기는 실제 본문입니다.</p>
+<p> 1. 파라미터 값 : {{myname}}</p>
+<ul>
+  {% for n in my_list %}
+  <li>{{n}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

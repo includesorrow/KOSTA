@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<HTML lang="kr">
+ <HEAD>
+  <TITLE> layout2.html </TITLE>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style2.css"/>
+ </HEAD>
+
+ <BODY>
+    <header class="hd">
+        <hgroup>
+            <h1>Page Header</h1>
+            <h2>Page Sub Heading</h2>
+        </hgroup>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('user') }}">User</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+ <article>
+        <header>
+            <h1>Home 페이지 </h1>
+            <time>Oct 1th, 2011</time>
+        </header>
+        <p>
+		여기는 Home 페이지 입니다.
+		</p>
+        <section>
+            <header>
+                <h1>Section Heading</h1>
+            </header>
+            <p>.......</p>
+            <footer>
+                <p>.........</p>
+            </footer>
+        </section>
+        <section>
+            <header>
+                <h1>Section Heading</h1>
+            </header>
+            <p>.......</p>
+            <figure>
+			    <img src="img/safari.png'">
+				<img src="img/chrome.png">
+				<img src="img/firefox.png">
+				<img src="img/ie.png">
+				<img src="img/opera.png">
+                <figcaption>FigCaption: Safari, Chrome, FireFox, IE, Opera</figcaption>
+            </figure>
+            <p>......</p>
+            <footer>
+                <p>.......</p>
+            </footer>
+        </div>
+        <footer>
+            Article Footer
+        </footer>
+    </article>
+    <aside>
+        <header>
+            <h1>Siderbar Heading</h1>
+        </header>
+        <p>문서의 주 내용이 아닌 관련성이 낮은 내용들은 aside로 표시할 수 있다.
+		본문과 직접적으로 상관이 없는 관련 사이트 링크나 안내글, nav 요소의 그룹 등이 aside 요소로 기술 될 수 있다.
+		보통 블로그에서 좌우측 사이드바를 의미하는 것으로서 사이드바의 특성으로 볼때 필수적이지 않아서 표시를 해도 되고 안 해도 되는 내용들 또는 광고물같은 내용들이 자리할 수 있다.</p>
+
+    </aside>
+
+    <footer>
+        Page Footer
+    </footer>
+
+ </BODY>
+</HTML>
