@@ -1,0 +1,509 @@
+Town,Korean,Hanja,Provincial,Municipal,"Area
+"
+Jinwi,ÁøÀ§¸é,"òÉêÎØü
+",Gyeonggi,Pyeongtaek,"34.01
+"
+Seotan,¼­Åº¸é,"à¤÷©Øü
+",Gyeonggi,Pyeongtaek,"28.63
+"
+Godeok,°í´ö¸é,"Í¯ÓìØü
+",Gyeonggi,Pyeongtaek,"35.06
+"
+Oseong,¿À¼º¸é,"çüàòØü
+",Gyeonggi,Pyeongtaek,"32.50
+"
+Cheongbuk,Ã»ºÏ¸é,"ôìİÁØü
+",Gyeonggi,Pyeongtaek,"52.56
+"
+Hyeondeok,Çö´ö¸é,"úÜÓìØü
+",Gyeonggi,Pyeongtaek,"45.89
+"
+Byeollae,º°³»¸é,"Ü¬Ò®Øü
+",Gyeonggi,Namyangju,"22.17
+"
+Sudong,¼öµ¿¸é,"â©Ô×Øü
+",Gyeonggi,Namyangju,"72.74
+"
+Joan,Á¶¾È¸é,"ğèäÌØü
+",Gyeonggi,Namyangju,"50.70
+"
+Toegyewon,Åğ°è¿ø¸é,"÷ÜÍ¢êÂØü
+",Gyeonggi,Namyangju,"3.26
+"
+Mohyeon,¸ğÇö¸é,"Ù·úçØü
+",Gyeonggi,Yongin (Cheoin),"50.41
+"
+Namsa,³²»ç¸é,"ÑõŞÌØü
+",Gyeonggi,Yongin (Cheoin),"58.64
+"
+Idong,ÀÌµ¿¸é,"ì£ÔÔØü
+",Gyeonggi,Yongin (Cheoin),"75.64
+"
+Wonsam,¿ø»ï¸é,"êÀß²Øü
+",Gyeonggi,Yongin (Cheoin),"60.23
+"
+Baegam,¹é¾Ï¸é,"ÛÜäÜØü
+",Gyeonggi,Yongin (Cheoin),"65.79
+"
+Yangji,¾çÁö¸é,"åÕòªØü
+",Gyeonggi,Yongin (Cheoin),"57.71
+"
+Gwangtan,±¤Åº¸é,"ÎÆ÷¨Øü
+",Gyeonggi,Paju,"65.51
+"
+Tanhyun,ÅºÇö¸é,"÷©úãØü
+",Gyeonggi,Paju,"61.72
+"
+Wollong,¿ù·Õ¸é,"êÅÖëØü
+",Gyeonggi,Paju,"27.14
+"
+Papyeong,ÆÄÆò¸é,"÷çøÁØü
+",Gyeonggi,Paju,"41.84
+"
+Jeokseong,Àû¼º¸é,"îİàòØü
+",Gyeonggi,Paju,"88.83
+"
+Gunnae,±º³»¸é,"ÏÛÒ®Øü
+",Gyeonggi,Paju,"43.23
+"
+Jangdan,Àå´Ü¸é,"íşÓ¬Øü
+",Gyeonggi,Paju,"33.96
+"
+Jindong,Áøµ¿¸é,"òĞÔÔØü
+",Gyeonggi,Paju,"43.16
+"
+Jinseo,Áø¼­¸é,"òĞà¤Øü
+",Gyeonggi,Paju,"9.16
+"
+Daewol,´ë¿ù¸é,"ÓŞêÅØü
+",Gyeonggi,Icheon,"31.44
+"
+Majang,¸¶Àå¸é,"Ø«íşØü
+",Gyeonggi,Icheon,"51.36
+"
+Baeksa,¹é»ç¸é,"ÛÛŞŞØü
+",Gyeonggi,Icheon,"32.55
+"
+Sindun,½ÅµĞ¸é,"ãæÔêØü
+",Gyeonggi,Icheon,"36.46
+"
+Seolseong,¼³¼º¸é,"àäàøØü
+",Gyeonggi,Icheon,"51.66
+"
+Hobeop,È£¹ı¸é,"ûÂÛöØü
+",Gyeonggi,Icheon,"37.93
+"
+Moga,¸ğ°¡¸é,"ÙºÊ¥Øü
+",Gyeonggi,Icheon,"40.99
+"
+Yul,À²¸é,"×ÊØü
+",Gyeonggi,Icheon,"36.77
+"
+Bogae,º¸°³¸é,"ÜÄËÏØü
+",Gyeonggi,Anseong,"53.01
+"
+Geumgwang,±İ±¤¸é,"ÑÑÎÃØü
+",Gyeonggi,Anseong,"71.71
+"
+Seoun,¼­¿î¸é,"ßúê£Øü
+",Gyeonggi,Anseong,"36.28
+"
+Miyang,¹Ì¾ç¸é,"Ú¹åÕØü
+",Gyeonggi,Anseong,"33.73
+"
+Daedeok,´ë´ö¸é,"ÓŞÓìØü
+",Gyeonggi,Anseong,"31.16
+"
+Yangseong,¾ç¼º¸é,"åÕàòØü
+",Gyeonggi,Anseong,"53.17
+"
+Wongok,¿ø°î¸é,"êªÍÛØü
+",Gyeonggi,Anseong,"37.83
+"
+Gosam,°í»ï¸é,"Í¯ß²Øü
+",Gyeonggi,Anseong,"27.79
+"
+Iljuk,ÀÏÁ×¸é,"ìéñÓØü
+",Gyeonggi,Anseong,"55.54
+"
+Juksan,Á×»ê¸é,"ñÓß£Øü
+",Gyeonggi,Anseong,"57.26
+"
+Samjuk,»ïÁ×¸é,"ß²ñÓØü
+",Gyeonggi,Anseong,"39.07
+"
+Daegot,´ë°ù¸é,"ÓŞÍúØü
+",Gyeonggi,Gimpo,"42.79
+"
+Wolgot,¿ù°ù¸é,"êÅÍúØü
+",Gyeonggi,Gimpo,"51.95
+"
+Haseong,ÇÏ¼º¸é,"ùÇàòØü
+",Gyeonggi,Gimpo,"54.76
+"
+Maesong,¸Å¼Û¸é,"ØŞáæØü
+",Gyeonggi,Hwaseong,"27.40
+"
+Bibong,ºñºÀ¸é,"Ş«ÜóØü
+",Gyeonggi,Hwaseong,"38.5
+"
+Mado,¸¶µµ¸é,"Ø«Ô³Øü
+",Gyeonggi,Hwaseong,"31.8
+"
+Songsan,¼Û»ê¸é,"áæß£Øü
+",Gyeonggi,Hwaseong,"53.63
+"
+Seosin,¼­½Å¸é,"à¤ãæØü
+",Gyeonggi,Hwaseong,"43.1
+"
+Paltan,ÆÈÅº¸é,"ø¢÷¨Øü
+",Gyeonggi,Hwaseong,"50.9
+"
+Jangan,Àå¾È¸é,"íşäÌØü
+",Gyeonggi,Hwaseong,"67.7
+"
+Yanggam,¾ç°¨¸é,"åÅÊöØü
+",Gyeonggi,Hwaseong,"31.1
+"
+Jeongnam,Á¤³²¸é,"ïáÑõØü
+",Gyeonggi,Hwaseong,"40.7
+"
+Dongtan,µ¿Åº¸é,"ÔÔ÷¨Øü
+",Gyeonggi,Hwaseong,"39.9
+"
+Docheok,µµÃ´¸é,"Ô´ô©Øü
+",Gyeonggi,Gwangju,"52.15
+"
+Toechon,ÅğÃÌ¸é,"÷Üõ½Øü
+",Gyeonggi,Gwangju,"60.75
+"
+Namjong,³²Á¾¸é,"ÑõğûØü
+",Gyeonggi,Gwangju,"48.57
+"
+Jungbu,ÁßºÎ¸é,"ñéİ»Øü
+",Gyeonggi,Gwangju,"33.73
+"
+Gwangjeok,±¤Àû¸é,"ÎÆîİØü
+",Gyeonggi,Yangju,"48.49
+"
+Nam,³²¸é,"ÑõØü
+",Gyeonggi,Yangju,"36.54
+"
+Jangheung,ÀåÈï¸é,"íşıéØü
+",Gyeonggi,Yangju,"63.00
+"
+Eunhyeon,ÀºÇö¸é,"ëßúãØü
+",Gyeonggi,Yangju,"34.54
+"
+Sinbuk,½ÅºÏ¸é,"ãæİÁØü
+",Gyeonggi,Pocheon,"95.89
+"
+Idong,ÀÌµ¿¸é,"ì£ÔÔØü
+",Gyeonggi,Pocheon,"112.95
+"
+Gunnae,±º³»¸é,"ÏÛÒ®Øü
+",Gyeonggi,Pocheon,"55.46
+"
+Ildong,ÀÏµ¿¸é,"ìéÔÔØü
+",Gyeonggi,Pocheon,"83.3
+"
+Gasan,°¡»ê¸é,"Ê¥ß£Øü
+",Gyeonggi,Pocheon,"35.89
+"
+Yeongjung,¿µÁß¸é,"çµñéØü
+",Gyeonggi,Pocheon,"61.35
+"
+Yeongbuk,¿µºÏ¸é,"çµİÁØü
+",Gyeonggi,Pocheon,"81.74
+"
+Naechon,³»ÃÌ¸é,"Ò®õ½Øü
+",Gyeonggi,Pocheon,"52.74
+"
+Gwanin,°üÀÎ¸é,"Î¯ìÒØü
+",Gyeonggi,Pocheon,"69.71
+"
+Hwajyeon,È­Çö¸é,"ü£úÖØü
+",Gyeonggi,Pocheon,"43.55
+"
+Changsu,Ã¢¼ö¸é,"óïâ©Øü
+",Gyeonggi,Pocheon,"71.5
+"
+Jeomdong,Á¡µ¿¸é,"ï¿ÔÔØü
+",Gyeonggi,Yeoju,"71.68
+"
+Neungseo,´É¼­¸é,"×Õà¤Øü
+",Gyeonggi,Yeoju,"53.13
+"
+Heungcheon,ÈïÃµ¸é,"ıéô¹Øü
+",Gyeonggi,Yeoju,"44.22
+"
+Geumsa,±İ»ç¸é,"ÑÑŞŞØü
+",Gyeonggi,Yeoju,"41.71
+"
+Sanbuk,»êºÏ¸é,"ß£İÁØü
+",Gyeonggi,Yeoju,"32.86
+"
+Daesin,´ë½Å¸é,"ÓŞãêØü
+",Gyeonggi,Yeoju,"75.87
+"
+Bungnae,ºÏ³»¸é,"İÁÒ®Øü
+",Gyeonggi,Yeoju,"65.75
+"
+Geumsa,°­Ãµ¸é,"Ë¬ô¹Øü
+",Gyeonggi,Yeoju,"74.05
+"
+Gunnamn,±º³²¸é,"ÏÛÑõØü
+",Gyeonggi,Yeoncheon County,"45.62
+"
+Cheongsan,Ã»»ê¸é,"ôìß£Øü
+",Gyeonggi,Yeoncheon County,"43.72
+"
+Baekhak,¹éÇĞ¸é,"ÛİùÍØü
+",Gyeonggi,Yeoncheon County,"61.27
+"
+Misan,¹Ì»ê¸é,"Ú®ß£Øü
+",Gyeonggi,Yeoncheon County,"40.9
+"
+Wangjing,¿ÕÂ¡¸é,"èÚó¥Øü
+",Gyeonggi,Yeoncheon County,"85.9
+"
+Sinseo,½Å¼­¸é,"ãæà¤Øü
+",Gyeonggi,Yeoncheon County,"131.81
+"
+Jung,Áß¸é,"ñéØü
+",Gyeonggi,Yeoncheon County,"95.03
+"
+Jangnam,Àå³²¸é,"íşÑõØü
+",Gyeonggi,Yeoncheon County,"56.17
+"
+Seorak,¼³¾Ç¸é,"àää¿Øü
+",Gyeonggi,Gapyeong County,"141.5
+"
+Cheongpyeong,Ã»Æò¸é,"ôèøÁØü
+",Gyeonggi,Gapyeong County,"112.26
+"
+Sang,»ó¸é,"ß¾Øü
+",Gyeonggi,Gapyeong County,"100.74
+"
+Ha,ÇÏ¸é,"ù»Øü
+",Gyeonggi,Gapyeong County,"113.06
+"
+Buk,ºÏ¸é,"İÁØü
+",Gyeonggi,Gapyeong County,"230.96
+"
+Gangsang,°­»ó¸é,"Ë°ß¾Øü
+",Gyeonggi,Yangpyeong County,"37.91
+"
+Gangha,°­ÇÏ¸é,"Ë°ù»Øü
+",Gyeonggi,Yangpyeong County,"31.4
+"
+Yangseo,¾ç¼­¸é,"åÅà¤Øü
+",Gyeonggi,Yangpyeong County,"59.95
+"
+Okcheon,¿ÁÃµ¸é,"è¬ô»Øü
+",Gyeonggi,Yangpyeong County,"65.85
+"
+Seojong,¼­Á¾¸é,"à¤ğóØü
+",Gyeonggi,Yangpyeong County,"92.84
+"
+Danwol,´Ü¿ù¸é,"Ó¡êÅØü
+",Gyeonggi,Yangpyeong County,"107.94
+"
+Cheongun,Ã»¿î¸é,"ôìê£Øü
+",Gyeonggi,Yangpyeong County,"96.59
+"
+Yangdong,¾çµ¿¸é,"åÅÔÔØü
+",Gyeonggi,Yangpyeong County,"120.4
+"
+Jipyeong,ÁöÆò¸é,"ò²øÁØü
+",Gyeonggi,Yangpyeong County,"77.79
+"
+Yongmun,¿ë¹®¸é,"×£Ú¦Øü
+",Gyeonggi,Yangpyeong County,"102.24
+"
+Gaegun,°³±º¸é,"Ë¿ÏÚØü
+",Gyeonggi,Yangpyeong County,"32.45
+"
+Socho,¼ÒÃÊ¸é,"á¶õ®Øü
+",Gangwon,Wonju,"103.08
+"
+Hojeo,È£Àú¸é,"û¿î¿Øü
+",Gangwon,Wonju,"76.97
+"
+Jijeong,ÁöÁ¤¸é,"ò¢ïáØü
+",Gangwon,Wonju,"89.70
+"
+Buron,ºÎ·Ğ¸é,"İ£ÖåØü
+",Gangwon,Wonju,"82.67
+"
+Gwirae,±Í·¡¸é,"ÏşÕÎØü
+",Gangwon,Wonju,"76.55
+"
+Heungeop,Èï¾÷¸é,"ıéåöØü
+",Gangwon,Wonju,"59.59
+"
+Panbu,ÆÇºÎ¸é,"÷ùİ£Øü
+",Gangwon,Wonju,"67.72
+"
+Sinrim,½Å¸²¸é,"ãê×ùØü
+",Gangwon,Wonju,"127.41
+"
+Dong,µ¿¸é,"ÔÔØü
+",Gangwon,Chuncheon,"134.2
+"
+Dongsan,µ¿»ê¸é,"ÔÔß£Øü
+",Gangwon,Chuncheon,"80.81
+"
+Dongsan,½Åµ¿¸é,"ãæÔÔØü
+",Gangwon,Chuncheon,"48.19
+"
+Nam,³²¸é,"ÑõØü
+",Gangwon,Chuncheon,"73.2
+"
+Seo,¼­¸é,"à¤Øü
+",Gangwon,Chuncheon,"141.64
+"
+Sabuk,»çºÏ¸é,"ŞÈİÁØü
+",Gangwon,Chuncheon,"152.57
+"
+Buksan,ºÏ»ê¸é,"İÁß£Øü
+",Gangwon,Chuncheon,"214.98
+"
+Dongnae,µ¿³»¸é,"ÔÔÒ®Øü
+",Gangwon,Chuncheon,"36.62
+"
+Namsan,³²»ê¸é,"Ñõß£Øü
+",Gangwon,Chuncheon,"124.11
+"
+Seongsan,¼º»ê¸é,"àòß£Øü
+",Gangwon,Gangneung,"80.28
+"
+Wangsan,¿Õ»ê¸é,"èİß£Øü
+",Gangwon,Gangneung,"245.28
+"
+Gujeong,±¸Á¤¸é,"ÏÈïÌØü
+",Gangwon,Gangneung,"42.72
+"
+Gangdong,°­µ¿¸é,"Ë°ÔÔØü
+",Gangwon,Gangneung,"112.48
+"
+Okgye,¿Á°è¸é,"è¬Í¢Øü
+",Gangwon,Gangneung,"148.83
+"
+Sacheon,»çÃµ¸é,"ŞŞô¹Øü
+",Gangwon,Gangneung,"70.89
+"
+Yeongok,¿¬°î¸é,"Ö§ÍÛØü
+",Gangwon,Gangneung,"202.45
+"
+Geundeok,±Ù´ö¸é,"ĞÎÓìØü
+",Gangwon,Samcheok,"133.41
+"
+Hajang,ÇÏÀå¸é,"ù»íşØü
+",Gangwon,Samcheok,"205.68
+"
+Nogok,³ë°î¸é,"ÖÔÍÛØü
+",Gangwon,Samcheok,"144.67
+"
+Miro,¹Ì·Î¸é,"Ú±ÖÕØü
+",Gangwon,Samcheok,"99.44
+"
+Gagok,°¡°î¸é,"Ê¯ÍÛØü
+",Gangwon,Samcheok,"152.39
+"
+Singi,½Å±â¸é,"ãæĞñØü
+",Gangwon,Samcheok,"56.33
+"
+Hwachon,È­ÃÌ¸é,"ûùõ½Øü
+",Gangwon,Hongcheon County,"211.36
+"
+Duchon,µÎÃÌ¸é,"Ôàõ½Øü
+",Gangwon,Hongcheon County,"140.48
+"
+Naechon,³»ÃÌ¸é,"Ò¬õ½Øü
+",Gangwon,Hongcheon County,"146.72
+"
+Seoseok,¼­¼®¸é,"ßúà´Øü
+",Gangwon,Hongcheon County,"225.46
+"
+Dong,µ¿¸é,"ÔÔØü
+",Gangwon,Hongcheon County,"149.63
+"
+Nam,³²¸é,"ÑõØü
+",Gangwon,Hongcheon County,"120.34
+"
+Seo,¼­¸é,"à¤Øü
+",Gangwon,Hongcheon County,"123.39
+"
+Bukbang,ºÏ¹æ¸é,"İÁÛ°Øü
+",Gangwon,Hongcheon County,"146.44
+"
+Nae,³»¸é,"Ò®Øü
+",Gangwon,Hongcheon County,"447.95
+"
+Seo,¼­¸é,"à¤Øü
+",Gangwon,Cheorwon County,"74.33
+"
+Geunnam,±Ù³²¸é,"ĞÎÑõØü
+",Gangwon,Cheorwon County,"129.13
+"
+Geunbuk,±ÙºÏ¸é,"ĞÎİÁØü
+",Gangwon,Cheorwon County,"23.73
+"
+Geundong,±Ùµ¿¸é,"ĞÎÔÔØü
+",Gangwon,Cheorwon County,"19.71
+"
+Wonnam,¿ø³²¸é,"êÀÑõØü
+",Gangwon,Cheorwon County,"77.99
+"
+Wondong,¿øµ¿¸é,"êÀÔÔØü
+",Gangwon,Cheorwon County,"61.08
+"
+Imnam,ÀÓ³²¸é,"ìòÑõØü
+",Gangwon,Cheorwon County,"16.79
+"
+Ucheon,¿ìÃµ¸é,"éêô¹Øü
+",Gangwon,Hoengseong County,"94.80
+"
+Anheung,¾ÈÈï¸é,"äÌıéØü
+",Gangwon,Hoengseong County,"96.35
+"
+Dunnae,µĞ³»¸é,"ÔêÒ®Øü
+",Gangwon,Hoengseong County,"128.04
+"
+Gapcheon,°©Ãµ¸é,"Ë£ô¹Øü
+",Gangwon,Hoengseong County,"123.35
+"
+Cheongil,Ã»ÀÏ¸é,"ôçìíØü
+",Gangwon,Hoengseong County,"133.63
+"
+Gonggeun,°ø±Ù¸é,"ÍëĞÆØü
+",Gangwon,Hoengseong County,"129.3
+"
+Seowon,¼­¿ø¸é,"ßöêÂØü
+",Gangwon,Hoengseong County,"123.43
+"
+Gangrim,°­¸²¸é,"Ë»×ùØü
+",Gangwon,Hoengseong County,"96.37
+"
+Mitan,¹ÌÅº¸é,"Ú¸÷¨Øü
+",Gangwon,Pyeongchang County,"109.43
+"
+Bangnim,¹æ¸²¸é,"Û»×ùØü
+",Gangwon,Pyeongchang County,"120.85
+"
+Daehwa,´ëÈ­¸é,"ÓŞûúØü
+",Gangwon,Pyeongchang County,"166.6
+"
+Bongpyeong,ºÀÆò¸é,"ÜïøÀØü
+",Gangwon,Pyeongchang County,"217.41
+"
+Yongpyeong,¿ëÆò¸é,"×£øÀØü
+",Gangwon,Pyeongchang County,"135.43
+"
+Jinbu,ÁøºÎ¸é,"òÒİ£Øü
+",Gangwon,Pyeongchang County,"331.06
+"
+Daegwallyeong,´ë°ü·É¸é,"ÓŞÎ¼ÖºØü
+",Gangwon,Pyeongchang County,"221.63
+"

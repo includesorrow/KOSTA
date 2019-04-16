@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="kr" dir="ltr">
+  <head>
+    <meta charset="euc-kr">
+    <title>formresult</title>
+  </head>
+  <body>
+    <p>{{rev}}</p>
+    {% for key, value in rev.items() %}
+    <p>{{key}} / {{value}}</p>
+    {% endfor %}
+  </body>
+</html>

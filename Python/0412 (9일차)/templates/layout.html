@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="euc-kr">
+  <title>레이아웃</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+  <div class="container">
+    <!-- 상단 헤드 영역-->
+    <h2>Flask</h2>
+    <p>기본 레이아웃 템플릿 : 여러 페이지에 공통적 사용 된다.</p>
+    <br>
+
+    <!-- 각 페이지에 콘텐츠 출력 영역 -->
+    {% block content %}
+    <a>asdfasdf</a>
+    {% endblock %}
+
+    <br>
+    <img src="{{ url_for('static', filename = 'image/test1.jpg')}}"
+    <!--하단 카피라이트 영역-->
+    <div class="footer">
+      <p>여기는 footer 영역</p>
+    </div>
+
+  </div>
+</body>
+
+</html>

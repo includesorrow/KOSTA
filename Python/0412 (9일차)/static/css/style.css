@@ -1,0 +1,27 @@
+h2 {
+  color: #006699
+}
+
+.container {
+  max-width: 600px;
+  padding: 10px;
+}
+
+.list {
+  list-style: none;
+  width: 100%;
+  background: #ff9900;
+  padding: 5px;
+  margin: 0;
+}
+
+.list li:before {
+  content: "★";
+  padding-right: 8px;
+  color: blue;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.8em;
+}

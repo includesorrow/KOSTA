@@ -1,0 +1,202 @@
+Table Name,Label,Extension of,Label
+ast_lease,Lease,ast_contract,Contract
+ast_license_adobe,Adobe Software License,ast_license_base,Base License Table
+ast_license_generic,Generic Software License,ast_license_base,Base License Table
+ast_license_msft,Microsoft Software License,ast_license_base,Base License Table
+ast_license_symantec,Symantec Software License,ast_license_base,Base License Table
+ast_service,Service Contract,ast_contract,Contract
+ast_warranty,Warranty,ast_contract,Contract
+bsm_action,BSM Map Actions,diagrammer_action,Diagrammer Actions
+catalog_script_client,Catalog Client Scripts,sys_script_client,Client Script
+catalog_ui_policy,Catalog UI Policy,sys_ui_policy,UI Policy
+catalog_ui_policy_action ,Catalog UI Policy Action,sys_ui_policy_action,UI Policy Action
+change_phase,Change Phase,task,Task
+change_request,Change Request,task,Task
+change_request_imac ,IMAC,change_request,Change Request
+change_task,Change Task,task,Task
+cmdb_ci_acc,Accessory,cmdb_ci ,Configuration Item
+cmdb_ci_aix_server ,AIX Server,cmdb_ci_unix_server ,Unix Server
+cmdb_ci_apache_web_server,Apache Web Server,cmdb_ci_web_server,Web Server
+cmdb_ci_appl,Application,cmdb_ci,Configuration Item
+cmdb_ci_application_software ,Application Software,cmdb_ci_spkg,Software
+cmdb_ci_app_server ,Application Server ,cmdb_ci_appl,Application
+cmdb_ci_app_server_domino ,Domino,cmdb_ci_app_server ,Application Server
+cmdb_ci_app_server_java ,Java Server ,cmdb_ci_app_server,Application Server
+cmdb_ci_app_server_jboss ,Jboss,cmdb_ci_app_server ,Application
+cmdb_ci_app_server_tomcat ,Tomcat,cmdb_ci_app_server,Application Server
+cmdb_ci_app_server_weblogic ,BEA Weblogic,cmdb_ci_app_server ,Application Server
+cmdb_ci_app_server_websphere,IBM Websphere,cmdb_ci_app_server,Application Server
+cmdb_ci_business_process ,Business Process,cmdb_ci ,Configuration Item
+cmdb_ci_circuit,Circuit,cmdb_ci ,Configuration Item
+cmdb_ci_cluster,Cluster,cmdb_ci,Configuration Item
+cmdb_ci_cluster_node ,Cluster Node,cmdb_ci,Configuration Item
+cmdb_ci_cluster_resource ,Cluster Resource,cmdb_ci,Configuration Item
+cmdb_ci_cluster_vip ,Cluster Virtual IP,cmdb_ci,Configuration Item
+cmdb_ci_comm,Communication Device,cmdb_ci ,Configuration Item
+cmdb_ci_computer,Computer,cmdb_ci,Configuration Item
+cmdb_ci_computer_room,Computer Room,cmdb_ci,Configuration Item
+cmdb_ci_crac,Computer Room AC,cmdb_ci,Configuration Item
+cmdb_ci_database,Database,cmdb_ci,Configuration Item
+cmdb_ci_datacenter,Data Center,cmdb_ci,Configuration Item
+cmdb_ci_db_catalog,Database Catalog,cmdb_ci,Configuration Item
+cmdb_ci_db_db2_catalog,DB2 Catalog,cmdb_ci_db_catalog,Database Catalog
+cmdb_ci_db_db2_instance,DB2 Instance,cmdb_ci_db_instance,Database Instance
+cmdb_ci_db_instance,Database Instance,cmdb_ci_appl,Application
+cmdb_ci_db_mssql_catalog,MSFT SQL Catalog,cmdb_ci_db_catalog,Database Catalog
+cmdb_ci_db_mssql_instance,MSFT SQL Instance,cmdb_ci_db_instance,Database Instance
+cmdb_ci_db_mysql_catalog,MySQL Catalog,cmdb_ci_db_catalog,Database Catalog
+cmdb_ci_db_mysql_instance,MySQL Instance,cmdb_ci_db_instance,Database Instance
+cmdb_ci_db_ora_catalog,Oracle Catalog,cmdb_ci_db_catalog,Database Catalog
+cmdb_ci_db_ora_instance,Oracle Instance,cmdb_ci_db_instance,Database Instance
+cmdb_ci_db_syb_catalog,Sybase Catalog,cmdb_ci_db_catalog,Database Catalog
+cmdb_ci_db_syb_instance,Sybase Instance,cmdb_ci_db_instance,Database Instance
+cmdb_ci_desktop_software,Desktop Software,cmdb_ci_spkg,Software
+cmdb_ci_directory_server,Directory Server,cmdb_ci_infra_service,Infrastructure Service
+cmdb_ci_disk,Disk,cmdb_ci,Configuration Item
+cmdb_ci_email_server,Email Server,cmdb_ci_infra_service,Infrastructure Service
+cmdb_ci_esx_server,ESXi Server,cmdb_ci_server,Server
+cmdb_ci_file_system,File System,cmdb_ci,Configuration Item
+cmdb_ci_file_system_nfs,NFS File System,cmdb_ci_file_system,File System
+cmdb_ci_file_system_smb,SMB File System,cmdb_ci_file_system,File System
+cmdb_ci_ftp_server,FTP Server,cmdb_ci_infra_service,Infrastructure Service
+cmdb_ci_group,Group,cmdb_ci,Configuration Item
+cmdb_ci_hpux_server,HPUX Server,cmdb_ci_unix_server,Unix Server
+cmdb_ci_infra_service,Infrastructure Service,cmdb_ci_appl,Application
+cmdb_ci_infra_service_ldap,LDAP Service,cmdb_ci_infra_service,Infrastructure Service
+cmdb_ci_inf_software,Infrastructure Software,cmdb_ci_spkg,Software
+cmdb_ci_ip_device,IP Device,cmdb_ci,Configuration Item
+cmdb_ci_ip_network,IP Network,cmdb_ci,Configuration Item
+cmdb_ci_ip_phone,IP Phone,cmdb_ci,Configuration Item
+cmdb_ci_ip_router,IP Router,cmdb_ci_netgear,Network Gear
+cmdb_ci_ip_server,IP Server,cmdb_ci_infra_service,Infrastructure Service
+cmdb_ci_ip_service,IP Service,cmdb_ci,Configuration Item
+cmdb_ci_ip_switch,IP Switch,cmdb_ci_netgear,Network Gear
+cmdb_ci_iplanet_web_server,iPlanet Web Server,cmdb_ci_web_server,Web Server
+cmdb_ci_linux_server,Linux Server,cmdb_ci_server,Server
+cmdb_ci_mainframe,IBM Mainframe,cmdb_ci_server,Server
+cmdb_ci_mainframe_lpar,IBM Mainframe LPAR,cmdb_ci_server,Server
+cmdb_ci_microsoft_iis_web_server,Microsoft IIS Web Server,cmdb_ci_web_server,Web Server
+cmdb_ci_msd,Storage Device,cmdb_ci,Configuration Item
+cmdb_ci_netgear,Network Gear,cmdb_ci,Configuration Item
+cmdb_ci_netware_server,Netware Server,cmdb_ci_server,Server
+cmdb_ci_network_adapter,Network Adapter,cmdb_ci,Configuration Item
+cmdb_ci_net_traffic,Network Traffic,cmdb_ci,Configuration Item
+cmdb_ci_nginx_web_server,NGINX Web Server,cmdb_ci_web_server,Web Server
+cmdb_ci_osx_server,OS/X Server,cmdb_ci_server,Server
+cmdb_ci_patches,Patch,cmdb_ci,Configuration Item
+cmdb_ci_pdu,PDU,cmdb_ci,Configuration Item
+cmdb_ci_pdu_outlet,Outlet,cmdb_ci,Configuration Item
+cmdb_ci_peripheral,Computer Peripheral,cmdb_ci,Configuration Item
+cmdb_ci_printer,Printer,cmdb_ci,Configuration Item
+cmdb_ci_print_queue,Print Queue,cmdb_ci,Configuration Item
+cmdb_ci_rack,Rack,cmdb_ci,Configuration Item
+cmdb_ci_server,Server,cmdb_ci_computer,Computer
+cmdb_ci_service,Business Service,cmdb_ci,Configuration Item
+cmdb_ci_snc_component,SNC Component,cmdb_ci,Configuration Item
+cmdb_ci_solaris_server,Solaris Server,cmdb_ci_unix_server,Unix Server
+cmdb_ci_spkg,Software,cmdb_ci,Configuration Item
+cmdb_ci_tomcat_connector,Tomcat Connector,cmdb_ci,Configuration Item
+cmdb_ci_unix_daemon,Unix Daemon,cmdb_ci_ip_service,IP Service
+cmdb_ci_unix_server,Unix Server,cmdb_ci_server,Server
+cmdb_ci_ups,UPS,cmdb_ci,Configuration Item
+cmdb_ci_ups_alarm,UPS Alarm,cmdb_ci,Configuration Item
+cmdb_ci_ups_bypass,UPS Bypass,cmdb_ci,Configuration Item
+cmdb_ci_ups_input,UPS Input,cmdb_ci,Configuration Item
+cmdb_ci_ups_output,UPS Output,cmdb_ci,Configuration Item
+cmdb_ci_vm,Virtual Machine,cmdb_ci,Configuration Item
+cmdb_ci_vm_parallels,Parallels,cmdb_ci_vm,Virtual Machine
+cmdb_ci_vm_vmware,VMware,cmdb_ci_vm,Virtual Machine
+cmdb_ci_vm_zones,Zones,cmdb_ci_vm,Virtual Machine
+cmdb_ci_vpn,Virtual Private Network,cmdb_ci,Configuration Item
+cmdb_ci_websphere_cell,Websphere Cell,cmdb_ci,Configuration Item
+cmdb_ci_web_application,Web Application,cmdb_ci_appl,Application
+cmdb_ci_web_server,Web Server,cmdb_ci_infra_service,Infrastructure Service
+cmdb_ci_web_service,Web Service,cmdb_ci_appl,Application
+cmdb_ci_web_site,Web Site,cmdb_ci_appl,Application
+cmdb_ci_windows_service,Windows Service,cmdb_ci_ip_service,IP Service
+cmdb_ci_win_cluster,Windows Cluster,cmdb_ci_cluster,Cluster
+cmdb_ci_win_cluster_node,Windows Cluster Node,cmdb_ci_cluster_node,Cluster Node
+cmdb_ci_win_cluster_resource,Windows Cluster Resource,cmdb_ci_cluster_resource,Cluster Resource
+cmdb_ci_win_server,Windows Server,cmdb_ci_server,Server
+cmdb_ci_zone,Zone,cmdb_ci,Configuration Item
+cmdb_metric_cpu ,CI CPU Metrics,cmdb_metric,CI Metric
+cmdb_metric_db_connections,CI DB Connection Metric,cmdb_metric,CI Metric
+cmdb_metric_errors,Errors Logged,cmdb_metric,CI Metric
+cmdb_metric_events_processed,Events Processed,cmdb_metric,CI Metric
+cmdb_metric_event_logs,Events Logged,cmdb_metric,CI Metric
+cmdb_metric_java,CI Java Metric,cmdb_metric,CI Metric
+cmdb_metric_linux_memory,Linux Memory Metrics,cmdb_metric,CI Metric
+cmdb_metric_load,CI Load Metrics,cmdb_metric,CI Metric
+cmdb_metric_logs,CI Log Count,cmdb_metric,CI Metric
+cmdb_metric_mysql_statements,CI MySQL Metrics,cmdb_metric,CI Metric
+cmdb_metric_oracle,CI Oracle Metrics,cmdb_metric,CI Metric
+cmdb_metric_partition,Partition Read/Write Statistics,cmdb_metric,CI Metric
+cmdb_metric_semaphores,CI Semaphore Metrics,cmdb_metric,CI Metric
+cmdb_metric_service_now,CI Service-Now Metrics,cmdb_metric,CI Metric
+cmdb_metric_sql,SQL Response Metrics,cmdb_metric,CI Metric
+cmdb_metric_transactions,CI Transaction Metrics,cmdb_metric,CI Metric
+discovery_probes_multi,Multiprobe,discovery_probes,Probe
+discovery_probes_snmp,SNMP Probe,discovery_probes,Probe
+discovery_probes_wmi,WMI Probe ,discovery_probes,Probe
+ecc_agent_counter_metric,ECC Agent Counter Metric,ecc_agent_metric,ECC Agent Metric
+ecc_agent_memory_metric,ECC Agent Memory Metric,ecc_agent_metric ,ECC Agent Metric
+ecc_agent_rgr_metric,ECC Agent RGR Metric,ecc_agent_metric,ECC Agent Metric
+ecc_agent_scalar_metric,ECC Agent Scalar Metric,ecc_agent_metric,ECC Agent Metric
+expert_panel_catalog_checkout,Catalog Checkout Panel,expert_panel,Wizard Panel
+expert_panel_catalog_order,Catalog Order,expert_panel,Wizard Panel
+expert_panel_knowledge,KB Viewer,expert_panel,Wizard Panel
+expert_panel_template,Record Generator,expert_panel,Wizard Panel
+expert_script_client ,Wizard Client Script,sys_script_client ,Client Script
+expert_variable,Wizard Variable,question,Question
+import_log,Import Log,syslog,Log Entry
+imp_computer,Computer,sys_import_set_row ,Import Set Row
+imp_location,Location,sys_import_set_row,Import Set Row
+imp_notification,Notification,sys_import_set_row,Import Set Row
+imp_user,User,sys_import_set_row,Import Set Row
+incident,Incident,task,Task
+item_option_new,Variable,question,Question
+kb_submission ,KB Submission,task,Task
+ola,OLA,sla,SLA
+plan_mysql ,Plan MySQL,plan_execution,Plan Execution
+plan_oracle,Plan Oracle,plan_execution,Plan Execution
+problem,Problem,task,Task
+process_step_approval,Approval Steps,process_step,Process Steps
+release_phase,Release Phase,task,Task
+release_task,Release Task,task,Task
+scheduled_data_import ,Scheduled Data Import,sysauto,Scheduled Job
+scheduled_import_set,Scheduled Data Import,scheduled_data_import,Scheduled Data Import
+sc_category_top_n,Dynamic Category,sc_category,Category
+sc_cat_item_content,Content Item,sc_cat_item,Catalog Item
+sc_cat_item_dt_approval,Execution Plan Approval Task,sc_cat_item_delivery_task,Execution Plan Task
+sc_cat_item_guide,Order Guide ,sc_cat_item,Catalog Item
+sc_cat_item_producer,Record Producer,sc_cat_item,Catalog Item
+sc_cat_item_wizard ,Wizard Launcher ,sc_cat_item,Catalog Item
+sc_request,Request,task,Task
+sc_req_item,Requested Item,task,Task
+sc_task,Catalog Task,task,Task
+survey_question_new,Question,question,Question
+sysapproval_group,Group Approval,task,Task
+sysauto_report,Scheduled Email of Report,sysauto,Scheduled Job
+sysauto_script,Scheduled Script Extension,sysauto,Scheduled Job
+sysauto_template,Scheduled Entity Generation,sysauto,Scheduled Job
+sysevent_email_action,Email Notification,sysrule,Rule
+sysevent_in_email_action ,Inbound Email Actions,sysrule,Rule
+sysevent_script_action ,Script Action,sysrule,Rule
+syslog_transaction ,Transaction Log Entry,syslog,Rule
+sysrule_approvals ,Approval Rules,sysrule,Rule
+sysrule_assignment,Assignment Rules ,sysrule,Rule
+sysrule_escalate,Service Level Agreement ,sysrule,Rule
+sysrule_escalate_am ,Inactivity Monitor,sysrule_escalate ,Service Level Agreement
+sysrule_view,View Rule,sysrule,Rule
+ticket,Ticket,task,Task
+var_dictionary,Variables,sys_dictionary,Dictionary
+v_field_editor,Edit Field,v_field_creator,Create Field
+v_table_editor,Edit Table,v_table_creator,Create Table
+v_ws_creator,Create Web Service,v_table_creator,Create Table
+v_ws_editor,Edit Web Service,v_ws_creator,Create Web Service
+v_ws_field_creator ,Create Web Service Field,v_field_creator,Create Field
+v_ws_field_editor,Edit Web Service Field,v_field_editor ,Edit Field
+wf_activity_variable,Activity Variables,var_dictionary,Variables
+wf_log,Workflow Log Entry,syslog,Log Entry
+wf_variable,Workflow SC Variable,item_option_new,Variable
+wf_workflow_schedule,Workflow Schedule,sysauto_script,Scheduled Script Execution
