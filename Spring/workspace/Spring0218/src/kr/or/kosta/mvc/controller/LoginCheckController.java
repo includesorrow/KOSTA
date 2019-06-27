@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -57,5 +58,12 @@ public class LoginCheckController {
 		return mav;
 	}
 	
+	// 스크래핑할 때 지금처럼 인증처리가 필요할 경우
+	// 파라미터, pst방식으로 form 인증한 후에
+	//현재 list페이지를 스크래핑 할 수 있다.
+	@GetMapping("/list")
+	public String serviceView(Model m) {
+		return "service";
+	}
 	
 }
