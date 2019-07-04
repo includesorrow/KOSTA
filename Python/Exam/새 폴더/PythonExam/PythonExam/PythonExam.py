@@ -35,7 +35,9 @@ a = "Hi"
 a.lower()
 
 
+aa = "Life is too short"
 
+aa.split()
 
 
 
